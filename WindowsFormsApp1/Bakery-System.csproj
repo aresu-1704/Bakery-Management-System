@@ -143,9 +143,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection\Connection.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Connection\Connection.cs" />
     <Compile Include="Controllers\BamMatKhau.cs" />
     <Compile Include="Controllers\DangKy.cs" />
     <Compile Include="Controllers\DangNhap.cs" />

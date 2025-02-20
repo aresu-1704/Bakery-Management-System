@@ -26,7 +26,7 @@ namespace BakeryManagementSystem.Controllers
             DataTable dt = await taiKhoan.TimTaiKhoanAsync(email);
             if (dt.Rows.Count > 0)
             {
-                return dt.Rows[0]["Tài khoản"].ToString();
+                return dt.Rows[0]["TenDangNhap"].ToString();
             }
             else
             {

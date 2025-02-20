@@ -25,8 +25,8 @@ namespace BakeryManagementSystem.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("CiQAHwAdP+A2KbDUWrLm8fkmSQDE4b5LaB+uVV1tR6oAVCavlUgSMQCT8ZzJxysNPQcwoOCsmk3iYRqsr" +
-            "dvaFsnqutnLIqZsXOPrm2knQ6od+OrR55xHxqY=")]
+        [global::System.Configuration.DefaultSettingValueAttribute("CiQACdxwFzuWlywTpORCxgtjXNHvqwE6xgtxyrhQHyQPezBDevQSPgDbkqcHZgLdjyhHbJS+5qAFjBHfi" +
+            "YoU7QEMDW4424GRVWhnk06Khs+6dhGhi9u4LekPfN4p8+MiaThi1j1w")]
         public string pepper {
             get {
                 return ((string)(this["pepper"]));

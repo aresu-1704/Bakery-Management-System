@@ -12,19 +12,17 @@ namespace BakeryManagementSystem.Controllers
     {
         private KmsEncryptionService kmsEncryptionService = new KmsEncryptionService();
 
-        public async Task<byte[]> BamMatKhauAsync(byte[] matKhau,byte[] muoi = null)
+        public async Task<byte[]> BamMatKhauAsync(byte[] matKhau,byte[] muoi)
         {
             return await Task.Run(() =>
             {
                 string pepper = kmsEncryptionService.Decrypt(Properties.Settings.Default.pepper);
 
-                byte[] salt = (muoi == null || muoi.Length == 0) ? TaoMuoi(16) : muoi;
-
                 byte[] hashPassword;
 
                 using (SHA256 sha256 = SHA256.Create())
                 {
-                    byte[] combinedBytes = matKhau.Concat(salt).Concat(Encoding.UTF8.GetBytes(pepper)).ToArray();
+                    byte[] combinedBytes = matKhau.Concat(muoi).Concat(Encoding.UTF8.GetBytes(pepper)).ToArray();
                     hashPassword = sha256.ComputeHash(combinedBytes);
                 }
 
@@ -33,7 +31,7 @@ namespace BakeryManagementSystem.Controllers
         }
 
         // Hàm tạo muối ngẫu nhiên
-        private byte[] TaoMuoi(int size)
+        public byte[] TaoMuoi(int size)
         {
             byte[] salt = new byte[size];
             using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())

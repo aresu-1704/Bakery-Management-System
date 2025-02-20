@@ -40,24 +40,24 @@ namespace BakeryManagementSystem.Models
             return await data.GetDataAsync(query, parameters);
         }
 
-        public async Task TaoTaiKhoanAsync(string tenDangNhap, byte[] matKhau,byte[] salt, int maNV)
+        public async Task TaoTaiKhoanAsync(string tenDangNhap, byte[] matKhau, byte[] salt, int maNV)
         {
             string query = "EXEC sp_TaoTaiKhoan @TenDangNhap, @MatKhau, @MaNV, @Muoi";
 
             var parameters = new Dictionary<string, object>
             {
                 { "@TenDangNhap", tenDangNhap },
-                { "@MatKhau", matKhau },
-                { "@Muoi", salt },
-                { "@MaNV", maNV }
+                { "@MatKhau", matKhau },                
+                { "@MaNV", maNV },
+                { "@Muoi", salt }
             };
 
             await data.ExecuteQueryAsync(query, parameters);
         }
 
-        public async void DoiMatKhauAsync(string tenDangNhap, byte[] matKhauMoi, byte[] salt)
+        public async Task DoiMatKhauAsync(string tenDangNhap, byte[] matKhauMoi, byte[] salt)
         {
-            string query = "EXEC sp_CapNhatMatKhau @TenDangNhap, @MatKhauMoi, @Muoi";
+            string query = "EXEC sp_CapNhatMatKhau @MatKhauMoi, @TenDangNhap, @Muoi";
 
             var parameters = new Dictionary<string, object>
             {
@@ -67,6 +67,37 @@ namespace BakeryManagementSystem.Models
             };
 
             await data.ExecuteQueryAsync(query, parameters);
+        }
+
+        public async Task CapNhatSoLanDangNhapAsync(string tenDangNhap)
+        {
+            string query = "sp_CapNhatSoLanDangNhapSai @TenDangNhap";
+
+            var parameters = new Dictionary<string, object>
+            {
+                { "@TenDangNhap", tenDangNhap }
+            };
+
+            await data.GetDataAsync(query, parameters);
+        }
+
+        public async Task<int> KiemTraSoLanDangNhappAsync(string tenDangNhap)
+        {
+            string query = "sp_KiemTraSoLanDangNhap @TenDangNhap";
+
+            var parameters = new Dictionary<string, object>
+            {
+                { "@TenDangNhap", tenDangNhap }
+            };
+
+            DataTable dt = await data.GetDataAsync(query, parameters);
+
+            if(dt.Rows.Count > 0)
+            {
+                return int.Parse(dt.Rows[0]["SoLanDangNhap"].ToString());
+            }
+
+            return 0;
         }
     }
 }

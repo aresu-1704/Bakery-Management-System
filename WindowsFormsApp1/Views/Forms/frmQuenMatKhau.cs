@@ -54,7 +54,7 @@ namespace BakeryManagementSystem.Views.Forms
                 }
 
                 string taiKhoanTonTai = await Task.Run(() => layMatKhau.TimTaiKhoan(txtEmail.Text));
-                if (string.IsNullOrEmpty(taiKhoanTonTai))
+                if (!string.IsNullOrEmpty(taiKhoanTonTai))
                 {
                     this.tenDangNhap = taiKhoanTonTai;
                     btnGuiOTP.Enabled = false;
@@ -116,7 +116,7 @@ namespace BakeryManagementSystem.Views.Forms
 
         private void txtOTP_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtOTP.Text.Length == 6)
+            if (txtOTP.Text.Length == 6 && LayLaiMatKhau.getOTP != null)
             {
                 if (txtOTP.Text == LayLaiMatKhau.getOTP)
                 {
@@ -125,7 +125,7 @@ namespace BakeryManagementSystem.Views.Forms
                     this.Hide();
                     frmThayDoiMatKhau.Show();
                 }
-                else
+                else if(LayLaiMatKhau.getOTP != null)
                 {
                     frmThongBao thongBao = new frmThongBao(false, "Sai mã", "Sai OTP, vui lòng nhập lại !");
                     thongBao.Owner = this;

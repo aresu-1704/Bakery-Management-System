@@ -146,7 +146,14 @@ namespace BakeryManagementSystem.Views.Forms
 
             if (checkMatKhau())
             {
-                await dangKy.TaoTaiKhoan(txtTenDangNhap.Text, txtMatKhau.Text, int.Parse(txtMaNhanVien.Text));
+                await Task.Run(() =>
+                {
+                    return dangKy.TaoTaiKhoanAsync(txtTenDangNhap.Text, txtMatKhau.Text, int.Parse(txtMaNhanVien.Text));
+                });
+                frmThongBao thongBao = new frmThongBao(true, "Thành công", "Đăng ký thành công, quay lại giao diện đăng nhập ?");
+                thongBao.choice += layKetQuaTB;
+                thongBao.Owner = this;
+                thongBao.Show();
             }
             else
             {

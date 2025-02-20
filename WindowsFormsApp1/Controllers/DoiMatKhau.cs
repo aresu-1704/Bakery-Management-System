@@ -1,6 +1,7 @@
 ﻿using BakeryManagementSystem.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,6 @@ namespace BakeryManagementSystem.Controllers
     public class DoiMatKhau
     {
         private string tenDangNhap = null;
-
         public string TenDangNhap { get => tenDangNhap; set => tenDangNhap = value; }
 
         private TaiKhoan taiKhoan = new TaiKhoan();
@@ -30,17 +30,24 @@ namespace BakeryManagementSystem.Controllers
             }
             else
             {
-                try
+                DataTable dt = await taiKhoan.LayTaiKhoanAsync(tenDangNhap);
+
+                if (dt.Rows.Count != 0)
                 {
-                    byte[] salt = null;
-                    byte[] hashPassword = await bamMatKhau.BamMatKhauAsync(Encoding.UTF8.GetBytes(matKhauMoi), salt);
-                    taiKhoan.DoiMatKhauAsync(tenDangNhap, hashPassword, salt);
-                    return true;
+                    byte[] matKhauCu = (byte[])dt.Rows[0]["MatKhau"];
+                    byte[] muoiCu = (byte[])dt.Rows[0]["Muoi"];
+
+                    byte[] bamMatKhauMoi = await bamMatKhau.BamMatKhauAsync(Encoding.UTF8.GetBytes(matKhauMoi), muoiCu);
+                    if (bamMatKhauMoi.SequenceEqual(matKhauCu))
+                    {
+                        return false;
+                    }
                 }
-                catch (SqlException ex)
-                {
-                    return false;
-                }
+
+                byte[] salt = bamMatKhau.TaoMuoi(16);
+                byte[] hashPassword = await bamMatKhau.BamMatKhauAsync(Encoding.UTF8.GetBytes(matKhauMoi), salt);
+                await taiKhoan.DoiMatKhauAsync(tenDangNhap, hashPassword, salt);
+                return true;
             }
         }
     }

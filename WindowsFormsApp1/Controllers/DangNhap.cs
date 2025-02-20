@@ -10,6 +10,7 @@ using DevExpress.XtraExport.Xls;
 using BakeryManagementSystem;
 using Google.Api;
 using System.Security.Cryptography;
+using System.ComponentModel;
 
 namespace BakeryManagementSystem.Controllers
 {
@@ -18,6 +19,7 @@ namespace BakeryManagementSystem.Controllers
         private TaiKhoan taiKhoan = new TaiKhoan();
         private KmsEncryptionService kmsEncryptionService = new KmsEncryptionService();
         private BamMatKhau bamMatKhau = new BamMatKhau();
+
         //Đăng nhập
         public async Task<bool> KiemTraDangNhap(string tenDangNhap, string matKhau)
         {
@@ -28,7 +30,32 @@ namespace BakeryManagementSystem.Controllers
             byte[] hashPasswordDB = (byte[])dt.Rows[0]["MatKhau"];
             byte[] hashPassword = await bamMatKhau.BamMatKhauAsync(Encoding.UTF8.GetBytes(matKhau), (byte[])dt.Rows[0]["Muoi"]);
 
-            return hashPassword.SequenceEqual(hashPasswordDB);
+            if (hashPassword.SequenceEqual(hashPasswordDB))
+            {
+                return true;
+            }
+            else
+            {
+                await taiKhoan.CapNhatSoLanDangNhapAsync(tenDangNhap);
+                return false;
+            }
+        }
+
+        //Xem trạng thái tài khoản
+        public async Task<bool> KiemTraTaiKhoan(string tenDangNhap)
+        {
+            DataTable dt = await taiKhoan.LayTaiKhoanAsync(tenDangNhap);
+
+            if (dt.Rows.Count == 0) return false;
+
+            if (!(bool)(dt.Rows[0]["TrangThai"])) return false;
+
+            return true;
+        }
+
+        public async Task<int> KiemTraSoLanDangNhapConLaiAsync(string tenDangNhap)
+        {
+            return await taiKhoan.KiemTraSoLanDangNhappAsync(tenDangNhap);
         }
     }
 }

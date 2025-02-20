@@ -18,7 +18,7 @@ namespace BakeryManagementSystem.Security
     public class KmsEncryptionService
     {
         private readonly KeyManagementServiceClient _kmsClient;
-        private readonly string _projectId = "quanlytiembanh";
+        private readonly string _projectId = "quanlytiembanh-451401";
         private readonly string _locationId = "global";
         private readonly string _keyRingId = "Bakery-Keys-Ring";
         private readonly string _keyId = "Bakery-Key";

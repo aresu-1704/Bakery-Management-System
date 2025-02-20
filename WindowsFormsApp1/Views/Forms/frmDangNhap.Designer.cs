@@ -46,12 +46,16 @@ namespace BakeryManagementSystem.Views.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.thoiGian = new System.Windows.Forms.Timer(this.components);
+            this.lblDangNhapThatBai = new System.Windows.Forms.Label();
+            this.pgpLoading = new DevExpress.XtraWaitForm.ProgressPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Linen;
+            this.panel1.Controls.Add(this.pgpLoading);
+            this.panel1.Controls.Add(this.lblDangNhapThatBai);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.txtTenDangNhap);
             this.panel1.Controls.Add(this.lblThoiGian);
@@ -255,6 +259,41 @@ namespace BakeryManagementSystem.Views.Forms
             this.thoiGian.Interval = 1000;
             this.thoiGian.Tick += new System.EventHandler(this.thoiGian_Tick);
             // 
+            // lblDangNhapThatBai
+            // 
+            this.lblDangNhapThatBai.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDangNhapThatBai.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lblDangNhapThatBai.Location = new System.Drawing.Point(3, 318);
+            this.lblDangNhapThatBai.Name = "lblDangNhapThatBai";
+            this.lblDangNhapThatBai.Size = new System.Drawing.Size(427, 17);
+            this.lblDangNhapThatBai.TabIndex = 15;
+            this.lblDangNhapThatBai.Text = "label4";
+            this.lblDangNhapThatBai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDangNhapThatBai.Visible = false;
+            // 
+            // pgpLoading
+            // 
+            this.pgpLoading.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pgpLoading.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pgpLoading.Appearance.ForeColor = System.Drawing.Color.Peru;
+            this.pgpLoading.Appearance.Options.UseBackColor = true;
+            this.pgpLoading.Appearance.Options.UseFont = true;
+            this.pgpLoading.Appearance.Options.UseForeColor = true;
+            this.pgpLoading.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pgpLoading.AppearanceCaption.ForeColor = System.Drawing.Color.Peru;
+            this.pgpLoading.AppearanceCaption.Options.UseFont = true;
+            this.pgpLoading.AppearanceCaption.Options.UseForeColor = true;
+            this.pgpLoading.AppearanceDescription.ForeColor = System.Drawing.Color.Peru;
+            this.pgpLoading.AppearanceDescription.Options.UseForeColor = true;
+            this.pgpLoading.Caption = "Đăng nhập thành công";
+            this.pgpLoading.Description = "Đang vào...";
+            this.pgpLoading.Location = new System.Drawing.Point(27, 277);
+            this.pgpLoading.Name = "pgpLoading";
+            this.pgpLoading.Size = new System.Drawing.Size(31, 38);
+            this.pgpLoading.TabIndex = 16;
+            this.pgpLoading.Text = "pgpDangNhapThanhCong";
+            this.pgpLoading.Visible = false;
+            // 
             // frmDangNhap
             // 
             this.Appearance.Options.UseFont = true;
@@ -296,6 +335,8 @@ namespace BakeryManagementSystem.Views.Forms
         private System.Windows.Forms.Timer thoiGian;
         private System.Windows.Forms.TextBox txtTenDangNhap;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblDangNhapThatBai;
+        private DevExpress.XtraWaitForm.ProgressPanel pgpLoading;
     }
 }
 

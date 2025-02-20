@@ -54,6 +54,7 @@ namespace BakeryManagementSystem.Views.Forms
 
         private async void logIn()
         {
+            pgpLoading.Visible = true;
             bool check = checkNull();
             if (check)
             {
@@ -62,10 +63,33 @@ namespace BakeryManagementSystem.Views.Forms
                 return;
             }
 
-            // Lấy thông tin tài khoản từ cơ sở dữ liệu
-            if (await dangNhap.KiemTraDangNhap(txtTenDangNhap.Text.Trim(), txtMatKhau.Text))
+            //Kiểm tra trạng thái tài khoản
+            bool kiemTraTrangthai = await Task.Run(() =>
             {
+                return dangNhap.KiemTraTaiKhoan(txtTenDangNhap.Text.Trim());
+            });
+
+            if (!kiemTraTrangthai)
+            {
+                pgpLoading.Visible = false;
+                frmThongBao frmThongBao = new frmThongBao(true, "Thông báo", "Tài khoản của bạn đã bị khóa, lấy lại mật khẩu ?");
+                frmThongBao.Owner = this;
+                frmThongBao.choice += quenMK;
+                frmThongBao.ShowDialog();
+                return;
+            }
+
+            bool kiemTraMatKhau = await Task.Run(() =>
+            {
+                return dangNhap.KiemTraDangNhap(txtTenDangNhap.Text.Trim(), txtMatKhau.Text);
+            });
+
+            // Lấy thông tin tài khoản từ cơ sở dữ liệu
+            if (kiemTraMatKhau)
+            {
+                pgpLoading.Visible = false;
                 pgpDNThanhCong.Visible = true;
+                lblDangNhapThatBai.Visible = false;
                 setEnabled(false);
                 await Task.Delay(500);
                 //frmGiaoDienChinh giaoDienChinh = new frmGiaoDienChinh(int.Parse(dt.Rows[0]["MaNV"].ToString()));
@@ -89,11 +113,33 @@ namespace BakeryManagementSystem.Views.Forms
             }
             else
             {
-                frmThongBao thongBao = new frmThongBao(true, "Đăng nhập", "Sai mật khẩu, lấy lại mật khẩu ?");
-                thongBao.Owner = this;
-                thongBao.choice += quenMK;
-                thongBao.Show();
+                ThongBaoDangNhapThatBai();
             }
+        }
+
+        private async void ThongBaoDangNhapThatBai()
+        {
+            pgpLoading.Visible = true;
+
+            int soLanDangNhap = await Task.Run(() =>
+            {
+                return dangNhap.KiemTraSoLanDangNhapConLaiAsync(txtTenDangNhap.Text.Trim());
+            });
+
+            pgpLoading.Visible = false;
+
+            if (soLanDangNhap == 0)
+            {
+                
+                frmThongBao frmThongBao = new frmThongBao(true, "Thông báo", "Tài khoản của bạn đã bị khóa, lấy lại mật khẩu ?");
+                frmThongBao.Owner = this;
+                frmThongBao.choice += quenMK;
+                frmThongBao.ShowDialog();
+                lblDangNhapThatBai.Visible = false;
+            }
+
+            lblDangNhapThatBai.Text = "Sai mật khẩu, bạn còn " + (3 - soLanDangNhap) + " lần thử !";
+            lblDangNhapThatBai.Visible = true;
         }
         #endregion
 

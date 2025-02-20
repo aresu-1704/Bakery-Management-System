@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -67,12 +68,16 @@ namespace BakeryManagementSystem.Views.Forms
                 return;
             }
 
-            if (loai)
+            if (!loai)
             {
                 bool TrangThaiThayDoi = await doiMatKhau.DoiMatKhauAsync(tenDangNhap, txtMatKhau.Text);
                 if (TrangThaiThayDoi)
                 {
                     thongBao(false, "Thành công", "Cập nhật mật khẩu thành công !");
+                }
+                else
+                {
+                    thongBao(false, "Thông báo", "Mật khẩu mới không được trùng với mật khẩu cũ !");
                 }
             }
             else

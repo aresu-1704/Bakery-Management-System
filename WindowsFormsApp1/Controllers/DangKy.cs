@@ -37,11 +37,11 @@ namespace BakeryManagementSystem.Controllers
         }
 
         //Đăng ký
-        public async Task TaoTaiKhoan(string tenDangNhap, string matKhau, int maNV)
+        public async Task TaoTaiKhoanAsync(string tenDangNhap, string matKhau, int maNV)
         {
             try
             {
-                byte[] salt = null;
+                byte[] salt = bamMatKhau.TaoMuoi(16);
                 byte[] hashedPassword = await bamMatKhau.BamMatKhauAsync(Encoding.UTF8.GetBytes(matKhau), salt);
 
                 await taiKhoan.TaoTaiKhoanAsync(tenDangNhap, hashedPassword, salt, maNV);

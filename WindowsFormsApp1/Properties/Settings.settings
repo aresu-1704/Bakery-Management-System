@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="pepper" Type="System.String" Scope="User">
-      <Value Profile="(Default)">CiQAHwAdP+A2KbDUWrLm8fkmSQDE4b5LaB+uVV1tR6oAVCavlUgSMQCT8ZzJxysNPQcwoOCsmk3iYRqsrdvaFsnqutnLIqZsXOPrm2knQ6od+OrR55xHxqY=</Value>
+      <Value Profile="(Default)">CiQACdxwFzuWlywTpORCxgtjXNHvqwE6xgtxyrhQHyQPezBDevQSPgDbkqcHZgLdjyhHbJS+5qAFjBHfiYoU7QEMDW4424GRVWhnk06Khs+6dhGhi9u4LekPfN4p8+MiaThi1j1w</Value>
     </Setting>
     <Setting Name="username" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
