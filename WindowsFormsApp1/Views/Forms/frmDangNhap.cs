@@ -60,6 +60,7 @@ namespace BakeryManagementSystem.Views.Forms
             {
                 thongBao(false, "Thông báo", "Nhập vào tài khoản và mật khẩu !");
                 txtTenDangNhap.Focus();
+                pgpLoading.Visible = false;
                 return;
             }
 
@@ -79,13 +80,13 @@ namespace BakeryManagementSystem.Views.Forms
                 return;
             }
 
-            bool kiemTraMatKhau = await Task.Run(() =>
+            short kiemTraMatKhau = await Task.Run(() =>
             {
                 return dangNhap.KiemTraDangNhap(txtTenDangNhap.Text.Trim(), txtMatKhau.Text);
             });
 
             // Lấy thông tin tài khoản từ cơ sở dữ liệu
-            if (kiemTraMatKhau)
+            if (kiemTraMatKhau == 2)
             {
                 pgpLoading.Visible = false;
                 pgpDNThanhCong.Visible = true;
@@ -111,9 +112,14 @@ namespace BakeryManagementSystem.Views.Forms
                     Properties.Settings.Default.Save();
                 }
             }
-            else
+            else if(kiemTraMatKhau == 1)
             {
                 ThongBaoDangNhapThatBai();
+            }
+            else
+            {
+                lblDangNhapThatBai.Text = "Tài khoản không tồn tại, kiểm tra lại tên tài khoản !";
+                lblDangNhapThatBai.Visible = true;
             }
         }
 
