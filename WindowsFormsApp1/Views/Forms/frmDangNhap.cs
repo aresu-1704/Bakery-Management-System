@@ -60,6 +60,7 @@ namespace BakeryManagementSystem.Views.Forms
             {
                 thongBao(false, "Thông báo", "Nhập vào tài khoản và mật khẩu !");
                 txtTenDangNhap.Focus();
+                pgpLoading.Visible = false;
                 return;
             }
 
