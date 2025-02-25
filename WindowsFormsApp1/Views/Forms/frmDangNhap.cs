@@ -118,7 +118,7 @@ namespace BakeryManagementSystem.Views.Forms
             }
             else
             {
-                lblDangNhapThatBai.Text = "Tài khoản không tồn tại, kiểm tra thông tin đăng nhập !";
+                lblDangNhapThatBai.Text = "Tài khoản không tồn tại, kiểm tra lại tên tài khoản !";
                 lblDangNhapThatBai.Visible = true;
             }
         }
