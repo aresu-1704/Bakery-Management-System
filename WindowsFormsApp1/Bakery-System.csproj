@@ -98,6 +98,14 @@
     <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -107,6 +115,10 @@
     </Reference>
     <Reference Include="System.CodeDom, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.CodeDom.7.0.0\lib\net462\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=9.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.9.0.2\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -145,11 +157,30 @@
   <ItemGroup>
     <Compile Include="Connection\Connection.cs" />
     <Compile Include="Controllers\BamMatKhau.cs" />
+    <Compile Include="Controllers\ChuyenAnh.cs" />
     <Compile Include="Controllers\DangKy.cs" />
     <Compile Include="Controllers\DangNhap.cs" />
     <Compile Include="Controllers\DoiMatKhau.cs" />
     <Compile Include="Controllers\LayLaiMatKhau.cs" />
+    <Compile Include="Controllers\QuanLyBanAn.cs" />
+    <Compile Include="Controllers\QuanLyBanHang.cs" />
+    <Compile Include="Controllers\QuanLyKhachHang.cs" />
+    <Compile Include="Controllers\QuanLyNhanVien.cs" />
+    <Compile Include="Controllers\QuanLySanPham.cs" />
+    <Compile Include="Models\Ban.cs" />
+    <Compile Include="Models\ChamCong.cs" />
+    <Compile Include="Models\ChiTietHoaDon.cs" />
+    <Compile Include="Models\ChucVu.cs" />
+    <Compile Include="Models\HangHoa.cs" />
+    <Compile Include="Models\HoaDon.cs" />
+    <Compile Include="Models\KhachHang.cs" />
+    <Compile Include="Models\KhuyenMai.cs" />
+    <Compile Include="Models\NguyenLieu.cs" />
+    <Compile Include="Models\NhaBep.cs" />
+    <Compile Include="Models\NhaCungCap.cs" />
     <Compile Include="Models\NhanVien.cs" />
+    <Compile Include="Models\PhanCong.cs" />
+    <Compile Include="Models\PhieuNhapHang.cs" />
     <Compile Include="Models\TaiKhoan.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,6 +208,12 @@
     <Compile Include="Views\Forms\frmQuenMatKhau.Designer.cs">
       <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Forms\frmThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frmThanhToan.Designer.cs">
+      <DependentUpon>frmThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\frmThayDoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +225,24 @@
     </Compile>
     <Compile Include="Views\Forms\frmThongBao.Designer.cs">
       <DependentUpon>frmThongBao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclBan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclBan.Designer.cs">
+      <DependentUpon>UclBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclNutChonBan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclNutChonBan.Designer.cs">
+      <DependentUpon>UclNutChonBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclPOS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclPOS.Designer.cs">
+      <DependentUpon>UclPOS.cs</DependentUpon>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -259,82 +314,147 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\UserControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\22-223863_no-avatar-png-circle-transparent-png.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\trash_32x3211.png" />
+    <None Include="Resources\trash_32x322.png" />
+    <None Include="Resources\22-223863_no-avatar-png-circle-transparent-png1.png" />
     <Content Include="Resources\actions_checkcircled.svg" />
     <Content Include="Resources\actions_checkcircled1.svg" />
+    <None Include="Resources\actions_checkcircled2.svg" />
+    <None Include="Resources\actions_checkcircled11.svg" />
     <Content Include="Resources\actions_removecircled.svg" />
     <Content Include="Resources\actions_removecircled1.svg" />
+    <None Include="Resources\actions_removecircled2.svg" />
+    <None Include="Resources\actions_removecircled11.svg" />
     <Content Include="Resources\add_16x16.png" />
+    <None Include="Resources\add_16x161.png" />
     <Content Include="Resources\add_32x32.png" />
     <Content Include="Resources\add_32x321.png" />
+    <None Include="Resources\add_32x322.png" />
+    <None Include="Resources\add_32x3211.png" />
     <Content Include="Resources\Backgroud.png" />
     <None Include="Resources\Background.png" />
     <Content Include="Resources\Bakery Icon %281%29.png" />
     <Content Include="Resources\Bakery Icon %281%291.png" />
     <None Include="Resources\Bakery Icon.png" />
     <Content Include="Resources\bocontact2_32x32.png" />
+    <None Include="Resources\bocontact2_32x321.png" />
     <Content Include="Resources\bocontact_16x16.png" />
+    <None Include="Resources\bocontact_16x161.png" />
     <Content Include="Resources\bocustomer_32x32.png" />
+    <None Include="Resources\bocustomer_32x321.png" />
     <Content Include="Resources\bodetails_32x32.png" />
+    <None Include="Resources\bodetails_32x321.png" />
     <Content Include="Resources\boorderitem_32x32.png" />
+    <None Include="Resources\boorderitem_32x321.png" />
     <Content Include="Resources\boorder_32x32.png" />
+    <None Include="Resources\boorder_32x321.png" />
     <Content Include="Resources\boperson_32x32.png" />
+    <None Include="Resources\boperson_32x321.png" />
     <Content Include="Resources\boposition_32x32.png" />
+    <None Include="Resources\boposition_32x321.png" />
     <Content Include="Resources\boproductgroup_32x32.png" />
+    <None Include="Resources\boproductgroup_32x321.png" />
     <Content Include="Resources\bosaleitem_32x32.png" />
+    <None Include="Resources\bosaleitem_32x321.png" />
     <Content Include="Resources\bosale_32x32.png" />
     <Content Include="Resources\bosale_32x321.png" />
+    <None Include="Resources\bosale_32x322.png" />
+    <None Include="Resources\bosale_32x3211.png" />
     <Content Include="Resources\botask_32x32.png" />
+    <None Include="Resources\botask_32x321.png" />
     <Content Include="Resources\bouser_32x32.png" />
+    <None Include="Resources\bouser_32x321.png" />
     <Content Include="Resources\calculatesheet_32x32.png" />
+    <None Include="Resources\calculatesheet_32x321.png" />
     <Content Include="Resources\cancel_16x16.png" />
+    <None Include="Resources\cancel_16x161.png" />
     <Content Include="Resources\cancel_32x32.png" />
     <Content Include="Resources\cancel_32x321.png" />
+    <None Include="Resources\cancel_32x322.png" />
+    <None Include="Resources\cancel_32x3211.png" />
     <Content Include="Resources\checkbox.svg" />
+    <None Include="Resources\checkbox1.svg" />
     <Content Include="Resources\close_32x32.png" />
+    <None Include="Resources\close_32x321.png" />
     <Content Include="Resources\editname_16x16.png" />
+    <None Include="Resources\editname_16x161.png" />
     <Content Include="Resources\editname_32x32.png" />
     <Content Include="Resources\editname_32x321.png" />
+    <None Include="Resources\editname_32x322.png" />
+    <None Include="Resources\editname_32x3211.png" />
     <Content Include="Resources\encryptdocument_32x32.png" />
+    <None Include="Resources\encryptdocument_32x321.png" />
     <Content Include="Resources\exporttoxlsx_16x16.png" />
+    <None Include="Resources\exporttoxlsx_16x161.png" />
     <Content Include="Resources\exporttoxls_16x16.png" />
+    <None Include="Resources\exporttoxls_16x161.png" />
     <Content Include="Resources\financial_32x32.png" />
+    <None Include="Resources\financial_32x321.png" />
     <Content Include="Resources\formatastable_32x32.png" />
+    <None Include="Resources\formatastable_32x321.png" />
     <Content Include="Resources\functionslookupandreference_32x32.png" />
+    <None Include="Resources\functionslookupandreference_32x321.png" />
     <Content Include="Resources\ICON.png" />
+    <None Include="Resources\ICON1.png" />
     <Content Include="Resources\icons8-bakery-32.png" />
+    <None Include="Resources\icons8-bakery-321.png" />
     <Content Include="Resources\icons8-clear-48.png" />
+    <None Include="Resources\icons8-clear-481.png" />
     <Content Include="Resources\icons8-complete-16.png" />
+    <None Include="Resources\icons8-complete-161.png" />
     <Content Include="Resources\icons8-get-16.png" />
+    <None Include="Resources\icons8-get-161.png" />
     <Content Include="Resources\icons8-kitchen-32 %281%29.png" />
+    <None Include="Resources\icons8-kitchen-32 %281%291.png" />
     <Content Include="Resources\icons8-kitchen-32.png" />
+    <None Include="Resources\icons8-kitchen-321.png" />
     <Content Include="Resources\icons8-man-16.png" />
+    <None Include="Resources\icons8-man-161.png" />
     <Content Include="Resources\icons8-sell-32.png" />
+    <None Include="Resources\icons8-sell-321.png" />
     <Content Include="Resources\icons8-service-48.png" />
+    <None Include="Resources\icons8-service-481.png" />
     <Content Include="Resources\icons8-table-32.png" />
+    <None Include="Resources\icons8-table-321.png" />
     <Content Include="Resources\icons8-take-32.png" />
+    <None Include="Resources\icons8-take-321.png" />
     <Content Include="Resources\icons8-woman-16.png" />
+    <None Include="Resources\icons8-woman-161.png" />
     <Content Include="Resources\icons8-woman-48.png" />
+    <None Include="Resources\icons8-woman-481.png" />
     <Content Include="Resources\inlinewithtext_32x32.png" />
+    <None Include="Resources\inlinewithtext_32x321.png" />
     <Content Include="Resources\newdatasource_32x32.png" />
+    <None Include="Resources\newdatasource_32x321.png" />
     <Content Include="Resources\no-image-icon-6.png" />
+    <None Include="Resources\no-image-icon-61.png" />
     <Content Include="Resources\pexels-igor-ovsyannykov-56123-205961.jpg" />
+    <None Include="Resources\pexels-igor-ovsyannykov-56123-2059611.jpg" />
     <Content Include="Resources\properties_32x32.png" />
+    <None Include="Resources\properties_32x321.png" />
     <Content Include="Resources\refresh_16x16.png" />
+    <None Include="Resources\refresh_16x161.png" />
     <Content Include="Resources\refresh_32x32.png" />
+    <None Include="Resources\refresh_32x321.png" />
     <Content Include="Resources\Remove-bg.ai_1725807365144 %281%29.png" />
+    <None Include="Resources\Remove-bg.ai_1725807365144 %281%291.png" />
     <Content Include="Resources\Remove-bg.ai_1725807365144.png" />
+    <None Include="Resources\Remove-bg.ai_17258073651441.png" />
     <Content Include="Resources\reset_32x32.png" />
+    <None Include="Resources\reset_32x321.png" />
     <Content Include="Resources\save_32x32.png" />
+    <None Include="Resources\save_32x321.png" />
     <Content Include="Resources\tableofcontent_32x32.png" />
+    <None Include="Resources\tableofcontent_32x321.png" />
     <Content Include="Resources\today_32x32.png" />
+    <None Include="Resources\today_32x321.png" />
     <Content Include="Resources\trash_16x16.png" />
+    <None Include="Resources\trash_16x161.png" />
     <Content Include="Resources\trash_32x32.png" />
     <Content Include="Resources\trash_32x321.png" />
   </ItemGroup>
@@ -349,11 +469,23 @@
     <EmbeddedResource Include="Views\Forms\frmQuenMatKhau.resx">
       <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frmThanhToan.resx">
+      <DependentUpon>frmThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frmThayDoiMatKhau.resx">
       <DependentUpon>frmThayDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frmThongBao.resx">
       <DependentUpon>frmThongBao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclBan.resx">
+      <DependentUpon>UclBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclNutChonBan.resx">
+      <DependentUpon>UclNutChonBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclPOS.resx">
+      <DependentUpon>UclPOS.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

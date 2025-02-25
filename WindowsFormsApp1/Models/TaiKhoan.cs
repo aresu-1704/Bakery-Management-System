@@ -14,7 +14,7 @@ namespace BakeryManagementSystem.Models
         public int SoLanDangNhap { get; set; }
         public bool TrangThai { get; set; }
 
-        private static readonly Connections data = new Connections("UserTaiKhoan", "12345678An!");
+        private static readonly Connections data = new Connections();
 
         public async Task<DataTable> LayTaiKhoanAsync(string tenDangNhap)
         {
