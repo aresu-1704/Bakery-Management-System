@@ -11,10 +11,9 @@ namespace Connection
     {
         private readonly string _connectionString;
 
-        public Connections(string connectUsername, string connectPassword)
+        public Connections()
         {
-            _connectionString = "Server=34.80.218.46,1433;Database=QuanLyTiemBanh;User Id=" + connectUsername + ";Password=" + connectPassword +
-                ";Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
+            _connectionString = "Server=34.80.218.46,1433;Database=QuanLyTiemBanh;User Id=QuanLyTiemBanh;Password=QLTiemBanh123!;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
         }
 
         // Truy vấn dữ liệu bất đồng bộ

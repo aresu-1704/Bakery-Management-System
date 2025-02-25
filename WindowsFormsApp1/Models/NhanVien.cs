@@ -9,7 +9,7 @@ namespace BakeryManagementSystem.Models
 {
     public partial class NhanVien
     {
-        private readonly Connections data = new Connections("UserNhanVien", "12345678An!");
+        private readonly Connections data = new Connections();
 
         public int MaNV { get; set; }
         public string TenDangNhap { get; set; }
