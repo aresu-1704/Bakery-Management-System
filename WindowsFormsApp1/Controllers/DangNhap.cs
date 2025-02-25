@@ -21,23 +21,23 @@ namespace BakeryManagementSystem.Controllers
         private BamMatKhau bamMatKhau = new BamMatKhau();
 
         //Đăng nhập
-        public async Task<bool> KiemTraDangNhap(string tenDangNhap, string matKhau)
+        public async Task<short> KiemTraDangNhap(string tenDangNhap, string matKhau)
         {
             DataTable dt = await taiKhoan.LayTaiKhoanAsync(tenDangNhap);
 
-            if (dt.Rows.Count == 0) return false;
+            if (dt.Rows.Count == 0) return 0;
 
             byte[] hashPasswordDB = (byte[])dt.Rows[0]["MatKhau"];
             byte[] hashPassword = await bamMatKhau.BamMatKhauAsync(Encoding.UTF8.GetBytes(matKhau), (byte[])dt.Rows[0]["Muoi"]);
 
             if (hashPassword.SequenceEqual(hashPasswordDB))
             {
-                return true;
+                return 2;
             }
             else
             {
                 await taiKhoan.CapNhatSoLanDangNhapAsync(tenDangNhap);
-                return false;
+                return 1;
             }
         }
 
