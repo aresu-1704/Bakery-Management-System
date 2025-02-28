@@ -50,6 +50,7 @@
             this.btnQLNL = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnNhapHang = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnNhaCungCap = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.gbtnKhachHang = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnKHTT = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnLichSuMuaHang = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -276,7 +277,8 @@
             this.gbtnKhoNguyenLieu.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.btnQLNL,
             this.btnNhapHang,
-            this.btnNhaCungCap});
+            this.btnNhaCungCap,
+            this.accordionControlElement1});
             this.gbtnKhoNguyenLieu.Expanded = true;
             this.gbtnKhoNguyenLieu.ImageOptions.Image = global::BakeryManagementSystem.Properties.Resources.boproductgroup_32x32;
             this.gbtnKhoNguyenLieu.Name = "gbtnKhoNguyenLieu";
@@ -312,6 +314,15 @@
             this.btnNhaCungCap.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnNhaCungCap.Text = "NHÀ CUNG CẤP";
             this.btnNhaCungCap.Click += new System.EventHandler(this.btnNhaCungCap_Click);
+            // 
+            // accordionControlElement1
+            // 
+            this.accordionControlElement1.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement1.Appearance.Default.Options.UseFont = true;
+            this.accordionControlElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement1.ImageOptions.Image")));
+            this.accordionControlElement1.Name = "accordionControlElement1";
+            this.accordionControlElement1.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement1.Text = "DANH SÁCH NGUYÊN LIỆU";
             // 
             // gbtnKhachHang
             // 
@@ -539,6 +550,7 @@
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.None;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IconOptions.Image = global::BakeryManagementSystem.Properties.Resources.ICON;
+            this.IconOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("frmGiaoDienChinh.IconOptions.LargeImage")));
             this.MaximizeBox = false;
             this.Name = "frmGiaoDienChinh";
             this.NavigationControl = this.accChucNang;
@@ -598,5 +610,6 @@
         private Usercontrols.UclKhoNguyenLieu uclKhoNguyenLieu;
         private Usercontrols.UclPOS uclPOS;
         private Usercontrols.UclBan uclBan;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
     }
 }

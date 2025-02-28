@@ -146,7 +146,7 @@ namespace BakeryManagementSystem.Views.Forms
         private void btnQLNL_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclXemKhoNguyenLieu.activited();
+            uclKhoNguyenLieu.activited();
         }
 
         private void btnKHTT_Click(object sender, EventArgs e)
@@ -308,7 +308,7 @@ namespace BakeryManagementSystem.Views.Forms
 
         private void frmGiaoDienChinh_Load(object sender, EventArgs e)
         {
-            quyenNhanVien();
+            quyenBep();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace BakeryManagementSystem.Views.Usercontrols
 {
-    partial class UclNutChonBan
+    partial class UclNutChon
     {
         /// <summary> 
         /// Required designer variable.

@@ -248,17 +248,11 @@
     <Compile Include="Views\Usercontrols\UclKhoNguyenLieu.Designer.cs">
       <DependentUpon>UclKhoNguyenLieu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Usercontrols\UclNutChonBan.cs">
+    <Compile Include="Views\Usercontrols\UclNutChon.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Usercontrols\UclNutChonBan.Designer.cs">
-      <DependentUpon>UclNutChonBan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Usercontrols\UclNutChonKe.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\Usercontrols\UclNutChonKe.Designer.cs">
-      <DependentUpon>UclNutChonKe.cs</DependentUpon>
+    <Compile Include="Views\Usercontrols\UclNutChon.Designer.cs">
+      <DependentUpon>UclNutChon.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Usercontrols\UclPOS.cs">
       <SubType>UserControl</SubType>
@@ -459,6 +453,7 @@
     <None Include="Resources\pexels-igor-ovsyannykov-56123-2059611.jpg" />
     <Content Include="Resources\properties_32x32.png" />
     <None Include="Resources\properties_32x321.png" />
+    <None Include="Resources\question_32x32.png" />
     <Content Include="Resources\refresh_16x16.png" />
     <None Include="Resources\refresh_16x161.png" />
     <Content Include="Resources\refresh_32x32.png" />
@@ -513,11 +508,8 @@
     <EmbeddedResource Include="Views\Usercontrols\UclKhoNguyenLieu.resx">
       <DependentUpon>UclKhoNguyenLieu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Usercontrols\UclNutChonBan.resx">
-      <DependentUpon>UclNutChonBan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Usercontrols\UclNutChonKe.resx">
-      <DependentUpon>UclNutChonKe.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Usercontrols\UclNutChon.resx">
+      <DependentUpon>UclNutChon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclPOS.resx">
       <DependentUpon>UclPOS.cs</DependentUpon>
