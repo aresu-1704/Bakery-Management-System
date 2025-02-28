@@ -44,12 +44,14 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.thoiGian = new System.Windows.Forms.Timer(this.components);
+            this.pgpLoading = new DevExpress.XtraWaitForm.ProgressPanel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Linen;
+            this.panel1.Controls.Add(this.pgpLoading);
             this.panel1.Controls.Add(this.lklDangNhap);
             this.panel1.Controls.Add(this.ckbHienMK);
             this.panel1.Controls.Add(this.btnDangKy);
@@ -230,6 +232,29 @@
             this.thoiGian.Interval = 1000;
             this.thoiGian.Tick += new System.EventHandler(this.thoiGian_Tick);
             // 
+            // pgpLoading
+            // 
+            this.pgpLoading.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pgpLoading.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pgpLoading.Appearance.ForeColor = System.Drawing.Color.Peru;
+            this.pgpLoading.Appearance.Options.UseBackColor = true;
+            this.pgpLoading.Appearance.Options.UseFont = true;
+            this.pgpLoading.Appearance.Options.UseForeColor = true;
+            this.pgpLoading.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pgpLoading.AppearanceCaption.ForeColor = System.Drawing.Color.Peru;
+            this.pgpLoading.AppearanceCaption.Options.UseFont = true;
+            this.pgpLoading.AppearanceCaption.Options.UseForeColor = true;
+            this.pgpLoading.AppearanceDescription.ForeColor = System.Drawing.Color.Peru;
+            this.pgpLoading.AppearanceDescription.Options.UseForeColor = true;
+            this.pgpLoading.Caption = "Đăng nhập thành công";
+            this.pgpLoading.Description = "Đang vào...";
+            this.pgpLoading.Location = new System.Drawing.Point(32, 292);
+            this.pgpLoading.Name = "pgpLoading";
+            this.pgpLoading.Size = new System.Drawing.Size(31, 38);
+            this.pgpLoading.TabIndex = 17;
+            this.pgpLoading.Text = "pgpDangNhapThanhCong";
+            this.pgpLoading.Visible = false;
+            // 
             // frmDangKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -267,5 +292,6 @@
         private System.Windows.Forms.Button btnDangKy;
         private System.Windows.Forms.CheckBox ckbHienMK;
         private System.Windows.Forms.LinkLabel lklDangNhap;
+        private DevExpress.XtraWaitForm.ProgressPanel pgpLoading;
     }
 }
