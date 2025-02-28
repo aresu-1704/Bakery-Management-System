@@ -37,5 +37,10 @@ namespace BakeryManagementSystem.Controllers
         {
             await khoNguyenLieu.DoiTrangThaiAsync(maKhuVuc);
         }
+
+        public async Task XoaKeAsync(int maKhuVuc)
+        {
+            await khoNguyenLieu.XoaKeAsync(maKhuVuc);
+        }
     }
 }

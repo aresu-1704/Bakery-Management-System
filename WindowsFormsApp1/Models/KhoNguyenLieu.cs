@@ -52,5 +52,18 @@ namespace BakeryManagementSystem.Models
 
             await data.ExecuteQueryAsync(query, parameters);
         }
+
+        public async Task XoaKeAsync(int maKhuVuc)
+        {
+            string query = "EXEC sp_XoaKe @MaKhuVuc";
+
+            var parameters = new Dictionary<string, object>
+            {
+                { "@MaKhuVuc", maKhuVuc }
+            };
+
+            await data.ExecuteQueryAsync(query, parameters);
+        }
+
     }
 }

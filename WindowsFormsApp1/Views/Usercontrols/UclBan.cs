@@ -32,7 +32,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
             for(int i = 0; i < dt.Rows.Count; i++)
             {
-                UclNutChonBan nutMoi = new UclNutChonBan(int.Parse(dt.Rows[i]["MaBan"].ToString()), (bool)dt.Rows[i]["TrangThai"]);
+                UclNutChon nutMoi = new UclNutChon(int.Parse(dt.Rows[i]["MaBan"].ToString()), (bool)dt.Rows[i]["TrangThai"], "Bàn");
                 nutMoi.click += XemHoaDon;
                 flpDanhSachBan.Controls.Add(nutMoi);
             }

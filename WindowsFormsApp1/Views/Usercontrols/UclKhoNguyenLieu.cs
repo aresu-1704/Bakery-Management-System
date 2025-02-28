@@ -33,9 +33,13 @@ namespace BakeryManagementSystem.Views.Usercontrols
                 return qlKho.LayDSKhoNLAsync();
             });
 
+            UclNutChon hangHoaChuaCoViTri = new UclNutChon(0, false, "Chưa xếp");
+            hangHoaChuaCoViTri.click += XemNguyenLieu;
+            flpDanhSachKeNL.Controls.Add(hangHoaChuaCoViTri);
+
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                UclNutChonKe nutMoi = new UclNutChonKe(int.Parse(dt.Rows[i]["MaKhuVuc"].ToString()), (bool)dt.Rows[i]["TrangThai"]);
+                UclNutChon nutMoi = new UclNutChon(int.Parse(dt.Rows[i]["MaKhuVuc"].ToString()), (bool)dt.Rows[i]["TrangThai"], "Kệ số");
                 nutMoi.click += XemNguyenLieu;
                 flpDanhSachKeNL.Controls.Add(nutMoi);
                 cmbViTri.Items.Add(dt.Rows[i]["MaKhuVuc"].ToString());
@@ -43,7 +47,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
             }
         }
 
-        
         private void UclBan_Load(object sender, EventArgs e)
         {
             LoadDSKhoNguyenLieu();
@@ -77,9 +80,11 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     dgvNguyenLieu.Rows[newRowIndex].Cells[5].Value = dt.Rows[i]["MaKhuVuc"].ToString();
                     dgvNguyenLieu.Rows[newRowIndex].Cells[6].Value = dt.Rows[i]["MaNL"].ToString();
                 }
-                btnLuu.Enabled = true;
-                this.maKhuVuc = maKhuVuc;
+                btnLuu.Enabled = true;                          
             }
+            this.maKhuVuc = maKhuVuc;
+            btnXoaKe.Enabled = true;
+            btnDoiTrangThai.Enabled = true;
         }
 
         private void dgvNguyenLieu_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -90,7 +95,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
                 int maNL = int.Parse(dgvNguyenLieu.Rows[e.RowIndex].Cells[6].Value?.ToString());
                 cmbViTri.SelectedIndex = maKhuVuc;
                 this.maNL = maNL; 
-                btnDoiTrangThai.Enabled = true;
                 btnLayNguyenLieu.Enabled = true;
                 btnLuu.Enabled = true;
                 cmbViTri.Enabled = true;
@@ -112,6 +116,41 @@ namespace BakeryManagementSystem.Views.Usercontrols
                 MessageBox.Show("Đã cập nhật !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 XemNguyenLieu(maKhuVuc);
             }
+        }
+
+        private async void btnThemKe_Click(object sender, EventArgs e)
+        {
+            await Task.Run(() =>
+            {
+                return qlKho.ThemViTriAsync();
+            });
+            LoadDSKhoNguyenLieu();
+        }
+
+        private async void btnXoaKe_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Xóa mã kệ này, toàn bộ hàng hóa sẽ được đưa vào mục chưa xếp ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                await Task.Run(() =>
+                {
+                    return qlKho.XoaKeAsync(maKhuVuc);
+                });
+
+                MessageBox.Show("Đã xóa thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            LoadDSKhoNguyenLieu();
+        }
+
+        private async void btnDoiTrangThai_Click(object sender, EventArgs e)
+        {
+            await Task.Run(() =>
+            {
+                return qlKho.DoiTrangThaiAsync(maKhuVuc);
+            });
+            LoadDSKhoNguyenLieu();
+            btnDoiTrangThai.Enabled = false;
+            btnXoaKe.Enabled = false;
         }
     }
 }
