@@ -93,8 +93,10 @@ namespace BakeryManagementSystem.Views.Forms
                 lblDangNhapThatBai.Visible = false;
                 setEnabled(false);
                 await Task.Delay(500);
-                //frmGiaoDienChinh giaoDienChinh = new frmGiaoDienChinh(int.Parse(dt.Rows[0]["MaNV"].ToString()));
-                //giaoDienChinh.Owner = this;
+                frmGiaoDienChinh giaoDienChinh = new frmGiaoDienChinh(1);
+                giaoDienChinh.Owner = this;
+                giaoDienChinh.Show();
+                this.Hide();
 
                 // Lưu thông tin đăng nhập nếu chọn ghi nhớ
                 if (ckcGhiNho.Checked)

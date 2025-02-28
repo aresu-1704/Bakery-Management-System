@@ -38,8 +38,10 @@
     <Reference Include="DevExpress.BonusSkins.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Drawing.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v22.2.Core, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Google.Api.CommonProtos, Version=2.16.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Api.CommonProtos.2.16.0\lib\net461\Google.Api.CommonProtos.dll</HintPath>
@@ -165,6 +167,7 @@
     <Compile Include="Controllers\QuanLyBanAn.cs" />
     <Compile Include="Controllers\QuanLyBanHang.cs" />
     <Compile Include="Controllers\QuanLyKhachHang.cs" />
+    <Compile Include="Controllers\QuanLyKho.cs" />
     <Compile Include="Controllers\QuanLyNhanVien.cs" />
     <Compile Include="Controllers\QuanLySanPham.cs" />
     <Compile Include="Models\Ban.cs" />
@@ -174,6 +177,7 @@
     <Compile Include="Models\HangHoa.cs" />
     <Compile Include="Models\HoaDon.cs" />
     <Compile Include="Models\KhachHang.cs" />
+    <Compile Include="Models\KhoNguyenLieu.cs" />
     <Compile Include="Models\KhuyenMai.cs" />
     <Compile Include="Models\NguyenLieu.cs" />
     <Compile Include="Models\NhaBep.cs" />
@@ -201,6 +205,12 @@
     </Compile>
     <Compile Include="Views\Forms\frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\frmGiaoDienChinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frmGiaoDienChinh.Designer.cs">
+      <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\frmQuenMatKhau.cs">
       <SubType>Form</SubType>
@@ -232,11 +242,23 @@
     <Compile Include="Views\Usercontrols\UclBan.Designer.cs">
       <DependentUpon>UclBan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Usercontrols\UclKhoNguyenLieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclKhoNguyenLieu.Designer.cs">
+      <DependentUpon>UclKhoNguyenLieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Usercontrols\UclNutChonBan.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Usercontrols\UclNutChonBan.Designer.cs">
       <DependentUpon>UclNutChonBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclNutChonKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclNutChonKe.Designer.cs">
+      <DependentUpon>UclNutChonKe.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Usercontrols\UclPOS.cs">
       <SubType>UserControl</SubType>
@@ -459,12 +481,19 @@
     <Content Include="Resources\trash_32x321.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frmDangKy.resx">
+      <DependentUpon>frmDangKy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frmGiaoDienChinh.resx">
+      <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frmQuenMatKhau.resx">
       <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
@@ -481,8 +510,14 @@
     <EmbeddedResource Include="Views\Usercontrols\UclBan.resx">
       <DependentUpon>UclBan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclKhoNguyenLieu.resx">
+      <DependentUpon>UclKhoNguyenLieu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclNutChonBan.resx">
       <DependentUpon>UclNutChonBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclNutChonKe.resx">
+      <DependentUpon>UclNutChonKe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclPOS.resx">
       <DependentUpon>UclPOS.cs</DependentUpon>

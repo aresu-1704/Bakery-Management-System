@@ -13,7 +13,7 @@ namespace Connection
 
         public Connections()
         {
-            _connectionString = "Server=34.80.218.46,1433;Database=QuanLyTiemBanh;User Id=QuanLyTiemBanh;Password=QLTiemBanh123!;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
+            _connectionString = "Server=34.92.100.113,1433;Database=QuanLyTiemBanh;User Id=sqlserver;Password=Hello123Oke;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
         }
 
         // Truy vấn dữ liệu bất đồng bộ

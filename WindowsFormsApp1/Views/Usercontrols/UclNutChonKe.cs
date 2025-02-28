@@ -11,31 +11,32 @@ using System.Windows.Forms;
 
 namespace BakeryManagementSystem.Views.Usercontrols
 {
-    public partial class UclNutChonBan : DevExpress.XtraEditors.XtraUserControl
+    public partial class UclNutChonKe : DevExpress.XtraEditors.XtraUserControl
     {
-        private int maBan;
+        private int maKe;
         private bool trangThai;
+
         public event Action<int> click;
 
-        public UclNutChonBan(int maBan, bool trangThai)
+        public UclNutChonKe(int maKe, bool trangThai)
         {
             InitializeComponent();
-            this.maBan = maBan;
+            this.maKe = maKe;
             this.trangThai = trangThai;
-            btnBan.Text = "Bàn " + maBan.ToString();
+            btnKe.Text = "Bàn " + maKe.ToString();
             if (trangThai)
             {
-                btnBan.ImageOptions.SvgImage = Properties.Resources.actions_removecircled;
+                btnKe.ImageOptions.SvgImage = Properties.Resources.actions_removecircled;
             }
             else
             {
-                btnBan.ImageOptions.SvgImage = Properties.Resources.actions_checkcircled;
+                btnKe.ImageOptions.SvgImage = Properties.Resources.actions_checkcircled;
             }
         }
 
         private void btnBan_CheckedChanged(object sender, EventArgs e)
         {
-            click?.Invoke(this.maBan);
+            click?.Invoke(this.maKe);
         }
     }
 }

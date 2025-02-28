@@ -64,11 +64,26 @@ namespace BakeryManagementSystem.Models
         public async Task CapNhatLayNguyenLieuAsync(int maNL, float soLuong)
         {
             string query = "EXEC sp_CapNhatLayNguyenLieu @MaNL, @SoLuong";
+
             var parameters = new Dictionary<string, object>
             {
                 { "@MaNL", maNL },
                 { "@SoLuong", soLuong }
             };
+
+            await data.ExecuteQueryAsync(query, parameters);
+        }
+
+        public async Task CapNhatViTriNLAsync(int maNL, int maKhuVuc)
+        {
+            string query = "EXEC sp_CapNhatViTriNguyenLieu @MaKhuVuc, @MaNL";
+
+            var parameters = new Dictionary<string, object>
+            {
+                { "@MaNL", maNL },
+                { "@MaKhuVuc", maKhuVuc }
+            };
+
             await data.ExecuteQueryAsync(query, parameters);
         }
     }

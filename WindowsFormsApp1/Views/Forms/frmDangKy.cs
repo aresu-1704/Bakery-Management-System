@@ -98,10 +98,12 @@ namespace BakeryManagementSystem.Views.Forms
 
         private async void btnDangKy_Click(object sender, EventArgs e)
         {
+            pgpLoading.Visible = true;
             //Kiểm tra rỗng
             if (checkNull())
             {
                 thongBao(false, "Thông báo", "Không bỏ trống thông tin !");
+                pgpLoading.Visible = false;
                 return;
             }
 
@@ -111,12 +113,14 @@ namespace BakeryManagementSystem.Views.Forms
                 if (!await dangKy.KiemTraNhanVien(int.Parse(txtMaNhanVien.Text)))
                 {
                     thongBao(false, "Thông báo", "Mã nhân viên không tồn tại hoặc nhân viên này đã có 1 tài khoản khác !");
+                    pgpLoading.Visible = false;
                     return;
                 }
             }
             catch (SqlException ex)
             {
                 thongBao(false, "Thông báo", "Mã nhân viên không tồn tại hoặc nhân viên này đã có 1 tài khoản khác !");
+                pgpLoading.Visible = false;
                 return;
             }
 
@@ -124,24 +128,28 @@ namespace BakeryManagementSystem.Views.Forms
             if (!kiemTraThanhPhan(txtMatKhau.Text))
             {
                 thongBao(false, "Thông báo", "Mật khẩu phải chứa kí tự hoa, thường, số, tối thiểu 8 kí tự và chứ kí tự đặc biệt !");
+                pgpLoading.Visible = false;
                 return;
             }
 
             if (txtTenDangNhap.Text.Length > 25)
             {
                 thongBao(false, "Thông báo", "Tên đăng nhập không quá 25 kí tự !");
+                pgpLoading.Visible = false;
                 return;
             }
 
             if (txtMatKhau.Text.Length > 32)
             {
                 thongBao(false, "Thông báo", "Mật khẩu không quá 32 kí tự !");
+                pgpLoading.Visible = false;
                 return;
             }
 
             if(!await dangKy.KiemTraTaiKhoan(txtTenDangNhap.Text))
             {
                 thongBao(false, "Thông báo", "Tên tài khoản đã tồn tại !");
+                pgpLoading.Visible = false;
             }
 
             if (checkMatKhau())
@@ -150,6 +158,7 @@ namespace BakeryManagementSystem.Views.Forms
                 {
                     return dangKy.TaoTaiKhoanAsync(txtTenDangNhap.Text, txtMatKhau.Text, int.Parse(txtMaNhanVien.Text));
                 });
+                pgpLoading.Visible = false;
                 frmThongBao thongBao = new frmThongBao(true, "Thành công", "Đăng ký thành công, quay lại giao diện đăng nhập ?");
                 thongBao.choice += layKetQuaTB;
                 thongBao.Owner = this;
@@ -158,6 +167,7 @@ namespace BakeryManagementSystem.Views.Forms
             else
             {
                 thongBao(false, "Thông báo", "Mật khẩu không trùng khớp !");
+                pgpLoading.Visible = false;
             }
         }
 
