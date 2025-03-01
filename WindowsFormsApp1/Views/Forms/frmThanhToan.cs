@@ -31,7 +31,8 @@ namespace BakeryManagementSystem.Views.Forms
             InitializeComponent();
         }
 
-        private async System.Threading.Tasks.Task LoadDuLieu(QuanLyBanHang qlBanHang, int maNVThuNgan, int maBan, int loaiHD, string soHD, string tongTien, DataGridViewRowCollection rows, int maKH)
+        public async System.Threading.Tasks.Task LoadDuLieu(QuanLyBanHang qlBanHang, int maNVThuNgan, int maBan, 
+            int loaiHD, string soHD, string tongTien, DataGridViewRowCollection rows, int maKH)
         {
             this.qlbanHang = qlBanHang;
 

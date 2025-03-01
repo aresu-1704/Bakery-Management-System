@@ -15,7 +15,6 @@ namespace BakeryManagementSystem.Models
         public bool? LoaiHoaDon { get; set; }
         public int? MaKH { get; set; }
         public int MaNV { get; set; }
-        public int MaBan { get; set; }
 
         private Connections data = new Connections();
 
@@ -33,11 +32,11 @@ namespace BakeryManagementSystem.Models
             if (maKH != -1)
             {
                 parameters.Add("@MaKH", maKH);
-                query = "sp_ThemHoaDon @MaHoaDon, @MaNV, @MaBan, @LoaiHoaDon, @MaKH";
+                query = "sp_ThemHoaDon @MaHoaDon, @MaNV, @LoaiHoaDon, @MaKH";
             }
             else
             {
-                query = "sp_ThemHoaDon @MaHoaDon, @MaNV, @MaBan, @LoaiHoaDon";
+                query = "sp_ThemHoaDon @MaHoaDon, @MaNV, @LoaiHoaDon";
             }
 
             await data.ExecuteQueryAsync(query, parameters);
@@ -52,6 +51,5 @@ namespace BakeryManagementSystem.Models
             };
             return await data.GetDataAsync(query, parameters);
         }
-
     }
 }
