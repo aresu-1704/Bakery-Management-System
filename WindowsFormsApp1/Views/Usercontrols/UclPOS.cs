@@ -333,12 +333,18 @@ namespace BakeryManagementSystem.Views.Usercontrols
             }
         }
 
-        private void btnTinhTien_Click(object sender, EventArgs e)
+        private async void btnTinhTien_Click(object sender, EventArgs e)
         {
             if (dgvHoaDon.Rows.Count != 0)
             {
                 frmThanhToan thanhToan = new frmThanhToan();
                 thanhToan.choice += reLoad;
+                await Task.Run(() =>
+                {
+                    return thanhToan.LoadDuLieu(qlBanHang, maNVThuNgan, int.Parse(cmbBan.SelectedValue.ToString()), cmbLoai.SelectedIndex,
+                        lblMaHD.Text, lblTongTien.Text, dgvHoaDon.Rows, txtKHTT.Text != "" ? maKH : -1);
+                });
+                
                 thanhToan.ShowDialog();
             }
             else
