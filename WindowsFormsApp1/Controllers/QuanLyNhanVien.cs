@@ -1,51 +1,103 @@
 ﻿using BakeryManagementSystem.Models;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BakeryManagementSystem.Controllers
 {
     public class QuanLyNhanVien
     {
-        private NhanVien nhanVien = new NhanVien();
+        private readonly NhanVien _nhanVien = new NhanVien();
 
+        // Lấy thông tin nhân viên theo mã
         public async Task<DataTable> LayNhanVienAsync(string maNV)
         {
-            return await nhanVien.LayNhanVienAsync(int.Parse(maNV));
+            try
+            {
+                return await _nhanVien.LayNhanVienAsync(int.Parse(maNV));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi lấy thông tin nhân viên: " + ex.Message);
+            }
         }
 
+        // Lấy danh sách mức lương nhân viên
         public async Task<DataTable> LayDSMucLuongNVAsync()
         {
-            return await nhanVien.LayDSMucLuongNVAsync();
+            try
+            {
+                return await _nhanVien.LayDSMucLuongNVAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi lấy danh sách mức lương nhân viên: " + ex.Message);
+            }
         }
 
+        // Lấy danh sách nhân viên
         public async Task<DataTable> LayDSNhanVienAsync()
         {
-            return await nhanVien.LayDSNhanVienAsync();
+            try
+            {
+                return await _nhanVien.LayDSNhanVienAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi lấy danh sách nhân viên: " + ex.Message);
+            }
         }
 
+        // Thêm nhân viên mới
         public async Task ThemNVAsync(NhanVien nhanVien)
         {
-            await nhanVien.ThemNhanVienAsync(nhanVien);
+            try
+            {
+                await _nhanVien.ThemNhanVienAsync(nhanVien);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi thêm nhân viên: " + ex.Message);
+            }
         }
 
+        // Cập nhật thông tin nhân viên
         public async Task CapNhatNVAsync(NhanVien nhanVien)
         {
-            await nhanVien.CapNhatNhanVienAsync(nhanVien);
+            try
+            {
+                await _nhanVien.CapNhatNhanVienAsync(nhanVien);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi cập nhật nhân viên: " + ex.Message);
+            }
         }
 
+        // Xóa nhân viên
         public async Task XoaNVAsync(int maNV)
         {
-            await nhanVien.XoaNhanVienAsync(maNV);
+            try
+            {
+                await _nhanVien.XoaNhanVienAsync(maNV);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi xóa nhân viên: " + ex.Message);
+            }
         }
 
+        // Thêm lại nhân viên đã xóa
         public async Task ThemLaiNVAsync(string maNV)
         {
-            await nhanVien.ThemLaiNhanVienAsync(int.Parse(maNV));
+            try
+            {
+                await _nhanVien.ThemLaiNhanVienAsync(int.Parse(maNV));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi thêm lại nhân viên: " + ex.Message);
+            }
         }
-
     }
 }

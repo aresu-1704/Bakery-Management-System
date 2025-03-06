@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BakeryManagementSystem.Views.Usercontrols;
+using DoAnQLTiemBanh.Views.Usercontrol;
 
 namespace BakeryManagementSystem.Views.Forms
 {
@@ -22,6 +23,7 @@ namespace BakeryManagementSystem.Views.Forms
         {
             InitializeComponent();
             this.maNVDangNhap = maNVDangNhap;
+
         }
 
         #region Cập nhật thông tin cá nhân
@@ -34,17 +36,18 @@ namespace BakeryManagementSystem.Views.Forms
 
         private void reLoadNV(object sender, EventArgs e)
         {
-            //if (uclQuanLyNV.Visible == true)
-            //{
-            //    setVisible();
-            //    uclQuanLyNV.activited();
-            //}
+            if (UclQLNV.Visible == true)
+            {
+                setVisible();
+                UclQLNV.activited();
+            }
         }
         #endregion
 
         private void setVisible()
         {
-            //uclQuanLyNV.Visible = false;
+            UclQLNV.Visible = false;
+
             //uclChucVu.Visible = false;
             //uclLichLamViec.Visible = false;
             //uclNhaCungCap.Visible = false;
@@ -82,11 +85,11 @@ namespace BakeryManagementSystem.Views.Forms
             this.Close();
         }
 
-        #region Các nút trong Menu
         private void btnQLNV_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclQuanLyNV.activited();
+            UclQLNV uclQLNV = new UclQLNV();
+            uclQLNV.activited();
         }
 
         private void btnChucVu_Click(object sender, EventArgs e)
