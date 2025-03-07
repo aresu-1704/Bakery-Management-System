@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BakeryManagementSystem.Views.Usercontrols;
-using DoAnQLTiemBanh.Views.Usercontrol;
 
 namespace BakeryManagementSystem.Views.Forms
 {
@@ -18,6 +17,7 @@ namespace BakeryManagementSystem.Views.Forms
         //private NhanVienBLL nhanVienBLL = new NhanVienBLL();    
         //private ChamCongBLL chamCongBLL = new ChamCongBLL();
         private bool trangThaiDX = false;
+
 
         public frmGiaoDienChinh(int maNVDangNhap)
         {
@@ -33,20 +33,20 @@ namespace BakeryManagementSystem.Views.Forms
             //capNhatTT.refresh += reLoadNV;
             //capNhatTT.ShowDialog();
         }
-
         private void reLoadNV(object sender, EventArgs e)
         {
-            if (UclQLNV.Visible == true)
+            if (uclQLNV.Visible)
             {
                 setVisible();
-                UclQLNV.activited();
+                uclQLNV.activited();
             }
         }
         #endregion
 
         private void setVisible()
         {
-            UclQLNV.Visible = false;
+
+            uclQLNV.Visible = false;
 
             //uclChucVu.Visible = false;
             //uclLichLamViec.Visible = false;
@@ -88,7 +88,6 @@ namespace BakeryManagementSystem.Views.Forms
         private void btnQLNV_Click(object sender, EventArgs e)
         {
             setVisible();
-            UclQLNV uclQLNV = new UclQLNV();
             uclQLNV.activited();
         }
 
@@ -130,14 +129,14 @@ namespace BakeryManagementSystem.Views.Forms
 
         private void btnPOS_Click(object sender, EventArgs e)
         {
-            setVisible();
-            uclPOS.activited(maNVDangNhap);
+            setVisible(); // Ẩn tất cả UserControl
+            uclPOS.activited(maNVDangNhap); // Kích hoạt UserControl
         }
 
         private void btnBan_Click(object sender, EventArgs e)
         {
-            setVisible();
-            uclBan.activited();
+            setVisible(); // Ẩn tất cả UserControl
+            uclBan.activited(); // Kích hoạt UserControl
         }
 
         private void btnNhapHang_Click(object sender, EventArgs e)
@@ -181,9 +180,9 @@ namespace BakeryManagementSystem.Views.Forms
             setVisible();
             //uclTinhTrangBep.activited();
         }
-        #endregion
+        #region
 
-        #region Phân quyền
+
         public void quyenQuanLy()
         {
             gbtnNhanVien.Visible = true;
@@ -233,7 +232,8 @@ namespace BakeryManagementSystem.Views.Forms
             gbtnLichLamViec.Visible = true;
             btnPhanCong.Visible = false;
         }
-        #endregion
+
+        #endregion Phânquyền
 
         #region Đổi mật khẩu
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
@@ -311,7 +311,7 @@ namespace BakeryManagementSystem.Views.Forms
 
         private void frmGiaoDienChinh_Load(object sender, EventArgs e)
         {
-            quyenBep();
+            quyenQuanLy();
         }
     }
 }

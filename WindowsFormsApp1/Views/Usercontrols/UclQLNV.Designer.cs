@@ -1,4 +1,4 @@
-﻿namespace DoAnQLTiemBanh.Views.Usercontrol
+﻿namespace BakeryManagementSystem.Views.Usercontrols
 {
     partial class UclQLNV
     {

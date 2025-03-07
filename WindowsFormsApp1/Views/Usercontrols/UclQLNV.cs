@@ -22,7 +22,7 @@ using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 using ExcelDataReader;
 
-namespace DoAnQLTiemBanh.Views.Usercontrol
+namespace BakeryManagementSystem.Views.Usercontrols
 {
     public partial class UclQLNV : DevExpress.XtraEditors.XtraUserControl
     {
@@ -36,7 +36,7 @@ namespace DoAnQLTiemBanh.Views.Usercontrol
 
         #region Thuộc tính
         private QuanLyNhanVien qlNhanVien = new QuanLyNhanVien();
-        private ChucVu chucVuBLL = new ChucVu(); // Sửa lại tên biến
+        private ChucVu chucVu = new ChucVu(); // Sửa lại tên biến
         private bool themMoi = false;
         #endregion
 
@@ -149,7 +149,7 @@ namespace DoAnQLTiemBanh.Views.Usercontrol
         {
             try
             {
-                DataTable dt = await chucVuBLL.LayDSChucVuAsync(); // Gọi phương thức async
+                DataTable dt = await chucVu.LayDSChucVuAsync(); // Gọi phương thức async
                 if (dt.Rows.Count > 0)
                 {
                     cmbChucVu.DataSource = dt;

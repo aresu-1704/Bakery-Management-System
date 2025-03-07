@@ -270,11 +270,11 @@
     <Compile Include="Views\Usercontrols\UclPOS.Designer.cs">
       <DependentUpon>UclPOS.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Usercontrols\uclQuanLyNV.cs">
+    <Compile Include="Views\Usercontrols\UclQLNV.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Usercontrols\uclQuanLyNV.Designer.cs">
-      <DependentUpon>uclQuanLyNV.cs</DependentUpon>
+    <Compile Include="Views\Usercontrols\UclQLNV.Designer.cs">
+      <DependentUpon>UclQLNV.cs</DependentUpon>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -530,8 +530,8 @@
     <EmbeddedResource Include="Views\Usercontrols\UclPOS.resx">
       <DependentUpon>UclPOS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Usercontrols\uclQuanLyNV.resx">
-      <DependentUpon>uclQuanLyNV.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Usercontrols\UclQLNV.resx">
+      <DependentUpon>UclQLNV.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
