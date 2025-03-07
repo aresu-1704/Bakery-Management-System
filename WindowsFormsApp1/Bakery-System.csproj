@@ -43,6 +43,9 @@
     <Reference Include="DevExpress.Utils.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Google.Api.CommonProtos, Version=2.16.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Api.CommonProtos.2.16.0\lib\net461\Google.Api.CommonProtos.dll</HintPath>
     </Reference>
@@ -168,6 +171,7 @@
     <Compile Include="Controllers\QuanLyBanHang.cs" />
     <Compile Include="Controllers\QuanLyKhachHang.cs" />
     <Compile Include="Controllers\QuanLyKho.cs" />
+    <Compile Include="Controllers\QuanLyKhuyenMai.cs" />
     <Compile Include="Controllers\QuanLyNhanVien.cs" />
     <Compile Include="Controllers\QuanLySanPham.cs" />
     <Compile Include="Models\Ban.cs" />
@@ -259,6 +263,12 @@
     </Compile>
     <Compile Include="Views\Usercontrols\UclPOS.Designer.cs">
       <DependentUpon>UclPOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclQLSanPham.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclQLSanPham.Designer.cs">
+      <DependentUpon>UclQLSanPham.cs</DependentUpon>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -513,6 +523,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclPOS.resx">
       <DependentUpon>UclPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclQLSanPham.resx">
+      <DependentUpon>UclQLSanPham.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

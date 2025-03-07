@@ -72,6 +72,7 @@
             this.lblLoGo = new System.Windows.Forms.Label();
             this.lblTieuDe = new System.Windows.Forms.Label();
             this.picBackGr = new System.Windows.Forms.PictureBox();
+            this.uclQLSanPham1 = new BakeryManagementSystem.Views.Usercontrols.UclQLSanPham();
             ((System.ComponentModel.ISupportInitialize)(this.accChucNang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -464,6 +465,7 @@
             // fluentDesignFormContainer1
             // 
             this.fluentDesignFormContainer1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.fluentDesignFormContainer1.Controls.Add(this.uclQLSanPham1);
             this.fluentDesignFormContainer1.Controls.Add(this.uclKhoNguyenLieu);
             this.fluentDesignFormContainer1.Controls.Add(this.uclPOS);
             this.fluentDesignFormContainer1.Controls.Add(this.uclBan);
@@ -536,6 +538,15 @@
             this.picBackGr.Size = new System.Drawing.Size(1612, 1004);
             this.picBackGr.TabIndex = 16;
             this.picBackGr.TabStop = false;
+            // 
+            // uclQLSanPham1
+            // 
+            this.uclQLSanPham1.Appearance.BackColor = System.Drawing.Color.Linen;
+            this.uclQLSanPham1.Appearance.Options.UseBackColor = true;
+            this.uclQLSanPham1.Location = new System.Drawing.Point(3, 3);
+            this.uclQLSanPham1.Name = "uclQLSanPham1";
+            this.uclQLSanPham1.Size = new System.Drawing.Size(1606, 998);
+            this.uclQLSanPham1.TabIndex = 57;
             // 
             // frmGiaoDienChinh
             // 
@@ -611,5 +622,6 @@
         private Usercontrols.UclPOS uclPOS;
         private Usercontrols.UclBan uclBan;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
+        private Usercontrols.UclQLSanPham uclQLSanPham1;
     }
 }

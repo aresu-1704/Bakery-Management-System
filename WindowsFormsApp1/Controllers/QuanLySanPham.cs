@@ -22,9 +22,9 @@ namespace BakeryManagementSystem.Controllers
             await hangHoa.CapNhatTTSPAsync(hangHoa);
         }
 
-        public async Task<DataTable> LaySanPhamAsync(int maHH)
+        public async Task<DataTable> LaySanPhamAsync(string maHH)
         {
-            return await hangHoa.LaySanPhamAsync(maHH);
+            return await hangHoa.LaySanPhamAsync(int.Parse(maHH));
         }
 
         public async Task ThemSPAsync(HangHoa hangHoa)
@@ -32,14 +32,14 @@ namespace BakeryManagementSystem.Controllers
             await hangHoa.ThemSPAsync(hangHoa);
         }
 
-        public async Task XoaSPAsync(int maHH)
+        public async Task XoaSPAsync(string maHH)
         {
-            await hangHoa.XoaSPAsync(maHH);
+            await hangHoa.XoaSPAsync(int.Parse(maHH));
         }
 
-        public async Task ThemLaiSPAsync(int maHH)
+        public async Task ThemLaiSPAsync(string maHH)
         {
-            await hangHoa.BanLaiSPAsync(maHH);
+            await hangHoa.BanLaiSPAsync(int.Parse(maHH));
         }
 
         public async Task<DataTable> LayDSSPKhuyenMaiAsync(string maKM)
