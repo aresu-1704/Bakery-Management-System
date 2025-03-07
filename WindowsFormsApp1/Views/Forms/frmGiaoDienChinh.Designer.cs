@@ -66,13 +66,13 @@
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
+            this.uclQLSanPham = new BakeryManagementSystem.Views.Usercontrols.UclQLSanPham();
             this.uclKhoNguyenLieu = new BakeryManagementSystem.Views.Usercontrols.UclKhoNguyenLieu();
             this.uclPOS = new BakeryManagementSystem.Views.Usercontrols.UclPOS();
             this.uclBan = new BakeryManagementSystem.Views.Usercontrols.UclBan();
             this.lblLoGo = new System.Windows.Forms.Label();
             this.lblTieuDe = new System.Windows.Forms.Label();
             this.picBackGr = new System.Windows.Forms.PictureBox();
-            this.uclQLSanPham1 = new BakeryManagementSystem.Views.Usercontrols.UclQLSanPham();
             ((System.ComponentModel.ISupportInitialize)(this.accChucNang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -465,7 +465,7 @@
             // fluentDesignFormContainer1
             // 
             this.fluentDesignFormContainer1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.fluentDesignFormContainer1.Controls.Add(this.uclQLSanPham1);
+            this.fluentDesignFormContainer1.Controls.Add(this.uclQLSanPham);
             this.fluentDesignFormContainer1.Controls.Add(this.uclKhoNguyenLieu);
             this.fluentDesignFormContainer1.Controls.Add(this.uclPOS);
             this.fluentDesignFormContainer1.Controls.Add(this.uclBan);
@@ -477,6 +477,15 @@
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
             this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1612, 1004);
             this.fluentDesignFormContainer1.TabIndex = 0;
+            // 
+            // uclQLSanPham
+            // 
+            this.uclQLSanPham.Appearance.BackColor = System.Drawing.Color.Linen;
+            this.uclQLSanPham.Appearance.Options.UseBackColor = true;
+            this.uclQLSanPham.Location = new System.Drawing.Point(3, 3);
+            this.uclQLSanPham.Name = "uclQLSanPham";
+            this.uclQLSanPham.Size = new System.Drawing.Size(1606, 998);
+            this.uclQLSanPham.TabIndex = 57;
             // 
             // uclKhoNguyenLieu
             // 
@@ -538,15 +547,6 @@
             this.picBackGr.Size = new System.Drawing.Size(1612, 1004);
             this.picBackGr.TabIndex = 16;
             this.picBackGr.TabStop = false;
-            // 
-            // uclQLSanPham1
-            // 
-            this.uclQLSanPham1.Appearance.BackColor = System.Drawing.Color.Linen;
-            this.uclQLSanPham1.Appearance.Options.UseBackColor = true;
-            this.uclQLSanPham1.Location = new System.Drawing.Point(3, 3);
-            this.uclQLSanPham1.Name = "uclQLSanPham1";
-            this.uclQLSanPham1.Size = new System.Drawing.Size(1606, 998);
-            this.uclQLSanPham1.TabIndex = 57;
             // 
             // frmGiaoDienChinh
             // 
@@ -622,6 +622,6 @@
         private Usercontrols.UclPOS uclPOS;
         private Usercontrols.UclBan uclBan;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
-        private Usercontrols.UclQLSanPham uclQLSanPham1;
+        private Usercontrols.UclQLSanPham uclQLSanPham;
     }
 }

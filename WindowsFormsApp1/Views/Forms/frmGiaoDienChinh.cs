@@ -116,7 +116,7 @@ namespace BakeryManagementSystem.Views.Forms
         private void btnQLSanPham_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclQLSanPham.activited();
+            uclQLSanPham.activited();
         }
 
         private void btnKhuyenMai_Click(object sender, EventArgs e)
