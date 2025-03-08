@@ -140,7 +140,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
             gbxThongTinLienLac.Enabled = enable;
         }
 
-        #region load DS Khuyến mãi
+        #region Load DS Khuyến mãi
         private async void loadKM()
         {
             gctNguyenLieu.DataSource = null;
