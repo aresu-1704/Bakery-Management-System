@@ -50,8 +50,8 @@ namespace BakeryManagementSystem.Models
         public async Task<DataTable> LaySanPhamAsync(int maHH)
         {
             string query = "sp_LayTTChiDinhSanPham @MaHH";
-            var parameters = new Dictionary<string, object> 
-            { 
+            var parameters = new Dictionary<string, object>
+            {
                 { "@MaHH", maHH }
             };
             return await data.GetDataAsync(query, parameters);
@@ -74,9 +74,9 @@ namespace BakeryManagementSystem.Models
         public async Task XoaSPAsync(int maHH)
         {
             string query = "sp_XoaSP @MaHH";
-            var parameters = new Dictionary<string, object> 
-            { 
-                { "@MaHH", maHH } 
+            var parameters = new Dictionary<string, object>
+            {
+                { "@MaHH", maHH }
             };
             await data.ExecuteQueryAsync(query, parameters);
         }
@@ -84,8 +84,8 @@ namespace BakeryManagementSystem.Models
         public async Task BanLaiSPAsync(int maHH)
         {
             string query = "sp_BanLai @MaHH";
-            var parameters = new Dictionary<string, object> 
-            { 
+            var parameters = new Dictionary<string, object>
+            {
                 { "@MaHH", maHH }
             };
             await data.ExecuteQueryAsync(query, parameters);
@@ -95,7 +95,7 @@ namespace BakeryManagementSystem.Models
         {
             string query = "sp_LayDSSPDangKM @MaKM";
             var parameters = new Dictionary<string, object>
-            { 
+            {
                 { "@MaKM", maKM }
             };
             return await data.GetDataAsync(query, parameters);
