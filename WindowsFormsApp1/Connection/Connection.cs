@@ -43,7 +43,7 @@ namespace Connection
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Lỗi truy vấn: " + ex.Message);
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return dt;
         }
@@ -78,7 +78,7 @@ namespace Connection
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Lỗi truy vấn: " + ex.Message);
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -107,7 +107,7 @@ namespace Connection
             }
             catch (Exception ex)
             {
-                MessageBox.Show("❌ Lỗi truy vấn: " + ex.Message);
+                MessageBox.Show(ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
