@@ -42,6 +42,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
         #region Load danh sách Sản phẩm
         private async void loadDSSanPham(int filter)
         {
+            pgpLoading.Visible = true;
             dgvDSSanPham.Rows.Clear();
 
             DataTable dt = await Task.Run(() =>
@@ -109,6 +110,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     }
                 }
             }
+            pgpLoading.Visible = false;
         }
         #endregion
 
@@ -144,6 +146,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
         #region Load DS Khuyến mãi
         private async void loadKM()
         {
+            pgpLoading.Visible = true;
             gctNguyenLieu.DataSource = null;
             DataTable dt = await Task.Run(() =>
             {
@@ -159,6 +162,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
             dgvNguyenLieu.Columns["Ngày bắt đầu"].Visible = false;
             dgvNguyenLieu.Columns["Ngày kết thúc"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             dgvNguyenLieu.Columns["Ngày kết thúc"].DisplayFormat.FormatString = "dd/MM/yyyy";
+            pgpLoading.Visible = false;
         }
         #endregion
 
@@ -575,6 +579,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
         public void activited()
         {
+            pgpLoading.Visible = true;
             themMoi = false;
             loadKM();
             loadKMVaoCMB();
@@ -588,6 +593,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
             btnThem.Enabled = true;
             dgvDSSanPham.ClearSelection();
             this.Visible = true;
+            pgpLoading.Visible = false;
         }
 
         private void btnXoaChucVu_Click(object sender, EventArgs e)
