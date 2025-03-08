@@ -1,11 +1,4 @@
-﻿using BakeryManagementSystem.Controllers;
-using BakeryManagementSystem.Models;
-using BakeryManagementSystem.Views.Forms;
-using DevExpress.XtraEditors;
-using DevExpress.XtraExport.Xls;
-using BakeryManagementSystem.Properties;
-using Excel = Microsoft.Office.Interop.Excel; 
-using System.Text;
+﻿using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,30 +6,25 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Word = Microsoft.Office.Interop.Word;
+using Excel = Microsoft.Office.Interop.Excel;
 using ExcelDataReader;
+using System.Globalization;
+using BakeryManagementSystem.Models;
+using BakeryManagementSystem.Controllers;
 
-namespace BakeryManagementSystem.Views.Usercontrols
+namespace BakeryManagementSystem.Views.Usercontrol
 {
     public partial class UclQLNV : DevExpress.XtraEditors.XtraUserControl
     {
-
-        //private QuanLySanPham qlSanPham = new QuanLySanPham();
-        //private QuanLyBanAn qlBanAn = new QuanLyBanAn();
-        //private QuanLyBanHang qlBanHang = new QuanLyBanHang();
-        //private QuanLyKhachHang qlKhachHang = new QuanLyKhachHang();
-        //private int maNVThuNgan = 0;
-        //private int maKH = -1;
-
         #region Thuộc tính
         private QuanLyNhanVien qlNhanVien = new QuanLyNhanVien();
-        private ChucVu chucVu = new ChucVu(); // Sửa lại tên biến
+        private ChucVu chucVu = new ChucVu();
         private bool themMoi = false;
         #endregion
 
@@ -70,10 +58,15 @@ namespace BakeryManagementSystem.Views.Usercontrols
             }
         }
 
-        private async Task loadDSNhanVien(int filter)
+
+
+        private async void loadDSNhanVien(int filter)
         {
             dgvDanhSachNV.Rows.Clear();
-            DataTable dt = await qlNhanVien.LayDSNhanVienAsync();
+            DataTable dt = await Task.Run(() =>
+            {
+                return qlNhanVien.LayDSNhanVienAsync();
+            });
             if (dt.Rows.Count == 0)
             {
                 return;
@@ -129,9 +122,9 @@ namespace BakeryManagementSystem.Views.Usercontrols
             }
         }
 
-        private async void UclQLNV_Load(object sender, EventArgs e)
+        private void UclQLNV_Load(object sender, EventArgs e)
         {
-            await loadDSNhanVien(cmbLoc.SelectedIndex);
+            loadDSNhanVien(cmbLoc.SelectedIndex);
             loadChucVu();
             dgvDanhSachNV.ClearSelection();
             ckcNam.Checked = true;
@@ -147,28 +140,24 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
         private async void loadChucVu()
         {
-            try
+            DataTable dt = await Task.Run(() =>
             {
-                DataTable dt = await chucVu.LayDSChucVuAsync(); // Gọi phương thức async
-                if (dt.Rows.Count > 0)
-                {
-                    cmbChucVu.DataSource = dt;
-                    cmbChucVu.ValueMember = "MaCV";
-                    cmbChucVu.DisplayMember = "TenCV";
-                    cmbChucVu.Enabled = true;
-                    cmbChucVu.SelectedIndex = -1;
-                }
-                else
-                {
-                    cmbChucVu.Enabled = false;
-                }
+                return chucVu.LayChucVuAsync();
+            });
+
+            if (dt.Rows.Count > 0)
+            {
+                cmbChucVu.DataSource = dt;
+                cmbChucVu.ValueMember = "MaCV";
+                cmbChucVu.DisplayMember = "TenCV";
+                cmbChucVu.Enabled = true;
+                cmbChucVu.SelectedIndex = -1;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Lỗi khi tải chức vụ: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbChucVu.Enabled = false;
             }
         }
-
 
 
         #region Kiểm tra dữ liệu rỗng
@@ -195,32 +184,32 @@ namespace BakeryManagementSystem.Views.Usercontrols
         {
             try
             {
+
+
                 themMoi = false;
                 btnLamMoi.Enabled = true;
                 btnThem.Enabled = false;
                 setEnable(false);
-
-                string maNV = dgvDanhSachNV.Rows[e.RowIndex].Cells[1].Value?.ToString();
-                if (string.IsNullOrEmpty(maNV))
-                    return;
-
-                DataTable dt = await qlNhanVien.LayNhanVienAsync(maNV);
+                DataTable dt = await Task.Run(() =>
+                {
+                    return qlNhanVien.LayNhanVienAsync(dgvDanhSachNV.Rows[e.RowIndex].Cells[1].Value?.ToString());
+                });
                 if (dt.Rows.Count > 0)
                 {
-                    picAnh.Image = dt.Rows[0]["HinhAnh"] != DBNull.Value ? chuyenByteSangAnh(dt.Rows[0]["HinhAnh"] as byte[]) : Resources._22_223863_no_avatar_png_circle_transparent_png;
+                    picAnh.Image = dt.Rows[0]["HinhAnh"] != DBNull.Value ? chuyenByteSangAnh(dt.Rows[0]["HinhAnh"] as byte[]) : Properties.Resources._22_223863_no_avatar_png_circle_transparent_png;
                     txtHo.Text = dt.Rows[0]["Ho"].ToString();
                     txtTen.Text = dt.Rows[0]["Ten"].ToString();
                     txtSoDienThoai.Text = dt.Rows[0]["SoDienThoai"].ToString();
                     txtEmail.Text = dt.Rows[0]["Email"].ToString();
                     dptNgaySinh.EditValue = Convert.ToDateTime(dt.Rows[0]["NgaySinh"]);
                     txtDiaChi.Text = dt.Rows[0]["DiaChi"].ToString();
-                    checkGioiTinh(dt.Rows[0]["GioiTinh"].ToString() == "Nam");
+                    if (dt.Rows[0]["GioiTinh"].ToString() == "Nam") checkGioiTinh(true);
+                    else checkGioiTinh(false);
                     txtQueQuan.Text = dt.Rows[0]["QueQuan"].ToString();
                     txtCCCD.Text = dt.Rows[0]["CCCD"].ToString();
                     cmbQuocTich.Text = dt.Rows[0]["QuocTich"].ToString();
                     cmbChucVu.SelectedValue = dt.Rows[0]["MaCV"];
                     dptNgayThue.EditValue = Convert.ToDateTime(dt.Rows[0]["NgayThue"]);
-
                     if ((bool)dt.Rows[0]["TrangThai"] == false)
                     {
                         btnThemLai.Visible = true;
@@ -236,7 +225,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải thông tin nhân viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -278,7 +266,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
         private void setDataNull()
         {
-            picAnh.Image = Resources._22_223863_no_avatar_png_circle_transparent_png;
+            picAnh.Image = Properties.Resources._22_223863_no_avatar_png_circle_transparent_png;
             txtHo.Text = null;
             txtTen.Text = null;
             txtSoDienThoai.Text = null;
@@ -507,54 +495,72 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
         private async void btnLuu_Click(object sender, EventArgs e)
         {
-            if (!checkEmail())
+            if (checkEmail() == false)
+            {
                 return;
+            }
 
-            if (!CheckNull())
+            if (CheckNull() == false)
             {
                 MessageBox.Show("Không bỏ trống bất cứ thông tin nào !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             try
             {
-                NhanVien nhanVien = new NhanVien
-                {
-                    Ho = txtHo.Text.Trim(),
-                    Ten = txtTen.Text.Trim(),
-                    SoDienThoai = txtSoDienThoai.Text,
-                    Email = txtEmail.Text,
-                    DiaChi = txtDiaChi.Text,
-                    NgaySinh = dptNgaySinh.DateTime,
-                    GioiTinh = ckcNam.Checked,
-                    QueQuan = txtQueQuan.Text,
-                    CCCD = txtCCCD.Text,
-                    QuocTich = cmbQuocTich.Text,
-                    NgayThue = dptNgayThue.DateTime,
-                    MaCV = cmbChucVu.DataSource != null && cmbChucVu.SelectedIndex != -1 ? int.Parse(cmbChucVu.SelectedValue.ToString()) : -1,
-                    HinhAnh = ImageToByteArray(picAnh.Image),
-                    TrangThai = true
-                };
-
                 if (themMoi)
                 {
+                    // Tạo đối tượng nhân viên mới
+                    NhanVien nhanVien = new NhanVien()
+                    {
+                        Ho = txtHo.Text.Trim(),
+                        Ten = txtTen.Text.Trim(),
+                        SoDienThoai = txtSoDienThoai.Text,
+                        Email = txtEmail.Text,
+                        DiaChi = txtDiaChi.Text,
+                        NgaySinh = dptNgaySinh.DateTime,
+                        GioiTinh = ckcNam.Checked,
+                        QueQuan = txtQueQuan.Text,
+                        CCCD = txtCCCD.Text,
+                        QuocTich = cmbQuocTich.Text,
+                        NgayThue = dptNgayThue.DateTime,
+                        MaCV = cmbChucVu.DataSource != null && cmbChucVu.SelectedIndex != -1 ? int.Parse(cmbChucVu.SelectedValue.ToString()) : -1,
+                        HinhAnh = ImageToByteArray(picAnh.Image),
+                        TrangThai = true,
+                    };
                     await qlNhanVien.ThemNVAsync(nhanVien);
+                    themMoi = false;
                     MessageBox.Show("Thêm mới thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    nhanVien.MaNV = int.Parse(dgvDanhSachNV.CurrentRow.Cells[1].Value.ToString());
+                    NhanVien nhanVien = new NhanVien()
+                    {
+                        MaNV = int.Parse(dgvDanhSachNV.CurrentRow.Cells[1].Value.ToString()),
+                        Ho = txtHo.Text.Trim(),
+                        Ten = txtTen.Text.Trim(),
+                        SoDienThoai = txtSoDienThoai.Text,
+                        Email = txtEmail.Text,
+                        DiaChi = txtDiaChi.Text,
+                        NgaySinh = dptNgaySinh.DateTime,
+                        GioiTinh = ckcNam.Checked ? true : false,
+                        QueQuan = txtQueQuan.Text,
+                        CCCD = txtCCCD.Text,
+                        QuocTich = cmbQuocTich.Text,
+                        NgayThue = dptNgayThue.DateTime,
+                        MaCV = cmbChucVu.DataSource != null && cmbChucVu.SelectedIndex != -1 ? int.Parse(cmbChucVu.SelectedValue.ToString()) : -1,
+                        HinhAnh = ImageToByteArray(picAnh.Image),
+                    };
                     await qlNhanVien.CapNhatNVAsync(nhanVien);
                     MessageBox.Show("Cập nhật thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
                 setDataNull();
-                await loadDSNhanVien(cmbLoc.SelectedIndex);
+                loadDSNhanVien(cmbLoc.SelectedIndex);
                 btnThem.Enabled = true;
                 btnSua.Enabled = false;
                 btnLuu.Enabled = false;
                 btnXoa.Enabled = false;
                 btnLamMoi.Enabled = false;
+                btnXoa.Enabled = false;
                 setEnable(false);
             }
             catch (SqlException ex)
@@ -567,10 +573,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
                 {
                     MessageBox.Show("Nhân viên chưa đủ 18 tuổi !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -629,37 +631,52 @@ namespace BakeryManagementSystem.Views.Usercontrols
             setEnable(false);
         }
 
-        private void btnXuatRaExcel_Click(object sender, EventArgs e)
+        private async void btnXuatRaExcel_Click(object sender, EventArgs e)
         {
             try
             {
-                DataTable dtNhanVien = qlNhanVien.LayDSNhanVienAsync().Result;
+
+                // Gọi phương thức để lấy danh sách nhân viên
+                DataTable dtNhanVien = await Task.Run(() =>
+                {
+                    return qlNhanVien.LayDSNhanVienAsync();
+                });
 
                 if (dtNhanVien.Columns.Contains("HinhAnh"))
+                {
                     dtNhanVien.Columns.Remove("HinhAnh");
+                }
 
                 if (dtNhanVien.Columns.Contains("TrangThai"))
+                {
                     dtNhanVien.Columns.Remove("TrangThai");
+                }
 
+
+                // Tạo một ứng dụng Excel mới
                 Excel.Application excelApp = new Excel.Application();
-                excelApp.Visible = false;
+                excelApp.Visible = false; // Không hiển thị Excel trong quá trình xuất
 
+                // Tạo một workbook và worksheet mới
                 Excel.Workbook workbook = excelApp.Workbooks.Add();
                 Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Sheets[1];
 
+                // Xuất tiêu đề cột
                 for (int i = 0; i < dtNhanVien.Columns.Count; i++)
                 {
-                    worksheet.Cells[1, i + 1] = dtNhanVien.Columns[i].ColumnName;
+                    worksheet.Cells[1, i + 1] = dtNhanVien.Columns[i].ColumnName; // Gán tên cột
                 }
 
+                // Xuất dữ liệu
                 for (int i = 0; i < dtNhanVien.Rows.Count; i++)
                 {
                     for (int j = 0; j < dtNhanVien.Columns.Count; j++)
                     {
-                        worksheet.Cells[i + 2, j + 1] = dtNhanVien.Rows[i][j];
+                        worksheet.Cells[i + 2, j + 1] = dtNhanVien.Rows[i][j]; // Gán giá trị
                     }
                 }
 
+                // Lưu file Excel
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "Excel Files|*.xlsx|All Files|*.*";
                 saveFileDialog.Title = "Save an Excel File";
@@ -676,17 +693,20 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     return;
                 }
 
+                // Đóng workbook và ứng dụng Excel
                 workbook.Close();
                 excelApp.Quit();
 
+                // Giải phóng bộ nhớ
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Excel không tồn tại trên máy hoặc không có bản quyền", "Microsoft Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Exel không tồn tại trên máy hoặc không có bản quyền", "Microsoft Exel", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
         }
 
         private async void btnXoa_Click(object sender, EventArgs e)
@@ -694,27 +714,34 @@ namespace BakeryManagementSystem.Views.Usercontrols
             DialogResult result = MessageBox.Show("Bạn có muốn xóa nhân viên này ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                try
-                {
-                    int maNV = int.Parse(dgvDanhSachNV.CurrentRow.Cells[1].Value.ToString());
-                    await qlNhanVien.XoaNVAsync(maNV);
-                    MessageBox.Show("Đã xóa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    setDataNull();
-                    await loadDSNhanVien(cmbLoc.SelectedIndex);
-                    btnThem.Enabled = true;
-                    btnSua.Enabled = false;
-                    btnLuu.Enabled = false;
-                    btnXoa.Enabled = false;
-                    setEnable(false);
-                    btnLamMoi.Enabled = false;
-                    dgvDanhSachNV.ClearSelection();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi xóa nhân viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                await qlNhanVien.XoaNVAsync(int.Parse(dgvDanhSachNV.CurrentRow.Cells[1].Value.ToString()));
+                MessageBox.Show("Đã xóa !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                setDataNull();
+                loadDSNhanVien(cmbLoc.SelectedIndex);
+                btnThem.Enabled = true;
+                btnSua.Enabled = false;
+                btnLuu.Enabled = false;
+                btnXoa.Enabled = false;
+                setEnable(false);
+                btnLamMoi.Enabled = false;
+                dgvDanhSachNV.ClearSelection();
             }
+        }
+
+        private void cmbLoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadDSNhanVien(cmbLoc.SelectedIndex);
+            btnSua.Enabled = false;
+            btnLuu.Enabled = false;
+            btnXoa.Enabled = false;
+            cmbChucVu.Enabled = false;
+            dptNgayThue.Enabled = false;
+            btnXoaChucVu.Enabled = false;
+            btnThem.Enabled = true;
+            btnLamMoi.Enabled = false;
+            dgvDanhSachNV.ClearSelection();
+            setDataNull();
+            setEnable(false);
         }
 
         private async void btnThemLai_Click(object sender, EventArgs e)
@@ -722,32 +749,24 @@ namespace BakeryManagementSystem.Views.Usercontrols
             DialogResult result = MessageBox.Show("Bạn có muốn thêm lại nhân viên này ?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                try
-                {
-                    string maNV = dgvDanhSachNV.CurrentRow.Cells[1].Value.ToString();
-                    await qlNhanVien.ThemLaiNVAsync(maNV);
-                    MessageBox.Show("Đã thêm vào !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    setDataNull();
-                    await loadDSNhanVien(cmbLoc.SelectedIndex);
-                    btnThem.Enabled = true;
-                    btnSua.Enabled = false;
-                    btnLuu.Enabled = false;
-                    btnXoa.Enabled = false;
-                    cmbChucVu.Enabled = false;
-                    dptNgayThue.Enabled = false;
-                    btnXoaChucVu.Enabled = false;
-                    setEnable(false);
-                    btnLamMoi.Enabled = false;
-                    btnThemLai.Visible = false;
-                    dgvDanhSachNV.ClearSelection();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi thêm lại nhân viên: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                await qlNhanVien.ThemLaiNVAsync(dgvDanhSachNV.CurrentRow.Cells[1].Value.ToString());
+                MessageBox.Show("Đã thêm vào !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                setDataNull();
+                loadDSNhanVien(cmbLoc.SelectedIndex);
+                btnThem.Enabled = true;
+                btnSua.Enabled = false;
+                btnLuu.Enabled = false;
+                btnXoa.Enabled = false;
+                cmbChucVu.Enabled = false;
+                dptNgayThue.Enabled = false;
+                btnXoaChucVu.Enabled = false;
+                setEnable(false);
+                btnLamMoi.Enabled = false;
+                btnThemLai.Visible = false;
+                dgvDanhSachNV.ClearSelection();
             }
         }
+
         private void txtTimTheoMa_TextChanged(object sender, EventArgs e)
         {
             string searchText = txtTimTheoMa.Text.ToLower(); // Lấy văn bản tìm kiếm và chuyển thành chữ thường
@@ -789,6 +808,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
         private async void btnImportExcel_Click(object sender, EventArgs e)
         {
+
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
@@ -797,98 +817,96 @@ namespace BakeryManagementSystem.Views.Usercontrols
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string filePath = openFileDialog.FileName;
+                    // Kiểm tra xem tệp có tồn tại không
                     if (!File.Exists(filePath))
-                    {
-                        MessageBox.Show("Tệp Excel không tồn tại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                        throw new FileNotFoundException("Tệp Excel không tồn tại.");
 
-                    try
+                    // Thiết lập để đọc dữ liệu từ tệp Excel
+                    using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
                     {
-                        using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
+                        System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+                        using (var reader = ExcelReaderFactory.CreateReader(stream))
                         {
-                            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-                            using (var reader = ExcelReaderFactory.CreateReader(stream))
+                            var dataset = reader.AsDataSet();
+                            var table = dataset.Tables[0]; // Lấy sheet đầu tiên
+                            for (int i = 1; i < table.Rows.Count; i++) // Bắt đầu từ hàng thứ 2 bỏ qua tiêu đề
                             {
-                                var dataset = reader.AsDataSet();
-                                var table = dataset.Tables[0];
-
-                                for (int i = 1; i < table.Rows.Count; i++)
+                                try
                                 {
-                                    try
+                                    // Lấy dữ liệu từ các cột và kiểm tra dữ liệu hợp lệ
+                                    string ho = table.Rows[i][0].ToString().Trim();
+                                    string ten = table.Rows[i][1].ToString().Trim();
+                                    string soDienThoai = table.Rows[i][2].ToString();
+                                    string email = table.Rows[i][3].ToString();
+                                    if (!IsValidEmail(email))
                                     {
-                                        string ho = table.Rows[i][0].ToString().Trim();
-                                        string ten = table.Rows[i][1].ToString().Trim();
-                                        string soDienThoai = table.Rows[i][2].ToString();
-                                        string email = table.Rows[i][3].ToString();
-
-                                        if (!IsValidEmail(email))
-                                        {
-                                            MessageBox.Show($"Email không hợp lệ ở dòng {i + 1}.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                            continue;
-                                        }
-
-                                        string diaChi = table.Rows[i][4].ToString();
-                                        DateTime ngaySinh = DateTime.ParseExact(table.Rows[i][5].ToString().Trim(), "M/d/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
-                                        DateTime ngayThue = DateTime.ParseExact(table.Rows[i][10].ToString().Trim(), "M/d/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture);
-                                        bool gioiTinh = table.Rows[i][6].ToString().ToLower() == "nam";
-                                        string queQuan = table.Rows[i][7].ToString();
-                                        string cccd = table.Rows[i][8].ToString();
-                                        string quocTich = table.Rows[i][9].ToString();
-
-                                        NhanVien nhanVien = new NhanVien
-                                        {
-                                            Ho = ho,
-                                            Ten = ten,
-                                            SoDienThoai = soDienThoai,
-                                            Email = email,
-                                            DiaChi = diaChi,
-                                            NgaySinh = ngaySinh,
-                                            GioiTinh = gioiTinh,
-                                            QueQuan = queQuan,
-                                            CCCD = cccd,
-                                            QuocTich = quocTich,
-                                            NgayThue = ngayThue,
-                                            MaCV = -1,
-                                            TrangThai = true,
-                                            HinhAnh = ImageToByteArray(picAnh.Image)
-                                        };
-
-                                        await qlNhanVien.ThemNVAsync(nhanVien);
+                                        MessageBox.Show($"Email không hợp lệ . Hãy kiểm tra lại dữ liệu ở dòng thứ {i} !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        continue;
                                     }
-                                    catch (SqlException ex)
+                                    string diaChi = table.Rows[i][4].ToString();
+
+                                    // Kiểm tra ngày hợp lệ cho NgaySinh và NgayThue
+                                    string dateString = table.Rows[i][5].ToString().Trim(); // Chuỗi ngày tháng cần phân tích
+                                    DateTime ngaySinh;
+
+                                    DateTime.TryParseExact(dateString, "M/d/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out ngaySinh);
+
+                                    dateString = table.Rows[i][10].ToString().Trim();
+                                    DateTime ngayThue;
+                                    DateTime.TryParseExact(dateString, "M/d/yyyy hh:mm:ss tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out ngayThue);
+
+                                    // Các trường thông tin khác
+                                    bool gioiTinh = table.Rows[i][6].ToString().ToLower() == "nam";
+                                    string queQuan = table.Rows[i][7].ToString();
+                                    string cccd = table.Rows[i][8].ToString();
+                                    string quocTich = table.Rows[i][9].ToString();
+
+                                    // Gán dữ liệu vào đối tượng NhanVien
+                                    NhanVien nhanVien = new NhanVien()
                                     {
-                                        switch (ex.Number)
-                                        {
-                                            case 2627:
-                                                MessageBox.Show($"Email hoặc số điện thoại bị trùng ở dòng {i + 1}.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                break;
-                                            case 8152:
-                                                MessageBox.Show($"Chiều dài dữ liệu vượt quá giới hạn ở dòng {i + 1}.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                break;
-                                            case 547:
-                                                MessageBox.Show($"Nhân viên không đủ 18 tuổi ở dòng {i + 1}.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                break;
-                                            default:
-                                                MessageBox.Show($"Lỗi không xác định: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                                break;
-                                        }
-                                    }
-                                    catch (Exception ex)
+                                        Ho = ho,
+                                        Ten = ten,
+                                        SoDienThoai = soDienThoai,
+                                        Email = email,
+                                        DiaChi = diaChi,
+                                        NgaySinh = ngaySinh,
+                                        GioiTinh = gioiTinh,
+                                        QueQuan = queQuan,
+                                        CCCD = cccd,
+                                        QuocTich = quocTich,
+                                        NgayThue = ngayThue,
+                                        MaCV = -1,
+                                        TrangThai = true,
+                                        HinhAnh = ImageToByteArray(picAnh.Image),
+                                    };
+                                    await qlNhanVien.ThemNVAsync(nhanVien);
+                                }
+                                catch (SqlException ex)
+                                {
+                                    // Kiểm tra mã lỗi để xác định loại lỗi cụ thể
+                                    switch (ex.Number)
                                     {
-                                        MessageBox.Show($"Lỗi ở dòng {i + 1}: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        case 2627: // Lỗi cho ràng buộc độc nhất (Unique constraint violation)
+                                            MessageBox.Show($"Email hoặc số điện thoại bị trùng . Hãy kiểm tra lại dữ liệu ở dòng thứ {i} !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            break;
+
+                                        case 8152: // Lỗi cho chiều dài chuỗi quá lớn
+                                            MessageBox.Show($"Lỗi: Chiều dài dữ liệu vượt quá giới hạn cho phép. Hãy kiểm tra lại dữ liệu ở dòng thứ {i} !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            break;
+                                        case 547:
+                                            MessageBox.Show($"Lỗi: Nhân viên không đủ 18 tuổi. Hãy kiểm tra lại dữ liệu ở dòng thứ {i} !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            break;
+                                        default:
+                                            MessageBox.Show($"Lỗi không xác định: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            break;
                                     }
                                 }
                             }
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Lỗi khi đọc file Excel: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                 }
             }
-            await loadDSNhanVien(cmbLoc.SelectedIndex);
+            loadDSNhanVien(cmbLoc.SelectedIndex);
         }
 
         private void btnXoaChucVu_Click(object sender, EventArgs e)

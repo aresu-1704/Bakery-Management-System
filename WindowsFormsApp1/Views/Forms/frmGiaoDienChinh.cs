@@ -33,37 +33,35 @@ namespace BakeryManagementSystem.Views.Forms
             //capNhatTT.refresh += reLoadNV;
             //capNhatTT.ShowDialog();
         }
-        private void reLoadNV(object sender, EventArgs e)
-        {
-            if (uclQLNV.Visible)
-            {
-                setVisible();
-                uclQLNV.activited();
-            }
-        }
+        //private void reLoadNV(object sender, EventArgs e)
+        //{
+        //    if (uclQLNV.Visible)
+        //    {
+        //        setVisible();
+        //        uclQLNV.activited();
+        //    }
+        //}
         #endregion
 
         private void setVisible()
         {
 
             uclQLNV.Visible = false;
-
-            //uclChucVu.Visible = false;
-            //uclLichLamViec.Visible = false;
-            //uclNhaCungCap.Visible = false;
-            //uclLuong.Visible = false;
-            //uclQLSanPham.Visible = false;
-            //uclKhuyenMai.Visible = false;
+            uclChucVu.Visible = false;
+            //uclLichLamViec.Visible = false; //lehuy
+            uclNhaCungCap.Visible = false;
+            //uclLuong.Visible = false; //khong dung vao
+            //uclQLSanPham.Visible = false; //lehuy
+            //uclKhuyenMai.Visible = false; //lehuy
             uclPOS.Visible = false;
             uclBan.Visible = false;
-            //uclNhapHang.Visible = false;
+            uclNhapHang.Visible = false;
             //uclXemKhoNguyenLieu.Visible = false;
-            //uclKhachHangThanThiet.Visible = false;
-            //uclLichLam.Visible = false;
-            //uclLichSuMua.Visible = false;
-            //uclNhaBep.Visible = false;
-            //uclTinhTrangBep.Visible = false;
-
+            uclKhachHangThanThiet.Visible = false;
+            //uclLichLam.Visible = false; //lehuy
+            uclLichSuMua.Visible = false;
+            //uclNhaBep.Visible = false; //lehuy
+            //uclTinhTrangBep.Visible = false; //lehuy
             picBackGr.Visible = false;
             lblLoGo.Visible = false;
             lblTieuDe.Visible = false;
@@ -94,7 +92,7 @@ namespace BakeryManagementSystem.Views.Forms
         private void btnChucVu_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclChucVu.activited();
+            uclChucVu.activited();
         }
 
         private void btnPhanCong_Click(object sender, EventArgs e)
@@ -106,7 +104,7 @@ namespace BakeryManagementSystem.Views.Forms
         private void btnNhaCungCap_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclNhaCungCap.activited();
+            uclNhaCungCap.activited();
         }
 
         private void btnLuong_Click(object sender, EventArgs e)
@@ -142,7 +140,7 @@ namespace BakeryManagementSystem.Views.Forms
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclNhapHang.activited(maNVDangNhap);
+            uclNhapHang.activited(maNVDangNhap);
         }
 
         private void btnQLNL_Click(object sender, EventArgs e)
@@ -154,7 +152,7 @@ namespace BakeryManagementSystem.Views.Forms
         private void btnKHTT_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclKhachHangThanThiet.activited();
+            uclKhachHangThanThiet.activited();
         }
 
         private void btnXemLichLam_Click(object sender, EventArgs e)
@@ -166,7 +164,7 @@ namespace BakeryManagementSystem.Views.Forms
         private void btnLichSuMuaHang_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclLichSuMua.activited(maNVDangNhap);
+            uclLichSuMua.activited(maNVDangNhap);
         }
 
         private void btnNhaBep_Click(object sender, EventArgs e)
