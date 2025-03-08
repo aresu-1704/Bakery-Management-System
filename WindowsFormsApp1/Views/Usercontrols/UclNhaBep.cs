@@ -191,11 +191,5 @@ namespace BakeryManagementSystem.Views.Usercontrols
             btnHoanThanhTatCa.Enabled = false;
             MessageBox.Show("Đã hoàn thành tất cả !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        private void btnLayNguyenLieu_Click(object sender, EventArgs e)
-        {
-            frmLayNguyenLieu layNguyenLieu = new frmLayNguyenLieu();
-            layNguyenLieu.Show();
-        }
     }
 }

@@ -67,18 +67,27 @@ namespace BakeryManagementSystem.Views.Usercontrols
         {
             if(e.ColumnIndex == 5)
             {
-                try
+                string maNV = dgvLichPhanCong.Rows[e.RowIndex].Cells[7].Value.ToString();
+                string maPC = dgvLichPhanCong.Rows[e.RowIndex].Cells[6].Value.ToString();
+                if (dgvLichPhanCong.Rows[e.RowIndex].Cells[3].Value == Properties.Resources.icons8_x_28)
                 {
-                    string maNV = dgvLichPhanCong.Rows[e.RowIndex].Cells[7].Value.ToString();
-                    string maPC = dgvLichPhanCong.Rows[e.RowIndex].Cells[6].Value.ToString();
-                    await qlDiemDanh.DiemDanh(maNV, maPC);
+                    try
+                    {                        
+                        await qlDiemDanh.DiemDanh(maNV, maPC);
+                        LoadLichLam();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Chưa đến giờ vào ca hoặc đã quá thời gian điểm danh quy định !", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                { 
+                    await qlDiemDanh.HuyDiemDanh(maNV, maPC);
                     LoadLichLam();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Chưa đến giờ vào ca hoặc đã quá thời gian điểm danh quy định !", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
+
         }
 
         private void dgvLichPhanCong_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)

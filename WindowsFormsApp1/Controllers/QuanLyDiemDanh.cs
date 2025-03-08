@@ -22,5 +22,10 @@ namespace BakeryManagementSystem.Controllers
         {
             await chamCong.DiemDanhAsync(int.Parse(maNV), int.Parse(maPC));
         }
+
+        public async Task HuyDiemDanh(string maNV, string maPC)
+        {
+            await chamCong.HuyDiemDanhAsync(int.Parse(maNV), int.Parse(maPC));
+        }
     }
 }

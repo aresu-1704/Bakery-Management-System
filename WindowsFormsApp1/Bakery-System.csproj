@@ -211,6 +211,12 @@
     <Compile Include="Views\Forms\frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Forms\frmGiaoDienChinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frmGiaoDienChinh.Designer.cs">
+      <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\frmQuenMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,6 +264,12 @@
     </Compile>
     <Compile Include="Views\Usercontrols\UclKhuyenMai.Designer.cs">
       <DependentUpon>UclKhuyenMai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclNhaBep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclNhaBep.Designer.cs">
+      <DependentUpon>UclNhaBep.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Usercontrols\UclNutChon.cs">
       <SubType>UserControl</SubType>
@@ -513,6 +525,9 @@
     <EmbeddedResource Include="Views\Forms\frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frmGiaoDienChinh.resx">
+      <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frmQuenMatKhau.resx">
       <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
     </EmbeddedResource>
@@ -536,6 +551,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclKhuyenMai.resx">
       <DependentUpon>UclKhuyenMai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclNhaBep.resx">
+      <DependentUpon>UclNhaBep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclNutChon.resx">
       <DependentUpon>UclNutChon.cs</DependentUpon>

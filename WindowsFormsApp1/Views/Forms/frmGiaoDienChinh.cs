@@ -49,17 +49,19 @@ namespace BakeryManagementSystem.Views.Forms
             //uclLichLamViec.Visible = false;
             //uclNhaCungCap.Visible = false;
             //uclLuong.Visible = false;
-            //uclQLSanPham.Visible = false;
-            //uclKhuyenMai.Visible = false;
+            uclQLSanPham.Visible = false;
+            uclKhuyenMai.Visible = false;
             uclPOS.Visible = false;
             uclBan.Visible = false;
             //uclNhapHang.Visible = false;
             //uclXemKhoNguyenLieu.Visible = false;
+            uclKhoNguyenLieu.Visible = false;
             //uclKhachHangThanThiet.Visible = false;
             //uclLichLam.Visible = false;
             //uclLichSuMua.Visible = false;
-            //uclNhaBep.Visible = false;
-            //uclTinhTrangBep.Visible = false;
+            uclNhaBep.Visible = false;
+            uclTinhTrangBep.Visible = false;
+            uclDanhSachPhanCong.Visible = false;
 
             picBackGr.Visible = false;
             lblLoGo.Visible = false;

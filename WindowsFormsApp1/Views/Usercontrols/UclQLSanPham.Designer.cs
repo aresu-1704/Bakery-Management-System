@@ -72,6 +72,7 @@
             this.gbxNLCC = new DevExpress.XtraEditors.GroupControl();
             this.gctNguyenLieu = new DevExpress.XtraGrid.GridControl();
             this.dgvNguyenLieu = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.pgpLoading = new DevExpress.XtraWaitForm.ProgressPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxNhanVien)).BeginInit();
             this.gbxNhanVien.SuspendLayout();
@@ -93,7 +94,7 @@
             this.dgvDSSanPham.BackgroundColor = System.Drawing.Color.Linen;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SaddleBrown;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Bisque;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.SaddleBrown;
@@ -639,12 +640,36 @@
             this.dgvNguyenLieu.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.dgvNguyenLieu.OptionsSelection.EnableAppearanceHideSelection = false;
             // 
+            // pgpLoading
+            // 
+            this.pgpLoading.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pgpLoading.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pgpLoading.Appearance.ForeColor = System.Drawing.Color.Peru;
+            this.pgpLoading.Appearance.Options.UseBackColor = true;
+            this.pgpLoading.Appearance.Options.UseFont = true;
+            this.pgpLoading.Appearance.Options.UseForeColor = true;
+            this.pgpLoading.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pgpLoading.AppearanceCaption.ForeColor = System.Drawing.Color.Peru;
+            this.pgpLoading.AppearanceCaption.Options.UseFont = true;
+            this.pgpLoading.AppearanceCaption.Options.UseForeColor = true;
+            this.pgpLoading.AppearanceDescription.ForeColor = System.Drawing.Color.Peru;
+            this.pgpLoading.AppearanceDescription.Options.UseForeColor = true;
+            this.pgpLoading.Caption = "Đăng nhập thành công";
+            this.pgpLoading.Description = "Đang vào...";
+            this.pgpLoading.Location = new System.Drawing.Point(759, 3);
+            this.pgpLoading.Name = "pgpLoading";
+            this.pgpLoading.Size = new System.Drawing.Size(31, 38);
+            this.pgpLoading.TabIndex = 35;
+            this.pgpLoading.Text = "pgpDangNhapThanhCong";
+            this.pgpLoading.Visible = false;
+            // 
             // UclQLSanPham
             // 
             this.Appearance.BackColor = System.Drawing.Color.Linen;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pgpLoading);
             this.Controls.Add(this.gbxNLCC);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.txtTimTheoMa);
@@ -725,5 +750,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private DevExpress.XtraEditors.SimpleButton btnXoaChucVu;
+        private DevExpress.XtraWaitForm.ProgressPanel pgpLoading;
     }
 }

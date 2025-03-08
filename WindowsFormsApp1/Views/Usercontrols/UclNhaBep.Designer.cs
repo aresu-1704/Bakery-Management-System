@@ -385,7 +385,6 @@
             this.btnLayNguyenLieu.Size = new System.Drawing.Size(691, 50);
             this.btnLayNguyenLieu.TabIndex = 44;
             this.btnLayNguyenLieu.Text = "Lấy nguyên liệu";
-            this.btnLayNguyenLieu.Click += new System.EventHandler(this.btnLayNguyenLieu_Click);
             // 
             // btnNhanTatCa
             // 

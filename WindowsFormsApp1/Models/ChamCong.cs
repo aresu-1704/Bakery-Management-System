@@ -68,5 +68,18 @@ namespace BakeryManagementSystem.Models
 
             await data.ExecuteQueryAsync(query, parameters);
         }
+
+        public async Task HuyDiemDanhAsync(int maNV, int maPC)
+        {
+            string query = "EXEC sp_HuyDiemDanh @MaNV, @MaPC";
+
+            var parameters = new Dictionary<string, object>
+            {
+                { "@MaNV", maNV },
+                { "@MaPC", maPC }
+            };
+
+            await data.ExecuteQueryAsync(query, parameters);
+        }
     }
 }
