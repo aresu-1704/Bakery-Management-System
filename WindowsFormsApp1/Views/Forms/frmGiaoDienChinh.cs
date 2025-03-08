@@ -179,7 +179,7 @@ namespace BakeryManagementSystem.Views.Forms
             //uclTinhTrangBep.activited();
         }
 
-        private async void btnChamCong_Click(object sender, EventArgs e)
+        private void btnChamCong_Click(object sender, EventArgs e)
         {
             setVisible();
             uclDanhSachPhanCong.activited();

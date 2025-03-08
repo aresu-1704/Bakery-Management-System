@@ -41,7 +41,7 @@ namespace BakeryManagementSystem.Models
                 { "@GiaTien", hangHoa.GiaTien },
                 { "@SanCo", hangHoa.SanCo },
                 { "@HinhAnh", hangHoa.HinhAnh },
-                { "@MaKM", hangHoa.MaDotKhuyenMai == -1 ? null : hangHoa.MaDotKhuyenMai },
+                { "@MaKM", hangHoa.MaDotKhuyenMai == 0 ? 0 : hangHoa.MaDotKhuyenMai },
                 { "@MaHH", hangHoa.MaHH }
             };
             await data.ExecuteQueryAsync(query, parameters);
@@ -59,14 +59,14 @@ namespace BakeryManagementSystem.Models
 
         public async Task ThemSPAsync(HangHoa hangHoa)
         {
-            string query = "sp_ThemSP @TenHH, @SanCo, @GiaTien, @HinhAnh, @MaKM";
+            string query = "sp_ThemSP @TenHH, @SanCo, @HinhAnh, @GiaTien, @MaKM";
             var parameters = new Dictionary<string, object>
             {
                 { "@TenHH", hangHoa.TenHH },
                 { "@GiaTien", hangHoa.GiaTien },
                 { "@SanCo", hangHoa.SanCo },
                 { "@HinhAnh", hangHoa.HinhAnh },
-                { "@MaKM", hangHoa.MaDotKhuyenMai == -1 ? null : hangHoa.MaDotKhuyenMai }
+                { "@MaKM", hangHoa.MaDotKhuyenMai == 0 ? 0 : hangHoa.MaDotKhuyenMai }
             };
             await data.ExecuteQueryAsync(query, parameters);
         }

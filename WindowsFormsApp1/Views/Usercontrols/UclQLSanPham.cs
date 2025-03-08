@@ -43,14 +43,17 @@ namespace BakeryManagementSystem.Views.Usercontrols
         private async void loadDSSanPham(int filter)
         {
             dgvDSSanPham.Rows.Clear();
+
             DataTable dt = await Task.Run(() =>
             {
                 return qlSanPham.LayDSHangHoaAsync();
             });
+
             if (dt.Rows.Count == 0)
             {
                 return;
             }
+
             if (filter == 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
@@ -78,7 +81,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     }
                 }
             }
-            else
+            else if(filter == 1)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
@@ -127,9 +130,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
         #endregion
         private void UclQLNV_Load(object sender, EventArgs e)
         {
-            loadDSSanPham(cmbLoc.SelectedIndex);
-            loadKM();
-            loadKMVaoCMB();
+            setDataNull();
             dgvDSSanPham.ClearSelection();
             cmbLoc.SelectedIndex = 1;
         }
@@ -328,7 +329,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
                         TenHH = txtTen.Text.Trim(),
                         GiaTien = float.Parse(txtGiaTien.Text),
                         SanCo = int.Parse(txtSanCo.Text),
-                        MaDotKhuyenMai = cmbKhuyenMai.SelectedIndex != -1 ? int.Parse(cmbKhuyenMai.SelectedValue.ToString()) : -1,
+                        MaDotKhuyenMai = cmbKhuyenMai.SelectedIndex != -1 ? int.Parse(cmbKhuyenMai.SelectedValue.ToString()) : 0,
                         HinhAnh = ChuyenAnh.ImageToByteArray(picAnh.Image),
                     };
                     await qlSanPham.ThemSPAsync(hangHoa);
@@ -343,7 +344,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
                         TenHH = txtTen.Text.Trim(),
                         GiaTien = float.Parse(txtGiaTien.Text),
                         SanCo = int.Parse(txtSanCo.Text),
-                        MaDotKhuyenMai = cmbKhuyenMai.SelectedIndex != -1 ? int.Parse(cmbKhuyenMai.SelectedValue.ToString()) : -1,
+                        MaDotKhuyenMai = cmbKhuyenMai.SelectedIndex != -1 ? int.Parse(cmbKhuyenMai.SelectedValue.ToString()) : 0,
                         HinhAnh = ChuyenAnh.ImageToByteArray(picAnh.Image),
                     };
                     await qlSanPham.CapNhatTTSPAsync(hangHoa);
@@ -575,11 +576,9 @@ namespace BakeryManagementSystem.Views.Usercontrols
         public void activited()
         {
             themMoi = false;
-            loadDSSanPham(1);
             loadKM();
             loadKMVaoCMB();
-            setDataNull();
-            cmbLoc.SelectedIndex = 1;
+            setDataNull();            
             setEnable(false);
             btnLamMoi.Enabled = false;
             btnLuu.Enabled = false;
