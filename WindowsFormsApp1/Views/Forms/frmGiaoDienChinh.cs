@@ -178,6 +178,12 @@ namespace BakeryManagementSystem.Views.Forms
             setVisible();
             //uclTinhTrangBep.activited();
         }
+
+        private async void btnChamCong_Click(object sender, EventArgs e)
+        {
+            setVisible();
+            uclDanhSachPhanCong.activited();
+        }
         #endregion
 
         #region Phân quyền
@@ -243,36 +249,6 @@ namespace BakeryManagementSystem.Views.Forms
         }
         #endregion
 
-        #region Chấm công
-        private void btnChamCong_Click(object sender, EventArgs e)
-        {
-            //DataTable dt = chamCongBLL.layTTChamCongChuaHoanThanh(maNVDangNhap);
-            //if (dt.Rows.Count > 0)
-            //{
-            //    try
-            //    {
-            //        chamCongBLL.chamCongTanCa(maNVDangNhap);
-            //        MessageBox.Show(string.Format("Ngày: {0} - Đã tan ca - Thời gian tan ca là : {1} !",
-            //            DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm:ss")), "Chấm công",
-            //            MessageBoxButtons.OK,
-            //            MessageBoxIcon.Information);
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("Bạn đã vào ca trước đó,  30 phút sau mới được chấm công lại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    }
-            //}
-            //else
-            //{
-            //    chamCongBLL.chamCongVaoCa(maNVDangNhap);
-            //    MessageBox.Show(string.Format("Ngày: {0} - Đã vào ca - Thời gian vào ca là : {1} !",
-            //        DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm:ss")), "Chấm công",
-            //        MessageBoxButtons.OK,
-            //        MessageBoxIcon.Information);
-            //}
-        }
-        #endregion
-
         #region Thoát
         private void frmGiaoDienChinh_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -308,7 +284,7 @@ namespace BakeryManagementSystem.Views.Forms
 
         private void frmGiaoDienChinh_Load(object sender, EventArgs e)
         {
-            quyenBep();
+            quyenQuanLy();
         }
     }
 }

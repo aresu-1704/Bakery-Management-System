@@ -16,6 +16,7 @@ namespace BakeryManagementSystem.Models
         public bool? TinhTrangTraLuong { get; set; }
         public TimeSpan? Giovao { get; set; }
         public TimeSpan? Giotan { get; set; }
+        public int MaPC { get; set; }
 
         private Connections data = new Connections();
 
@@ -55,37 +56,14 @@ namespace BakeryManagementSystem.Models
             await data.ExecuteQueryAsync(query, parameters);
         }
 
-        public async Task<DataTable> LayThongTinChamCongChuaHoanThanhAsync(int maNV)
+        public async Task DiemDanhAsync(int maNV, int maPC)
         {
-            string query = "EXEC sp_LayLichChamCongChuaHoanThanh @MaNV";
+            string query = "EXEC sp_ChamCongVaoCa @MaNV, @MaPC";
 
             var parameters = new Dictionary<string, object>
             {
-                { "@MaNV", maNV }
-            };
-
-            return await data.GetDataAsync(query, parameters);
-        }
-
-        public async Task ChamCongVaoCaAsync(int maNV)
-        {
-            string query = "EXEC sp_ChamCongVaoCa @MaNV";
-
-            var parameters = new Dictionary<string, object>
-            {
-                { "@MaNV", maNV }
-            };
-
-            await data.ExecuteQueryAsync(query, parameters);
-        }
-
-        public async Task ChamCongTanCaAsync(int maNV)
-        {
-            string query = "EXEC sp_ChamCongTanCa @MaNV";
-
-            var parameters = new Dictionary<string, object>
-            {
-                { "@MaNV", maNV }
+                { "@MaNV", maNV },
+                { "@MaPC", maPC }
             };
 
             await data.ExecuteQueryAsync(query, parameters);

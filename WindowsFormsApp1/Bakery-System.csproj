@@ -169,6 +169,7 @@
     <Compile Include="Controllers\LayLaiMatKhau.cs" />
     <Compile Include="Controllers\QuanLyBanAn.cs" />
     <Compile Include="Controllers\QuanLyBanHang.cs" />
+    <Compile Include="Controllers\QuanLyDiemDanh.cs" />
     <Compile Include="Controllers\QuanLyKhachHang.cs" />
     <Compile Include="Controllers\QuanLyKho.cs" />
     <Compile Include="Controllers\QuanLyKhuyenMai.cs" />
@@ -251,6 +252,12 @@
     </Compile>
     <Compile Include="Views\Usercontrols\UclKhoNguyenLieu.Designer.cs">
       <DependentUpon>UclKhoNguyenLieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclDanhSachPhanCong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclDanhSachPhanCong.Designer.cs">
+      <DependentUpon>UclDanhSachPhanCong.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Usercontrols\UclNutChon.cs">
       <SubType>UserControl</SubType>
@@ -429,6 +436,8 @@
     <None Include="Resources\ICON1.png" />
     <Content Include="Resources\icons8-bakery-32.png" />
     <None Include="Resources\icons8-bakery-321.png" />
+    <None Include="Resources\icons8-check-dollar-48.png" />
+    <None Include="Resources\icons8-check-28.png" />
     <Content Include="Resources\icons8-clear-48.png" />
     <None Include="Resources\icons8-clear-481.png" />
     <Content Include="Resources\icons8-complete-16.png" />
@@ -453,6 +462,7 @@
     <None Include="Resources\icons8-woman-161.png" />
     <Content Include="Resources\icons8-woman-48.png" />
     <None Include="Resources\icons8-woman-481.png" />
+    <None Include="Resources\icons8-x-28.png" />
     <Content Include="Resources\inlinewithtext_32x32.png" />
     <None Include="Resources\inlinewithtext_32x321.png" />
     <Content Include="Resources\newdatasource_32x32.png" />
@@ -517,6 +527,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclKhoNguyenLieu.resx">
       <DependentUpon>UclKhoNguyenLieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclDanhSachPhanCong.resx">
+      <DependentUpon>UclDanhSachPhanCong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclNutChon.resx">
       <DependentUpon>UclNutChon.cs</DependentUpon>

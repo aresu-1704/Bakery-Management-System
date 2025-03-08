@@ -91,5 +91,12 @@ namespace BakeryManagementSystem.Models
 
             await data.ExecuteQueryAsync(query, parameters);
         }
+
+        public async Task<DataTable> LayLichLamViecHomNay()
+        {
+            string query = "EXEC sp_LayLichLamHomNay";
+
+            return await data.GetDataAsync(query);
+        }
     }
 }
