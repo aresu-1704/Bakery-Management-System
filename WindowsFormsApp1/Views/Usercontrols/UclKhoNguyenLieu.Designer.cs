@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UclKhoNguyenLieu));
             this.gbxDSBan = new DevExpress.XtraEditors.GroupControl();
             this.flpDanhSachKeNL = new System.Windows.Forms.FlowLayoutPanel();
@@ -56,6 +56,8 @@
             this.btnThemKe = new DevExpress.XtraEditors.SimpleButton();
             this.btnLayNguyenLieu = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
+            this.lblMaNL = new System.Windows.Forms.Label();
+            this.lblTenNL = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gbxDSBan)).BeginInit();
             this.gbxDSBan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxHoaDon)).BeginInit();
@@ -145,14 +147,14 @@
             this.dgvNguyenLieu.AllowUserToDeleteRows = false;
             this.dgvNguyenLieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNguyenLieu.BackgroundColor = System.Drawing.Color.Linen;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvNguyenLieu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Bisque;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Bisque;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNguyenLieu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvNguyenLieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvNguyenLieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
@@ -169,13 +171,13 @@
             this.dgvNguyenLieu.Name = "dgvNguyenLieu";
             this.dgvNguyenLieu.ReadOnly = true;
             this.dgvNguyenLieu.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Linen;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.PeachPuff;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.SaddleBrown;
-            this.dgvNguyenLieu.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Linen;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PeachPuff;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.SaddleBrown;
+            this.dgvNguyenLieu.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvNguyenLieu.RowTemplate.Height = 30;
             this.dgvNguyenLieu.RowTemplate.ReadOnly = true;
             this.dgvNguyenLieu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -354,6 +356,7 @@
             this.btnLayNguyenLieu.Size = new System.Drawing.Size(341, 48);
             this.btnLayNguyenLieu.TabIndex = 31;
             this.btnLayNguyenLieu.Text = "Lấy nguyên liệu";
+            this.btnLayNguyenLieu.Click += new System.EventHandler(this.btnLayNguyenLieu_Click);
             // 
             // btnLuu
             // 
@@ -371,12 +374,32 @@
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
+            // lblMaNL
+            // 
+            this.lblMaNL.AutoSize = true;
+            this.lblMaNL.Location = new System.Drawing.Point(918, 907);
+            this.lblMaNL.Name = "lblMaNL";
+            this.lblMaNL.Size = new System.Drawing.Size(35, 13);
+            this.lblMaNL.TabIndex = 37;
+            this.lblMaNL.Text = "label2";
+            // 
+            // lblTenNL
+            // 
+            this.lblTenNL.AutoSize = true;
+            this.lblTenNL.Location = new System.Drawing.Point(959, 907);
+            this.lblTenNL.Name = "lblTenNL";
+            this.lblTenNL.Size = new System.Drawing.Size(35, 13);
+            this.lblTenNL.TabIndex = 38;
+            this.lblTenNL.Text = "label4";
+            // 
             // UclKhoNguyenLieu
             // 
             this.Appearance.BackColor = System.Drawing.Color.Linen;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblTenNL);
+            this.Controls.Add(this.lblMaNL);
             this.Controls.Add(this.btnDoiTrangThai);
             this.Controls.Add(this.btnXoaKe);
             this.Controls.Add(this.btnThemKe);
@@ -433,5 +456,7 @@
         private DevExpress.XtraEditors.SimpleButton btnThemKe;
         private DevExpress.XtraEditors.SimpleButton btnXoaKe;
         private DevExpress.XtraEditors.SimpleButton btnDoiTrangThai;
+        private System.Windows.Forms.Label lblMaNL;
+        private System.Windows.Forms.Label lblTenNL;
     }
 }

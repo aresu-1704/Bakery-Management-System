@@ -43,7 +43,7 @@ namespace BakeryManagementSystem.Models
 
         public async Task<DataTable> LayDSMucLuongNVAsync()
         {
-            string query = "EXEC sp_LayDSMucLuongNV";
+            string query = "EXEC sp_LayDSTraLuongNV";
             return await data.GetDataAsync(query);
         }
 

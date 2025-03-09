@@ -21,7 +21,7 @@ namespace BakeryManagementSystem.Models
         private Connections data = new Connections();
 
         //Coi chừng khúc này
-        public async Task<DataTable> LayDSChamCongAsync(string maNV, string ngayBatDau, string ngayKetThuc)
+        public async Task<DataTable> LayDSChamCongAsync(int maNV, string ngayBatDau, string ngayKetThuc)
         {
             string query = "EXEC sp_LayLichChamCong @MaNV, @NgayBatDau, @NgayKetThuc";
 

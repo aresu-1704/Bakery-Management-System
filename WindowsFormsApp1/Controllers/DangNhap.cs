@@ -17,7 +17,6 @@ namespace BakeryManagementSystem.Controllers
     public class DangNhap
     {
         private TaiKhoan taiKhoan = new TaiKhoan();
-        private KmsEncryptionService kmsEncryptionService = new KmsEncryptionService();
         private BamMatKhau bamMatKhau = new BamMatKhau();
 
         //Đăng nhập

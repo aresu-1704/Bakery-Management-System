@@ -48,7 +48,7 @@ namespace BakeryManagementSystem.Views.Forms
             //uclChucVu.Visible = false;
             //uclLichLamViec.Visible = false;
             //uclNhaCungCap.Visible = false;
-            //uclLuong.Visible = false;
+            uclLuong.Visible = false;
             uclQLSanPham.Visible = false;
             uclKhuyenMai.Visible = false;
             uclPOS.Visible = false;
@@ -57,11 +57,12 @@ namespace BakeryManagementSystem.Views.Forms
             //uclXemKhoNguyenLieu.Visible = false;
             uclKhoNguyenLieu.Visible = false;
             //uclKhachHangThanThiet.Visible = false;
-            //uclLichLam.Visible = false;
+            uclLichLamViec.Visible = false;
             //uclLichSuMua.Visible = false;
             uclNhaBep.Visible = false;
             uclTinhTrangBep.Visible = false;
             uclDanhSachPhanCong.Visible = false;
+            uclPhanCong.Visible = false;
 
             picBackGr.Visible = false;
             lblLoGo.Visible = false;
@@ -100,7 +101,7 @@ namespace BakeryManagementSystem.Views.Forms
         private void btnPhanCong_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclLichLamViec.activited();
+            uclPhanCong.activited();
         }
 
         private void btnNhaCungCap_Click(object sender, EventArgs e)
@@ -112,7 +113,7 @@ namespace BakeryManagementSystem.Views.Forms
         private void btnLuong_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclLuong.activited();
+            uclLuong.activited();
         }
 
         private void btnQLSanPham_Click(object sender, EventArgs e)
@@ -160,7 +161,7 @@ namespace BakeryManagementSystem.Views.Forms
         private void btnXemLichLam_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclLichLam.activited(maNVDangNhap);
+            uclLichLamViec.activited(maNVDangNhap);
         }
 
         private void btnLichSuMuaHang_Click(object sender, EventArgs e)

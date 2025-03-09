@@ -13,7 +13,7 @@ namespace Connection
 
         public Connections()
         {
-            _connectionString = "Server=34.92.100.113,1433;Database=QuanLyTiemBanh;User Id=sqlserver;Password=Hello123Oke;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;";
+            _connectionString = "Server=MSI\\SQLSERVER;Database=QuanLyTiemBanh;User Id=sa;Password=1234567;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;\r\n";
         }
 
         // Truy vấn dữ liệu bất đồng bộ
