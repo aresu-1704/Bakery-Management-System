@@ -1,5 +1,6 @@
 ﻿using BakeryManagementSystem.Controllers;
 using BakeryManagementSystem.Models;
+using BakeryManagementSystem.Views.Forms;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -94,6 +95,8 @@ namespace BakeryManagementSystem.Views.Usercontrols
                 int maKhuVuc = int.Parse(dgvNguyenLieu.Rows[e.RowIndex].Cells[5].Value?.ToString());
                 int maNL = int.Parse(dgvNguyenLieu.Rows[e.RowIndex].Cells[6].Value?.ToString());
                 cmbViTri.SelectedIndex = maKhuVuc;
+                lblTenNL.Text = dgvNguyenLieu.Rows[e.RowIndex].Cells[1].Value?.ToString();
+                lblMaNL.Text = maNL.ToString();
                 this.maNL = maNL; 
                 btnLayNguyenLieu.Enabled = true;
                 btnLuu.Enabled = true;
@@ -151,6 +154,18 @@ namespace BakeryManagementSystem.Views.Usercontrols
             LoadDSKhoNguyenLieu();
             btnDoiTrangThai.Enabled = false;
             btnXoaKe.Enabled = false;
+        }
+
+        private void reLoad(object sender, EventArgs e)
+        {
+            XemNguyenLieu(maKhuVuc);
+        }
+
+        private void btnLayNguyenLieu_Click(object sender, EventArgs e)
+        {
+            frmLayNguyenLieu frmLayNguyenLieu = new frmLayNguyenLieu(lblMaNL.Text, lblTenNL.Text);
+            frmLayNguyenLieu.refresh += reLoad;
+            frmLayNguyenLieu.ShowDialog();
         }
     }
 }

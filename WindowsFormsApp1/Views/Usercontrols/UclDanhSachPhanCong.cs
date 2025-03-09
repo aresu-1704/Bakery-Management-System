@@ -48,8 +48,8 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     dgvLichPhanCong.Rows[newRowIdx].Cells[2].Value = dt.Rows[i]["GioTanCa"].ToString();
                     dgvLichPhanCong.Rows[newRowIdx].Cells[3].Value = int.Parse(dt.Rows[i]["TrangThai"].ToString()) == 1 
                         ? Properties.Resources.icons8_check_28 : Properties.Resources.icons8_x_28;
-                    dgvLichPhanCong.Rows[newRowIdx].Cells[4].Value = string.IsNullOrEmpty(dt.Rows[i]["giovao"].ToString()) 
-                        ? null : dt.Rows[i]["giovao"].ToString();
+                    dgvLichPhanCong.Rows[newRowIdx].Cells[4].Value = string.IsNullOrEmpty(dt.Rows[i]["GioVaoThuc"].ToString()) 
+                        ? null : dt.Rows[i]["GioVaoThuc"].ToString();
                     dgvLichPhanCong.Rows[newRowIdx].Cells[6].Value = dt.Rows[i]["MaPC"].ToString();
                     dgvLichPhanCong.Rows[newRowIdx].Cells[7].Value = dt.Rows[i]["MaNV"].ToString();
                 }
@@ -69,25 +69,15 @@ namespace BakeryManagementSystem.Views.Usercontrols
             {
                 string maNV = dgvLichPhanCong.Rows[e.RowIndex].Cells[7].Value.ToString();
                 string maPC = dgvLichPhanCong.Rows[e.RowIndex].Cells[6].Value.ToString();
-                if (dgvLichPhanCong.Rows[e.RowIndex].Cells[3].Value == Properties.Resources.icons8_x_28)
+                if (dgvLichPhanCong.Rows[e.RowIndex].Cells[4].Value != null)
                 {
-                    try
-                    {                        
-                        await qlDiemDanh.DiemDanh(maNV, maPC);
-                        LoadLichLam();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Chưa đến giờ vào ca hoặc đã quá thời gian điểm danh quy định !", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                { 
                     await qlDiemDanh.HuyDiemDanh(maNV, maPC);
                     LoadLichLam();
+                    return;
                 }
+                await qlDiemDanh.DiemDanh(maNV, maPC);
+                LoadLichLam();                
             }
-
         }
 
         private void dgvLichPhanCong_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)

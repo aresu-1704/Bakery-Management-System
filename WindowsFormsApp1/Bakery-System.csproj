@@ -175,6 +175,7 @@
     <Compile Include="Controllers\QuanLyKhuyenMai.cs" />
     <Compile Include="Controllers\QuanLyNhanVien.cs" />
     <Compile Include="Controllers\QuanLySanPham.cs" />
+    <Compile Include="Controllers\QuanLyTienLuong.cs" />
     <Compile Include="Models\Ban.cs" />
     <Compile Include="Models\ChamCong.cs" />
     <Compile Include="Models\ChiTietHoaDon.cs" />
@@ -216,6 +217,18 @@
     </Compile>
     <Compile Include="Views\Forms\frmGiaoDienChinh.Designer.cs">
       <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\frmLayNguyenLieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frmLayNguyenLieu.Designer.cs">
+      <DependentUpon>frmLayNguyenLieu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\frmPhieuPhatLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frmPhieuPhatLuong.Designer.cs">
+      <DependentUpon>frmPhieuPhatLuong.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\frmQuenMatKhau.cs">
       <SubType>Form</SubType>
@@ -265,6 +278,18 @@
     <Compile Include="Views\Usercontrols\UclKhuyenMai.Designer.cs">
       <DependentUpon>UclKhuyenMai.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Usercontrols\UclLichLam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclLichLam.Designer.cs">
+      <DependentUpon>UclLichLam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclLuong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclLuong.Designer.cs">
+      <DependentUpon>UclLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Usercontrols\UclNhaBep.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -276,6 +301,12 @@
     </Compile>
     <Compile Include="Views\Usercontrols\UclNutChon.Designer.cs">
       <DependentUpon>UclNutChon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclPhanCong.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclPhanCong.Designer.cs">
+      <DependentUpon>UclPhanCong.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Usercontrols\UclPOS.cs">
       <SubType>UserControl</SubType>
@@ -528,6 +559,12 @@
     <EmbeddedResource Include="Views\Forms\frmGiaoDienChinh.resx">
       <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frmLayNguyenLieu.resx">
+      <DependentUpon>frmLayNguyenLieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frmPhieuPhatLuong.resx">
+      <DependentUpon>frmPhieuPhatLuong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frmQuenMatKhau.resx">
       <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
     </EmbeddedResource>
@@ -552,11 +589,20 @@
     <EmbeddedResource Include="Views\Usercontrols\UclKhuyenMai.resx">
       <DependentUpon>UclKhuyenMai.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclLichLam.resx">
+      <DependentUpon>UclLichLam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclLuong.resx">
+      <DependentUpon>UclLuong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclNhaBep.resx">
       <DependentUpon>UclNhaBep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclNutChon.resx">
       <DependentUpon>UclNutChon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclPhanCong.resx">
+      <DependentUpon>UclPhanCong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclPOS.resx">
       <DependentUpon>UclPOS.cs</DependentUpon>

@@ -10,13 +10,11 @@ namespace BakeryManagementSystem.Controllers
 {
     public class BamMatKhau
     {
-        private KmsEncryptionService kmsEncryptionService = new KmsEncryptionService();
-
         public async Task<byte[]> BamMatKhauAsync(byte[] matKhau,byte[] muoi)
         {
             return await Task.Run(() =>
             {
-                string pepper = kmsEncryptionService.Decrypt(Properties.Settings.Default.pepper);
+                string pepper = Properties.Settings.Default.pepper;
 
                 byte[] hashPassword;
 
