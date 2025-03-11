@@ -163,9 +163,9 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
         private void btnLayNguyenLieu_Click(object sender, EventArgs e)
         {
-            frmLayNguyenLieu frmLayNguyenLieu = new frmLayNguyenLieu(lblMaNL.Text, lblTenNL.Text);
-            frmLayNguyenLieu.refresh += reLoad;
-            frmLayNguyenLieu.ShowDialog();
+            //frmLayNguyenLieu frmLayNguyenLieu = new frmLayNguyenLieu(lblMaNL.Text, lblTenNL.Text);
+            //frmLayNguyenLieu.refresh += reLoad;
+            //frmLayNguyenLieu.ShowDialog();
         }
     }
 }

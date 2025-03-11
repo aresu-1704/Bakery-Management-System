@@ -1,4 +1,5 @@
-﻿using BakeryManagementSystem.Models;
+﻿using BakeryManagementSystem.Controllers;
+using BakeryManagementSystem.Models;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -20,8 +21,8 @@ namespace BakeryManagementSystem.Views.Usercontrol
     public partial class UclNhaCungCap : DevExpress.XtraEditors.XtraUserControl
     {
         #region Thuộc tính
-        private NhaCungCap nhaCungCap = new NhaCungCap();
-        private NguyenLieu nguyenLieu = new NguyenLieu();
+        private QuanLyNhaCungCap nhaCungCap = new QuanLyNhaCungCap();
+        private QuanLyNguyenLieu nguyenLieu = new QuanLyNguyenLieu();
         private bool themMoi = false;
         #endregion
 

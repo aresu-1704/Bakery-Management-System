@@ -7,14 +7,14 @@ namespace BakeryManagementSystem.Controllers
 {
     public class QuanLyNhanVien
     {
-        private readonly NhanVien _nhanVien = new NhanVien();
+        private readonly NhanVien nhanVien = new NhanVien();
 
         // Lấy thông tin nhân viên theo mã
         public async Task<DataTable> LayNhanVienAsync(string maNV)
         {
             try
             {
-                return await _nhanVien.LayNhanVienAsync(int.Parse(maNV));
+                return await nhanVien.LayNhanVienAsync(int.Parse(maNV));
             }
             catch (Exception ex)
             {
@@ -27,7 +27,7 @@ namespace BakeryManagementSystem.Controllers
         {
             try
             {
-                return await _nhanVien.LayDSMucLuongNVAsync();
+                return await nhanVien.LayDSMucLuongNVAsync();
             }
             catch (Exception ex)
             {
@@ -40,7 +40,7 @@ namespace BakeryManagementSystem.Controllers
         {
             try
             {
-                return await _nhanVien.LayDSNhanVienAsync();
+                return await nhanVien.LayDSNhanVienAsync();
             }
             catch (Exception ex)
             {
@@ -53,7 +53,7 @@ namespace BakeryManagementSystem.Controllers
         {
             try
             {
-                await _nhanVien.ThemNhanVienAsync(nhanVien);
+                await nhanVien.ThemNhanVienAsync(nhanVien);
             }
             catch (Exception ex)
             {
@@ -66,7 +66,7 @@ namespace BakeryManagementSystem.Controllers
         {
             try
             {
-                await _nhanVien.CapNhatNhanVienAsync(nhanVien);
+                await nhanVien.CapNhatNhanVienAsync(nhanVien);
             }
             catch (Exception ex)
             {
@@ -79,7 +79,7 @@ namespace BakeryManagementSystem.Controllers
         {
             try
             {
-                await _nhanVien.XoaNhanVienAsync(maNV);
+                await nhanVien.XoaNhanVienAsync(maNV);
             }
             catch (Exception ex)
             {
@@ -92,7 +92,7 @@ namespace BakeryManagementSystem.Controllers
         {
             try
             {
-                await _nhanVien.ThemLaiNhanVienAsync(int.Parse(maNV));
+                await nhanVien.ThemLaiNhanVienAsync(int.Parse(maNV));
             }
             catch (Exception ex)
             {

@@ -24,7 +24,7 @@ namespace BakeryManagementSystem.Views.Usercontrol
     {
         #region Thuộc tính
         private QuanLyNhanVien qlNhanVien = new QuanLyNhanVien();
-        private ChucVu chucVu = new ChucVu();
+        private QuanLyChucVu qlChucVu = new QuanLyChucVu();
         private bool themMoi = false;
         #endregion
 
@@ -142,7 +142,7 @@ namespace BakeryManagementSystem.Views.Usercontrol
         {
             DataTable dt = await Task.Run(() =>
             {
-                return chucVu.LayChucVuAsync();
+                return qlChucVu.LayChucVuAsync();
             });
 
             if (dt.Rows.Count > 0)

@@ -16,8 +16,8 @@ namespace BakeryManagementSystem.Views.Usercontrols
     public partial class UclLichSuMua : DevExpress.XtraEditors.XtraUserControl
     {
         private QuanLyKhachHang qlKhachHang = new QuanLyKhachHang();
-        private HoaDon hoaDon = new HoaDon();
-        private ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
+        private QuanLyHoaDon hoaDon = new QuanLyHoaDon();
+        private QuanLyChiTietHoaDon chiTietHoaDon = new QuanLyChiTietHoaDon();
         private int maNV = 0;
         public UclLichSuMua()
         {

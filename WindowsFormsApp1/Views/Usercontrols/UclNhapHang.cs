@@ -13,13 +13,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 using BakeryManagementSystem.Models;
+using BakeryManagementSystem.Controllers;
 
 namespace BakeryManagementSystem.Views.Usercontrols
 {
     public partial class UclNhapHang : DevExpress.XtraEditors.XtraUserControl
     {
-        private NhaCungCap nhaCungCap = new NhaCungCap();
-        private PhieuNhapHang phieuNhapHang = new PhieuNhapHang();
+        private QuanLyNhaCungCap nhaCungCap = new QuanLyNhaCungCap();
+        private QuanLyPhieuNhapHang quanlyphieuNhapHang = new QuanLyPhieuNhapHang();
         private int maNVThuNgan = 0;
 
         public UclNhapHang()

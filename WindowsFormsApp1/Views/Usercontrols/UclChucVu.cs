@@ -18,7 +18,7 @@ namespace BakeryManagementSystem.Views.Usercontrol
     public partial class UclChucVu : DevExpress.XtraEditors.XtraUserControl
     {
         #region Thuộc tính
-        private ChucVu qlChucVu = new ChucVu();
+        private QuanLyChucVu qlChucVu = new QuanLyChucVu();
         private bool themMoi = false;
         #endregion
 

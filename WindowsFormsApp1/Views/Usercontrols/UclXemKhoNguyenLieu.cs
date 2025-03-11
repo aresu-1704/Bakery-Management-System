@@ -1,4 +1,5 @@
-﻿using BakeryManagementSystem.Models;
+﻿using BakeryManagementSystem.Controllers;
+using BakeryManagementSystem.Models;
 using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,8 @@ namespace BakeryManagementSystem.Views.Usercontrols
 {
     public partial class UclXemKhoNguyenLieu : DevExpress.XtraEditors.XtraUserControl
     {
-        //DataTable dt = await Task.Run(() =>
-        //{
-        //    return qlNhanVien.LayDSNhanVienAsync();
-        //});
 
-        private NguyenLieu nguyenLieu = new NguyenLieu();
+        private QuanLyXemKhoNguyenLieu nguyenLieu = new QuanLyXemKhoNguyenLieu();
         private PhieuNhapHang phieuNhapHang = new PhieuNhapHang();
 
         public UclXemKhoNguyenLieu()
@@ -34,7 +31,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
             dgvNguyenLieuCoTheSD.Rows.Clear();
             DataTable dt = await Task.Run(() =>
             {
-                return nguyenLieu.LayDSNLAsync();
+                return nguyenLieu.LayDanhSachNguyenLieuAsync();
             });
 
             if (dt.Rows.Count == 0)
@@ -68,7 +65,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
             System.Data.DataTable dt = await Task.Run(() =>
             {
-                return nguyenLieu.LayDSNLAsync();
+                return nguyenLieu.LayDanhSachNguyenLieuAsync();
             });
 
             if (dt.Rows.Count == 0)
