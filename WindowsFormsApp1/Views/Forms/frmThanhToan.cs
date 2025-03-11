@@ -25,10 +25,22 @@ namespace BakeryManagementSystem.Views.Forms
         private int maNV = 0;
         private int loaiHD;
         private int maKH = -1;
+        private int maNVThuNgan;
+        private string text1;
+        private string text2;
+        private DataGridViewRowCollection rows;
 
         public frmThanhToan()
         {
             InitializeComponent();
+        }
+
+        public frmThanhToan(int maNVThuNgan, string text1, string text2, DataGridViewRowCollection rows)
+        {
+            this.maNVThuNgan = maNVThuNgan;
+            this.text1 = text1;
+            this.text2 = text2;
+            this.rows = rows;
         }
 
         public async System.Threading.Tasks.Task LoadDuLieu(QuanLyBanHang qlBanHang, int maNVThuNgan, int maBan, 

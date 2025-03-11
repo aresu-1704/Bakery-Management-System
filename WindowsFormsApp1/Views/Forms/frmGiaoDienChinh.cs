@@ -18,10 +18,12 @@ namespace BakeryManagementSystem.Views.Forms
         //private ChamCongBLL chamCongBLL = new ChamCongBLL();
         private bool trangThaiDX = false;
 
+
         public frmGiaoDienChinh(int maNVDangNhap)
         {
             InitializeComponent();
             this.maNVDangNhap = maNVDangNhap;
+
         }
 
         #region Cập nhật thông tin cá nhân
@@ -31,39 +33,35 @@ namespace BakeryManagementSystem.Views.Forms
             //capNhatTT.refresh += reLoadNV;
             //capNhatTT.ShowDialog();
         }
-
-        private void reLoadNV(object sender, EventArgs e)
-        {
-            //if (uclQuanLyNV.Visible == true)
-            //{
-            //    setVisible();
-            //    uclQuanLyNV.activited();
-            //}
-        }
+        //private void reLoadNV(object sender, EventArgs e)
+        //{
+        //    if (uclQLNV.Visible)
+        //    {
+        //        setVisible();
+        //        uclQLNV.activited();
+        //    }
+        //}
         #endregion
 
         private void setVisible()
         {
-            //uclQuanLyNV.Visible = false;
-            //uclChucVu.Visible = false;
-            //uclLichLamViec.Visible = false;
-            //uclNhaCungCap.Visible = false;
-            uclLuong.Visible = false;
-            uclQLSanPham.Visible = false;
-            uclKhuyenMai.Visible = false;
+
+            uclQLNV.Visible = false;
+            uclChucVu.Visible = false;
+            //uclLichLamViec.Visible = false; //lehuy
+            uclNhaCungCap.Visible = false;
+            //uclLuong.Visible = false; //khong dung vao
+            //uclQLSanPham.Visible = false; //lehuy
+            //uclKhuyenMai.Visible = false; //lehuy
             uclPOS.Visible = false;
             uclBan.Visible = false;
-            //uclNhapHang.Visible = false;
+            uclNhapHang.Visible = false;
             //uclXemKhoNguyenLieu.Visible = false;
-            uclKhoNguyenLieu.Visible = false;
-            //uclKhachHangThanThiet.Visible = false;
-            uclLichLamViec.Visible = false;
-            //uclLichSuMua.Visible = false;
-            uclNhaBep.Visible = false;
-            uclTinhTrangBep.Visible = false;
-            uclDanhSachPhanCong.Visible = false;
-            uclPhanCong.Visible = false;
-
+            uclKhachHangThanThiet.Visible = false;
+            //uclLichLam.Visible = false; //lehuy
+            uclLichSuMua.Visible = false;
+            //uclNhaBep.Visible = false; //lehuy
+            //uclTinhTrangBep.Visible = false; //lehuy
             picBackGr.Visible = false;
             lblLoGo.Visible = false;
             lblTieuDe.Visible = false;
@@ -85,41 +83,40 @@ namespace BakeryManagementSystem.Views.Forms
             this.Close();
         }
 
-        #region Các nút trong Menu
         private void btnQLNV_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclQuanLyNV.activited();
+            uclQLNV.activited();
         }
 
         private void btnChucVu_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclChucVu.activited();
+            uclChucVu.activited();
         }
 
         private void btnPhanCong_Click(object sender, EventArgs e)
         {
             setVisible();
-            uclPhanCong.activited();
+            //uclLichLamViec.activited();
         }
 
         private void btnNhaCungCap_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclNhaCungCap.activited();
+            uclNhaCungCap.activited();
         }
 
         private void btnLuong_Click(object sender, EventArgs e)
         {
             setVisible();
-            uclLuong.activited();
+            //uclLuong.activited();
         }
 
         private void btnQLSanPham_Click(object sender, EventArgs e)
         {
             setVisible();
-            uclQLSanPham.activited();
+            //uclQLSanPham.activited();
         }
 
         private void btnKhuyenMai_Click(object sender, EventArgs e)
@@ -130,20 +127,20 @@ namespace BakeryManagementSystem.Views.Forms
 
         private void btnPOS_Click(object sender, EventArgs e)
         {
-            setVisible();
-            uclPOS.activited(maNVDangNhap);
+            setVisible(); // Ẩn tất cả UserControl
+            uclPOS.activited(maNVDangNhap); // Kích hoạt UserControl
         }
 
         private void btnBan_Click(object sender, EventArgs e)
         {
-            setVisible();
-            uclBan.activited();
+            setVisible(); // Ẩn tất cả UserControl
+            uclBan.activited(); // Kích hoạt UserControl
         }
 
         private void btnNhapHang_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclNhapHang.activited(maNVDangNhap);
+            uclNhapHang.activited(maNVDangNhap);
         }
 
         private void btnQLNL_Click(object sender, EventArgs e)
@@ -155,19 +152,19 @@ namespace BakeryManagementSystem.Views.Forms
         private void btnKHTT_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclKhachHangThanThiet.activited();
+            uclKhachHangThanThiet.activited();
         }
 
         private void btnXemLichLam_Click(object sender, EventArgs e)
         {
             setVisible();
-            uclLichLamViec.activited(maNVDangNhap);
+            //uclLichLam.activited(maNVDangNhap);
         }
 
         private void btnLichSuMuaHang_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclLichSuMua.activited(maNVDangNhap);
+            uclLichSuMua.activited(maNVDangNhap);
         }
 
         private void btnNhaBep_Click(object sender, EventArgs e)
@@ -181,15 +178,9 @@ namespace BakeryManagementSystem.Views.Forms
             setVisible();
             //uclTinhTrangBep.activited();
         }
+        #region
 
-        private void btnChamCong_Click(object sender, EventArgs e)
-        {
-            setVisible();
-            uclDanhSachPhanCong.activited();
-        }
-        #endregion
 
-        #region Phân quyền
         public void quyenQuanLy()
         {
             gbtnNhanVien.Visible = true;
@@ -239,7 +230,8 @@ namespace BakeryManagementSystem.Views.Forms
             gbtnLichLamViec.Visible = true;
             btnPhanCong.Visible = false;
         }
-        #endregion
+
+        #endregion Phânquyền
 
         #region Đổi mật khẩu
         private void btnDoiMatKhau_Click(object sender, EventArgs e)
@@ -249,6 +241,36 @@ namespace BakeryManagementSystem.Views.Forms
             //frmDoiMatKhau doiMatKhau = new frmDoiMatKhau(true, tenDangNhap);
             //doiMatKhau.Owner = this;
             //doiMatKhau.ShowDialog();
+        }
+        #endregion
+
+        #region Chấm công
+        private void btnChamCong_Click(object sender, EventArgs e)
+        {
+            //DataTable dt = chamCongBLL.layTTChamCongChuaHoanThanh(maNVDangNhap);
+            //if (dt.Rows.Count > 0)
+            //{
+            //    try
+            //    {
+            //        chamCongBLL.chamCongTanCa(maNVDangNhap);
+            //        MessageBox.Show(string.Format("Ngày: {0} - Đã tan ca - Thời gian tan ca là : {1} !",
+            //            DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm:ss")), "Chấm công",
+            //            MessageBoxButtons.OK,
+            //            MessageBoxIcon.Information);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show("Bạn đã vào ca trước đó,  30 phút sau mới được chấm công lại !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //}
+            //else
+            //{
+            //    chamCongBLL.chamCongVaoCa(maNVDangNhap);
+            //    MessageBox.Show(string.Format("Ngày: {0} - Đã vào ca - Thời gian vào ca là : {1} !",
+            //        DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("hh:mm:ss")), "Chấm công",
+            //        MessageBoxButtons.OK,
+            //        MessageBoxIcon.Information);
+            //}
         }
         #endregion
 

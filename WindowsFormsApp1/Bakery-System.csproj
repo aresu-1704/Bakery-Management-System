@@ -46,6 +46,12 @@
     <Reference Include="DevExpress.XtraGrid.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="ExcelDataReader, Version=3.7.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.7.0\lib\net462\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.7.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.7.0\lib\net462\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Api.CommonProtos, Version=2.16.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Api.CommonProtos.2.16.0\lib\net461\Google.Api.CommonProtos.dll</HintPath>
     </Reference>
@@ -129,6 +135,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.1\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
@@ -142,6 +149,9 @@
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=9.0.0.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.9.0.2\lib\net462\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
@@ -169,13 +179,10 @@
     <Compile Include="Controllers\LayLaiMatKhau.cs" />
     <Compile Include="Controllers\QuanLyBanAn.cs" />
     <Compile Include="Controllers\QuanLyBanHang.cs" />
-    <Compile Include="Controllers\QuanLyDiemDanh.cs" />
     <Compile Include="Controllers\QuanLyKhachHang.cs" />
     <Compile Include="Controllers\QuanLyKho.cs" />
-    <Compile Include="Controllers\QuanLyKhuyenMai.cs" />
     <Compile Include="Controllers\QuanLyNhanVien.cs" />
     <Compile Include="Controllers\QuanLySanPham.cs" />
-    <Compile Include="Controllers\QuanLyTienLuong.cs" />
     <Compile Include="Models\Ban.cs" />
     <Compile Include="Models\ChamCong.cs" />
     <Compile Include="Models\ChiTietHoaDon.cs" />
@@ -200,6 +207,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Security\EncryptionKMS.cs" />
+    <Compile Include="Views\Forms\frmCapNhatThongTinCaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frmCapNhatThongTinCaNhan.Designer.cs">
+      <DependentUpon>frmCapNhatThongTinCaNhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\frmDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,18 +230,6 @@
     </Compile>
     <Compile Include="Views\Forms\frmGiaoDienChinh.Designer.cs">
       <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Forms\frmLayNguyenLieu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Forms\frmLayNguyenLieu.Designer.cs">
-      <DependentUpon>frmLayNguyenLieu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Forms\frmPhieuPhatLuong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Forms\frmPhieuPhatLuong.Designer.cs">
-      <DependentUpon>frmPhieuPhatLuong.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\frmQuenMatKhau.cs">
       <SubType>Form</SubType>
@@ -260,41 +261,41 @@
     <Compile Include="Views\Usercontrols\UclBan.Designer.cs">
       <DependentUpon>UclBan.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Usercontrols\UclChucVu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclChucVu.Designer.cs">
+      <DependentUpon>UclChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclKhachHangThanThiet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclKhachHangThanThiet.Designer.cs">
+      <DependentUpon>UclKhachHangThanThiet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Usercontrols\UclKhoNguyenLieu.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Usercontrols\UclKhoNguyenLieu.Designer.cs">
       <DependentUpon>UclKhoNguyenLieu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Usercontrols\UclDanhSachPhanCong.cs">
+    <Compile Include="Views\Usercontrols\UclLichSuMua.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Usercontrols\UclDanhSachPhanCong.Designer.cs">
-      <DependentUpon>UclDanhSachPhanCong.cs</DependentUpon>
+    <Compile Include="Views\Usercontrols\UclLichSuMua.Designer.cs">
+      <DependentUpon>UclLichSuMua.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Usercontrols\UclKhuyenMai.cs">
+    <Compile Include="Views\Usercontrols\UclNhaCungCap.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Usercontrols\UclKhuyenMai.Designer.cs">
-      <DependentUpon>UclKhuyenMai.cs</DependentUpon>
+    <Compile Include="Views\Usercontrols\UclNhaCungCap.Designer.cs">
+      <DependentUpon>UclNhaCungCap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Usercontrols\UclLichLam.cs">
+    <Compile Include="Views\Usercontrols\UclNhapHang.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Usercontrols\UclLichLam.Designer.cs">
-      <DependentUpon>UclLichLam.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Usercontrols\UclLuong.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\Usercontrols\UclLuong.Designer.cs">
-      <DependentUpon>UclLuong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Usercontrols\UclNhaBep.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\Usercontrols\UclNhaBep.Designer.cs">
-      <DependentUpon>UclNhaBep.cs</DependentUpon>
+    <Compile Include="Views\Usercontrols\UclNhapHang.Designer.cs">
+      <DependentUpon>UclNhapHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Usercontrols\UclNutChon.cs">
       <SubType>UserControl</SubType>
@@ -302,29 +303,23 @@
     <Compile Include="Views\Usercontrols\UclNutChon.Designer.cs">
       <DependentUpon>UclNutChon.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Usercontrols\UclPhanCong.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Views\Usercontrols\UclPhanCong.Designer.cs">
-      <DependentUpon>UclPhanCong.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Usercontrols\UclPOS.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Usercontrols\UclPOS.Designer.cs">
       <DependentUpon>UclPOS.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Usercontrols\UclQLSanPham.cs">
+    <Compile Include="Views\Usercontrols\UclQLNV.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Usercontrols\UclQLSanPham.Designer.cs">
-      <DependentUpon>UclQLSanPham.cs</DependentUpon>
+    <Compile Include="Views\Usercontrols\UclQLNV.Designer.cs">
+      <DependentUpon>UclQLNV.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Usercontrols\UclTinhTrangBep.cs">
+    <Compile Include="Views\Usercontrols\UclXemKhoNguyenLieu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\Usercontrols\UclTinhTrangBep.Designer.cs">
-      <DependentUpon>UclTinhTrangBep.cs</DependentUpon>
+    <Compile Include="Views\Usercontrols\UclXemKhoNguyenLieu.Designer.cs">
+      <DependentUpon>UclXemKhoNguyenLieu.cs</DependentUpon>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -485,8 +480,6 @@
     <None Include="Resources\ICON1.png" />
     <Content Include="Resources\icons8-bakery-32.png" />
     <None Include="Resources\icons8-bakery-321.png" />
-    <None Include="Resources\icons8-check-dollar-48.png" />
-    <None Include="Resources\icons8-check-28.png" />
     <Content Include="Resources\icons8-clear-48.png" />
     <None Include="Resources\icons8-clear-481.png" />
     <Content Include="Resources\icons8-complete-16.png" />
@@ -511,7 +504,6 @@
     <None Include="Resources\icons8-woman-161.png" />
     <Content Include="Resources\icons8-woman-48.png" />
     <None Include="Resources\icons8-woman-481.png" />
-    <None Include="Resources\icons8-x-28.png" />
     <Content Include="Resources\inlinewithtext_32x32.png" />
     <None Include="Resources\inlinewithtext_32x321.png" />
     <Content Include="Resources\newdatasource_32x32.png" />
@@ -550,6 +542,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frmCapNhatThongTinCaNhan.resx">
+      <DependentUpon>frmCapNhatThongTinCaNhan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frmDangKy.resx">
       <DependentUpon>frmDangKy.cs</DependentUpon>
     </EmbeddedResource>
@@ -558,12 +553,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frmGiaoDienChinh.resx">
       <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Forms\frmLayNguyenLieu.resx">
-      <DependentUpon>frmLayNguyenLieu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Forms\frmPhieuPhatLuong.resx">
-      <DependentUpon>frmPhieuPhatLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frmQuenMatKhau.resx">
       <DependentUpon>frmQuenMatKhau.cs</DependentUpon>
@@ -580,38 +569,35 @@
     <EmbeddedResource Include="Views\Usercontrols\UclBan.resx">
       <DependentUpon>UclBan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclChucVu.resx">
+      <DependentUpon>UclChucVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclKhachHangThanThiet.resx">
+      <DependentUpon>UclKhachHangThanThiet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclKhoNguyenLieu.resx">
       <DependentUpon>UclKhoNguyenLieu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Usercontrols\UclDanhSachPhanCong.resx">
-      <DependentUpon>UclDanhSachPhanCong.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Usercontrols\UclLichSuMua.resx">
+      <DependentUpon>UclLichSuMua.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Usercontrols\UclKhuyenMai.resx">
-      <DependentUpon>UclKhuyenMai.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Usercontrols\UclNhaCungCap.resx">
+      <DependentUpon>UclNhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Usercontrols\UclLichLam.resx">
-      <DependentUpon>UclLichLam.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Usercontrols\UclLuong.resx">
-      <DependentUpon>UclLuong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Usercontrols\UclNhaBep.resx">
-      <DependentUpon>UclNhaBep.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Usercontrols\UclNhapHang.resx">
+      <DependentUpon>UclNhapHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclNutChon.resx">
       <DependentUpon>UclNutChon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Usercontrols\UclPhanCong.resx">
-      <DependentUpon>UclPhanCong.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclPOS.resx">
       <DependentUpon>UclPOS.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Usercontrols\UclQLSanPham.resx">
-      <DependentUpon>UclQLSanPham.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Usercontrols\UclQLNV.resx">
+      <DependentUpon>UclQLNV.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Usercontrols\UclTinhTrangBep.resx">
-      <DependentUpon>UclTinhTrangBep.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Usercontrols\UclXemKhoNguyenLieu.resx">
+      <DependentUpon>UclXemKhoNguyenLieu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
