@@ -207,6 +207,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Security\EncryptionKMS.cs" />
+    <Compile Include="Views\Forms\frmCapNhatThongTinCaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frmCapNhatThongTinCaNhan.Designer.cs">
+      <DependentUpon>frmCapNhatThongTinCaNhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Forms\frmDangKy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -535,6 +541,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frmCapNhatThongTinCaNhan.resx">
+      <DependentUpon>frmCapNhatThongTinCaNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frmDangKy.resx">
       <DependentUpon>frmDangKy.cs</DependentUpon>
