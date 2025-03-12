@@ -16,7 +16,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
     public partial class UclLichLam : DevExpress.XtraEditors.XtraUserControl
     {
         private QuanLyNhanVien qlNhanVien = new QuanLyNhanVien();
-        private PhanCong qlPhanCong = new PhanCong();
+        private QuanLyPhanCong qlPhanCong = new QuanLyPhanCong();
         private int maNV = 0;
         public UclLichLam()
         {

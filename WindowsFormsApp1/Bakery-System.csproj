@@ -176,13 +176,17 @@
     <Compile Include="Controllers\LayLaiMatKhau.cs" />
     <Compile Include="Controllers\QuanLyBanAn.cs" />
     <Compile Include="Controllers\QuanLyBanHang.cs" />
+    <Compile Include="Controllers\QuanLyChucVu.cs" />
     <Compile Include="Controllers\QuanLyDiemDanh.cs" />
     <Compile Include="Controllers\QuanLyKhachHang.cs" />
     <Compile Include="Controllers\QuanLyKho.cs" />
     <Compile Include="Controllers\QuanLyKhuyenMai.cs" />
+    <Compile Include="Controllers\QuanLyNhaBep.cs" />
     <Compile Include="Controllers\QuanLyNhanVien.cs" />
+    <Compile Include="Controllers\QuanLyPhanCong.cs" />
     <Compile Include="Controllers\QuanLySanPham.cs" />
     <Compile Include="Controllers\QuanLyTienLuong.cs" />
+    <Compile Include="Controllers\QuanLyTinhTrangBep.cs" />
     <Compile Include="Models\Ban.cs" />
     <Compile Include="Models\ChamCong.cs" />
     <Compile Include="Models\ChiTietHoaDon.cs" />
