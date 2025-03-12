@@ -16,8 +16,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
     public partial class UclLichSuMua : DevExpress.XtraEditors.XtraUserControl
     {
         private QuanLyKhachHang qlKhachHang = new QuanLyKhachHang();
-        private QuanLyHoaDon hoaDon = new QuanLyHoaDon();
-        private QuanLyChiTietHoaDon chiTietHoaDon = new QuanLyChiTietHoaDon();
+        private QuanLyHoaDon qlHoaDon = new QuanLyHoaDon();
         private int maNV = 0;
         public UclLichSuMua()
         {
@@ -59,7 +58,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
             dgvDSHoaDon.Rows.Clear();
             DataTable dt = await Task.Run(() =>
             {
-                return hoaDon.LayThongTinHoaDonCuaKHAsync(maKH);
+                return qlKhachHang.LayThongTinHoaDonCuaKHAsync(maKH);
             });
 
             if(dt.Rows.Count > 0)
@@ -104,7 +103,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
             int maHD = int.Parse(dgvDSHoaDon.Rows[e.RowIndex].Cells[0].Value?.ToString());
             DataTable dt = await Task.Run(() =>
             {
-                return chiTietHoaDon.LayChiTietHoaDonAsync(maHD);
+                return qlHoaDon.LayChiTietHoaDonAsync(maHD);
             });
             if (dt.Rows.Count > 0)
             {

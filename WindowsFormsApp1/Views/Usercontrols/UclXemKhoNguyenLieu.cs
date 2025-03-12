@@ -16,7 +16,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
     public partial class UclXemKhoNguyenLieu : DevExpress.XtraEditors.XtraUserControl
     {
 
-        private QuanLyXemKhoNguyenLieu nguyenLieu = new QuanLyXemKhoNguyenLieu();
+        private QuanLyKho nguyenLieu = new QuanLyKho();
         private PhieuNhapHang phieuNhapHang = new PhieuNhapHang();
 
         public UclXemKhoNguyenLieu()

@@ -1,13 +1,20 @@
 ﻿using BakeryManagementSystem.Models;
 using System;
 using System.Data;
+using System.Globalization;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BakeryManagementSystem.Controllers
 {
     public class QuanLyPhieuNhapHang
     {
         private readonly PhieuNhapHang phieuNhapHang = new PhieuNhapHang();
+
+        public async void TaoPhieuNhapHang(string maPhieu, int maNV)
+        {
+            await phieuNhapHang.ThemPhieuNhapAsync(maPhieu, maNV);
+        }
 
         public async Task ThemPhieuNhapAsync(string maPhieu, int maNV)
         {
@@ -42,6 +49,27 @@ namespace BakeryManagementSystem.Controllers
             catch (Exception ex)
             {
                 throw new Exception("Lỗi khi tính tổng tiền phiếu nhập: " + ex.Message);
+            }
+        }
+
+        public async void LuuPhieuNhapHangAsync(string soPhieu, int maNV, DataGridView dgvPhieuNhap)
+        {
+            TaoPhieuNhapHang(soPhieu, maNV);
+            foreach (DataGridViewRow row in dgvPhieuNhap.Rows)
+            {
+                NguyenLieu nguyenLieu = new NguyenLieu()
+                {
+                    TenNL = row.Cells[0].Value?.ToString(),
+                    DonViTinh = row.Cells[2].Value?.ToString(),
+                    TrangThai = true,
+                    MaNCC = int.Parse(row.Cells[5].Value?.ToString()),
+                    SoLuong = float.Parse(row.Cells[1].Value?.ToString()),
+                    HSD = DateTime.ParseExact(row.Cells[4].Value?.ToString().Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture),
+                    MaPhieu = int.Parse(soPhieu),
+                    SoLuongNhap = float.Parse(row.Cells[1].Value?.ToString()),
+                    TongTien = float.Parse(row.Cells[3].Value?.ToString().Replace(",", "").Replace(" VNĐ", "").Trim())
+                };
+                await nguyenLieu.ThemNguyenLieuAsync(nguyenLieu);
             }
         }
     }

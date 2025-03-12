@@ -287,9 +287,10 @@ namespace BakeryManagementSystem.Views.Usercontrols
             lblTongTien.Text = tongTien().ToString("N0") + " VNĐ";
         }
 
-        private void btnTinhTien_Click(object sender, EventArgs e)
+        private async void btnTinhTien_Click(object sender, EventArgs e)
         {
-            frmThanhToan thanhToan = new frmThanhToan(maNVThuNgan, lblMaPhieu.Text, lblTongTien.Text, dgvChiTietPhieuNhap.Rows);
+            frmThanhToanPhieuNhap thanhToan = new frmThanhToanPhieuNhap();
+            await thanhToan.LoadDuLieu(maNVThuNgan, lblMaPhieu.Text, lblTongTien.Text, dgvChiTietPhieuNhap.Rows);
             thanhToan.choice += reLoad;
             thanhToan.ShowDialog();
         }

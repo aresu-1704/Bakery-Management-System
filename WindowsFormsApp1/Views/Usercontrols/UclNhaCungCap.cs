@@ -39,14 +39,6 @@ namespace BakeryManagementSystem.Views.Usercontrol
             btnThoat.Enabled = true;
         }
 
-        private Image chuyenByteSangAnh(byte[] bytes)
-        {
-            using (MemoryStream ms = new MemoryStream(bytes))
-            {
-                return Image.FromStream(ms);
-            }
-        }
-
         #region Load nhà cung cấp
         private async void loadDSNhaCungCap(int filter)
         {
@@ -75,7 +67,7 @@ namespace BakeryManagementSystem.Views.Usercontrol
                         // Kiểm tra và gán hình ảnh
                         if (dt.Rows[i]["HinhAnh"] as byte[] != null)
                         {
-                            dgvDanhSachNCC.Rows[newRowIdx].Cells[0].Value = chuyenByteSangAnh(dt.Rows[i]["HinhAnh"] as byte[]);
+                            dgvDanhSachNCC.Rows[newRowIdx].Cells[0].Value = ChuyenAnh.ChuyenByteSangAnh(dt.Rows[i]["HinhAnh"] as byte[]);
                         }
                         // Gán các giá trị khác
                         dgvDanhSachNCC.Rows[newRowIdx].Cells[1].Value = dt.Rows[i]["MaNCC"].ToString();
@@ -99,7 +91,7 @@ namespace BakeryManagementSystem.Views.Usercontrol
                         // Kiểm tra và gán hình ảnh
                         if (dt.Rows[i]["HinhAnh"] as byte[] != null)
                         {
-                            dgvDanhSachNCC.Rows[newRowIdx].Cells[0].Value = chuyenByteSangAnh(dt.Rows[i]["HinhAnh"] as byte[]);
+                            dgvDanhSachNCC.Rows[newRowIdx].Cells[0].Value = ChuyenAnh.ChuyenByteSangAnh(dt.Rows[i]["HinhAnh"] as byte[]);
                         }
 
                         // Gán các giá trị khác
@@ -126,7 +118,6 @@ namespace BakeryManagementSystem.Views.Usercontrol
             gbxNLCC.Enabled = enable;
             gbxThongTinLienLac.Enabled = enable;
         }
-
 
         private async void loadNguyenLieu(string maNCC)
         {
@@ -181,7 +172,7 @@ namespace BakeryManagementSystem.Views.Usercontrol
             });
             if (dt.Rows.Count > 0)
             {
-                picAnh.Image = dt.Rows[0]["HinhAnh"] != DBNull.Value ? chuyenByteSangAnh(dt.Rows[0]["HinhAnh"] as byte[]) : Properties.Resources._22_223863_no_avatar_png_circle_transparent_png;
+                picAnh.Image = dt.Rows[0]["HinhAnh"] != DBNull.Value ? ChuyenAnh.ChuyenByteSangAnh(dt.Rows[0]["HinhAnh"] as byte[]) : Properties.Resources._22_223863_no_avatar_png_circle_transparent_png;
                 txtTen.Text = dt.Rows[0]["TenNCC"].ToString();
                 txtSoDienThoai.Text = dt.Rows[0]["SoDienThoai"].ToString();
                 txtEmail.Text = dt.Rows[0]["Email"].ToString();
@@ -228,20 +219,6 @@ namespace BakeryManagementSystem.Views.Usercontrol
             txtEmail.Text = null;
             txtDiaChi.Text = null;
             gctNguyenLieu.DataSource = null;
-        }
-
-        public byte[] ImageToByteArray(Image image)
-        {
-            if (image != null)
-            {
-                using (MemoryStream ms = new MemoryStream())
-                {
-                    // Lưu ảnh vào MemoryStream dưới định dạng PNG (hoặc bạn có thể thay đổi format)
-                    image.Save(ms, ImageFormat.Png);
-                    return ms.ToArray();
-                }
-            }
-            return null;
         }
 
         #region Ràng buộc số điện thoại
@@ -359,7 +336,7 @@ namespace BakeryManagementSystem.Views.Usercontrol
                         SoDienThoai = txtSoDienThoai.Text,
                         Email = txtEmail.Text,
                         DiaChi = txtDiaChi.Text,
-                        HinhAnh = ImageToByteArray(picAnh.Image),
+                        HinhAnh = ChuyenAnh.ImageToByteArray(picAnh.Image),
                         TrangThai = true,
                     };
                     await nhaCungCap.ThemNhaCCAsync(nhaCungCap);
@@ -375,7 +352,7 @@ namespace BakeryManagementSystem.Views.Usercontrol
                         SoDienThoai = txtSoDienThoai.Text,
                         Email = txtEmail.Text,
                         DiaChi = txtDiaChi.Text,
-                        HinhAnh = ImageToByteArray(picAnh.Image),
+                        HinhAnh = ChuyenAnh.ImageToByteArray(picAnh.Image),
                     };
                     await nhaCungCap.CapNhatNCCAsync(nhaCungCap);
                     MessageBox.Show("Cập nhật thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
