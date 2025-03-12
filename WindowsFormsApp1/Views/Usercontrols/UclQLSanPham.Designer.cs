@@ -39,6 +39,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxNhanVien = new DevExpress.XtraEditors.GroupControl();
             this.btnMoAnh = new DevExpress.XtraEditors.SimpleButton();
@@ -46,12 +47,22 @@
             this.label2 = new System.Windows.Forms.Label();
             this.picAnh = new System.Windows.Forms.PictureBox();
             this.gbxThongTinLienLac = new DevExpress.XtraEditors.GroupControl();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbDanhMucBanh = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnXoaChucVu = new DevExpress.XtraEditors.SimpleButton();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cmbKhuyenMai = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtGiaTien = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtSanCo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
@@ -79,6 +90,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picAnh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxThongTinLienLac)).BeginInit();
             this.gbxThongTinLienLac.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbDanhMucBanh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbLoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxNLCC)).BeginInit();
             this.gbxNLCC.SuspendLayout();
@@ -107,6 +120,7 @@
             this.Column3,
             this.Column4,
             this.Column5,
+            this.Column7,
             this.Column6});
             this.dgvDSSanPham.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvDSSanPham.EnableHeadersVisualStyles = false;
@@ -173,6 +187,12 @@
             this.Column5.HeaderText = "Đơn giá";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Danh mục";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column6
             // 
@@ -257,29 +277,124 @@
             this.gbxThongTinLienLac.AppearanceCaption.ForeColor = System.Drawing.Color.SaddleBrown;
             this.gbxThongTinLienLac.AppearanceCaption.Options.UseFont = true;
             this.gbxThongTinLienLac.AppearanceCaption.Options.UseForeColor = true;
+            this.gbxThongTinLienLac.Controls.Add(this.label9);
+            this.gbxThongTinLienLac.Controls.Add(this.label3);
+            this.gbxThongTinLienLac.Controls.Add(this.comboBoxEdit1);
+            this.gbxThongTinLienLac.Controls.Add(this.cmbDanhMucBanh);
             this.gbxThongTinLienLac.Controls.Add(this.btnXoaChucVu);
+            this.gbxThongTinLienLac.Controls.Add(this.comboBox1);
             this.gbxThongTinLienLac.Controls.Add(this.cmbKhuyenMai);
+            this.gbxThongTinLienLac.Controls.Add(this.label8);
             this.gbxThongTinLienLac.Controls.Add(this.label12);
+            this.gbxThongTinLienLac.Controls.Add(this.label7);
+            this.gbxThongTinLienLac.Controls.Add(this.textBox2);
             this.gbxThongTinLienLac.Controls.Add(this.label1);
             this.gbxThongTinLienLac.Controls.Add(this.txtGiaTien);
+            this.gbxThongTinLienLac.Controls.Add(this.textBox1);
             this.gbxThongTinLienLac.Controls.Add(this.label4);
+            this.gbxThongTinLienLac.Controls.Add(this.label6);
             this.gbxThongTinLienLac.Controls.Add(this.txtSanCo);
             this.gbxThongTinLienLac.Controls.Add(this.label5);
             this.gbxThongTinLienLac.Enabled = false;
             this.gbxThongTinLienLac.Location = new System.Drawing.Point(1068, 288);
             this.gbxThongTinLienLac.Name = "gbxThongTinLienLac";
-            this.gbxThongTinLienLac.Size = new System.Drawing.Size(525, 245);
+            this.gbxThongTinLienLac.Size = new System.Drawing.Size(525, 278);
             this.gbxThongTinLienLac.TabIndex = 2;
             this.gbxThongTinLienLac.Text = "Thông tin sản phẩm";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label9.Location = new System.Drawing.Point(619, 164);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(105, 26);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "Danh mục";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label3.Location = new System.Drawing.Point(6, 166);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(105, 26);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Danh mục";
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxEdit1.Location = new System.Drawing.Point(761, 162);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.Peru;
+            this.comboBoxEdit1.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit1.Properties.Appearance.Options.UseForeColor = true;
+            this.comboBoxEdit1.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxEdit1.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Peru;
+            this.comboBoxEdit1.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.comboBoxEdit1.Properties.AppearanceDropDown.Options.UseForeColor = true;
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
+            "Khách vãng lai",
+            "Khách thân thiết",
+            "Khách mua sỉ"});
+            this.comboBoxEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboBoxEdit1.Size = new System.Drawing.Size(338, 30);
+            this.comboBoxEdit1.TabIndex = 36;
+            this.comboBoxEdit1.TabStop = false;
+            // 
+            // cmbDanhMucBanh
+            // 
+            this.cmbDanhMucBanh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbDanhMucBanh.Location = new System.Drawing.Point(148, 164);
+            this.cmbDanhMucBanh.Name = "cmbDanhMucBanh";
+            this.cmbDanhMucBanh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDanhMucBanh.Properties.Appearance.ForeColor = System.Drawing.Color.Peru;
+            this.cmbDanhMucBanh.Properties.Appearance.Options.UseFont = true;
+            this.cmbDanhMucBanh.Properties.Appearance.Options.UseForeColor = true;
+            this.cmbDanhMucBanh.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbDanhMucBanh.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Peru;
+            this.cmbDanhMucBanh.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cmbDanhMucBanh.Properties.AppearanceDropDown.Options.UseForeColor = true;
+            this.cmbDanhMucBanh.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbDanhMucBanh.Properties.Items.AddRange(new object[] {
+            "Bánh bình thường",
+            "Bánh theo yêu cầu"});
+            this.cmbDanhMucBanh.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbDanhMucBanh.Size = new System.Drawing.Size(338, 30);
+            this.cmbDanhMucBanh.TabIndex = 36;
+            this.cmbDanhMucBanh.TabStop = false;
+            this.cmbDanhMucBanh.SelectedIndexChanged += new System.EventHandler(this.cmbDanhMucBanh_SelectedIndexChanged);
             // 
             // btnXoaChucVu
             // 
             this.btnXoaChucVu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaChucVu.ImageOptions.Image")));
-            this.btnXoaChucVu.Location = new System.Drawing.Point(497, 170);
+            this.btnXoaChucVu.Location = new System.Drawing.Point(497, 213);
             this.btnXoaChucVu.Name = "btnXoaChucVu";
             this.btnXoaChucVu.Size = new System.Drawing.Size(23, 34);
             this.btnXoaChucVu.TabIndex = 35;
             this.btnXoaChucVu.Click += new System.EventHandler(this.btnXoaChucVu_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.White;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.ForeColor = System.Drawing.Color.Peru;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.ItemHeight = 23;
+            this.comboBox1.Location = new System.Drawing.Point(761, 214);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(338, 31);
+            this.comboBox1.TabIndex = 27;
             // 
             // cmbKhuyenMai
             // 
@@ -289,10 +404,22 @@
             this.cmbKhuyenMai.ForeColor = System.Drawing.Color.Peru;
             this.cmbKhuyenMai.FormattingEnabled = true;
             this.cmbKhuyenMai.ItemHeight = 23;
-            this.cmbKhuyenMai.Location = new System.Drawing.Point(148, 173);
+            this.cmbKhuyenMai.Location = new System.Drawing.Point(148, 216);
             this.cmbKhuyenMai.Name = "cmbKhuyenMai";
             this.cmbKhuyenMai.Size = new System.Drawing.Size(338, 31);
             this.cmbKhuyenMai.TabIndex = 27;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label8.Location = new System.Drawing.Point(619, 216);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(123, 26);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "Khuyến mãi";
             // 
             // label12
             // 
@@ -300,11 +427,34 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label12.Location = new System.Drawing.Point(6, 175);
+            this.label12.Location = new System.Drawing.Point(6, 218);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(123, 26);
             this.label12.TabIndex = 28;
             this.label12.Text = "Khuyến mãi";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label7.Location = new System.Drawing.Point(619, 57);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(84, 26);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Giá tiền";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Peru;
+            this.textBox2.Location = new System.Drawing.Point(761, 55);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(338, 30);
+            this.textBox2.TabIndex = 6;
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSoDienThoai_KeyDown);
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoDienThoai_KeyPress);
             // 
             // label1
             // 
@@ -312,7 +462,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label1.Location = new System.Drawing.Point(6, 64);
+            this.label1.Location = new System.Drawing.Point(6, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 26);
             this.label1.TabIndex = 12;
@@ -322,12 +472,23 @@
             // 
             this.txtGiaTien.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGiaTien.ForeColor = System.Drawing.Color.Peru;
-            this.txtGiaTien.Location = new System.Drawing.Point(148, 62);
+            this.txtGiaTien.Location = new System.Drawing.Point(148, 57);
             this.txtGiaTien.Name = "txtGiaTien";
             this.txtGiaTien.Size = new System.Drawing.Size(338, 30);
             this.txtGiaTien.TabIndex = 6;
             this.txtGiaTien.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSoDienThoai_KeyDown);
             this.txtGiaTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoDienThoai_KeyPress);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.Color.Peru;
+            this.textBox1.Location = new System.Drawing.Point(761, 110);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(338, 30);
+            this.textBox1.TabIndex = 9;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSanCo_KeyDown);
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSanCo_KeyPress);
             // 
             // label4
             // 
@@ -340,11 +501,23 @@
             this.label4.Size = new System.Drawing.Size(0, 26);
             this.label4.TabIndex = 5;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label6.Location = new System.Drawing.Point(619, 112);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 26);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Sẵn có";
+            // 
             // txtSanCo
             // 
             this.txtSanCo.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSanCo.ForeColor = System.Drawing.Color.Peru;
-            this.txtSanCo.Location = new System.Drawing.Point(148, 117);
+            this.txtSanCo.Location = new System.Drawing.Point(148, 112);
             this.txtSanCo.Name = "txtSanCo";
             this.txtSanCo.Size = new System.Drawing.Size(338, 30);
             this.txtSanCo.TabIndex = 9;
@@ -357,7 +530,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label5.Location = new System.Drawing.Point(6, 119);
+            this.label5.Location = new System.Drawing.Point(6, 114);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(70, 26);
             this.label5.TabIndex = 11;
@@ -597,9 +770,9 @@
             this.gbxNLCC.AppearanceCaption.Options.UseFont = true;
             this.gbxNLCC.AppearanceCaption.Options.UseForeColor = true;
             this.gbxNLCC.Controls.Add(this.gctNguyenLieu);
-            this.gbxNLCC.Location = new System.Drawing.Point(1068, 539);
+            this.gbxNLCC.Location = new System.Drawing.Point(1068, 572);
             this.gbxNLCC.Name = "gbxNLCC";
-            this.gbxNLCC.Size = new System.Drawing.Size(525, 365);
+            this.gbxNLCC.Size = new System.Drawing.Size(525, 332);
             this.gbxNLCC.TabIndex = 34;
             this.gbxNLCC.Text = "Danh sách đợt khuyến mãi hiện tại";
             // 
@@ -699,6 +872,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxThongTinLienLac)).EndInit();
             this.gbxThongTinLienLac.ResumeLayout(false);
             this.gbxThongTinLienLac.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbDanhMucBanh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbLoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxNLCC)).EndInit();
             this.gbxNLCC.ResumeLayout(false);
@@ -743,13 +918,24 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbKhuyenMai;
         private System.Windows.Forms.Label label12;
+        private DevExpress.XtraEditors.SimpleButton btnXoaChucVu;
+        private DevExpress.XtraWaitForm.ProgressPanel pgpLoading;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label3;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbDanhMucBanh;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewImageColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private DevExpress.XtraEditors.SimpleButton btnXoaChucVu;
-        private DevExpress.XtraWaitForm.ProgressPanel pgpLoading;
     }
 }

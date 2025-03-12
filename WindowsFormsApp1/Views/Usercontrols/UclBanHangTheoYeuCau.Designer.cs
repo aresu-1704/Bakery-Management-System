@@ -1,6 +1,6 @@
 ﻿namespace BakeryManagementSystem.Views.Usercontrols
 {
-    partial class UclPOS
+    partial class UclBanHangTheoYeuCau
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UclPOS));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UclBanHangTheoYeuCau));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDSSanPham = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,14 +42,6 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gbxSanPham = new DevExpress.XtraEditors.GroupControl();
-            this.lblGiaBan = new System.Windows.Forms.Label();
-            this.lblGiaGoc = new System.Windows.Forms.Label();
-            this.lblTenSP = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.picAnhSP = new System.Windows.Forms.PictureBox();
             this.gbxKHTT = new DevExpress.XtraEditors.GroupControl();
             this.btnXoaKHTT = new DevExpress.XtraEditors.SimpleButton();
             this.lblKHTT = new System.Windows.Forms.Label();
@@ -76,18 +68,15 @@
             this.lblNgayMua = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblTongTien = new System.Windows.Forms.Label();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btnTinhTien = new DevExpress.XtraEditors.SimpleButton();
             this.btnTaoHoaDonMoi = new DevExpress.XtraEditors.SimpleButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.btnLapPhieuHen = new DevExpress.XtraEditors.SimpleButton();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSSanPham)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gbxSanPham)).BeginInit();
-            this.gbxSanPham.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAnhSP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxKHTT)).BeginInit();
             this.gbxKHTT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxHoaDon)).BeginInit();
@@ -103,14 +92,14 @@
             this.dgvDSSanPham.AllowUserToDeleteRows = false;
             this.dgvDSSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDSSanPham.BackgroundColor = System.Drawing.Color.Linen;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDSSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Bisque;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Bisque;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDSSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDSSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDSSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -127,13 +116,13 @@
             this.dgvDSSanPham.Name = "dgvDSSanPham";
             this.dgvDSSanPham.ReadOnly = true;
             this.dgvDSSanPham.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Linen;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PeachPuff;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.SaddleBrown;
-            this.dgvDSSanPham.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Linen;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.PeachPuff;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.SaddleBrown;
+            this.dgvDSSanPham.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvDSSanPham.RowTemplate.Height = 90;
             this.dgvDSSanPham.RowTemplate.ReadOnly = true;
             this.dgvDSSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -144,12 +133,12 @@
             // 
             // Column1
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.PeachPuff;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle2.NullValue = null;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.PeachPuff;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle8.NullValue = null;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column1.FillWeight = 50F;
             this.Column1.HeaderText = "Ảnh";
             this.Column1.Image = global::BakeryManagementSystem.Properties.Resources.no_image_icon_6;
@@ -192,105 +181,6 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
-            // gbxSanPham
-            // 
-            this.gbxSanPham.AppearanceCaption.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxSanPham.AppearanceCaption.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.gbxSanPham.AppearanceCaption.Options.UseFont = true;
-            this.gbxSanPham.AppearanceCaption.Options.UseForeColor = true;
-            this.gbxSanPham.Controls.Add(this.lblGiaBan);
-            this.gbxSanPham.Controls.Add(this.lblGiaGoc);
-            this.gbxSanPham.Controls.Add(this.lblTenSP);
-            this.gbxSanPham.Controls.Add(this.label5);
-            this.gbxSanPham.Controls.Add(this.label4);
-            this.gbxSanPham.Controls.Add(this.label3);
-            this.gbxSanPham.Controls.Add(this.picAnhSP);
-            this.gbxSanPham.Enabled = false;
-            this.gbxSanPham.Location = new System.Drawing.Point(3, 3);
-            this.gbxSanPham.Name = "gbxSanPham";
-            this.gbxSanPham.Size = new System.Drawing.Size(550, 173);
-            this.gbxSanPham.TabIndex = 2;
-            this.gbxSanPham.Text = "Sản phẩm";
-            // 
-            // lblGiaBan
-            // 
-            this.lblGiaBan.AutoSize = true;
-            this.lblGiaBan.BackColor = System.Drawing.Color.Transparent;
-            this.lblGiaBan.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGiaBan.ForeColor = System.Drawing.Color.Peru;
-            this.lblGiaBan.Location = new System.Drawing.Point(239, 122);
-            this.lblGiaBan.Name = "lblGiaBan";
-            this.lblGiaBan.Size = new System.Drawing.Size(0, 26);
-            this.lblGiaBan.TabIndex = 13;
-            // 
-            // lblGiaGoc
-            // 
-            this.lblGiaGoc.AutoSize = true;
-            this.lblGiaGoc.BackColor = System.Drawing.Color.Transparent;
-            this.lblGiaGoc.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGiaGoc.ForeColor = System.Drawing.Color.Peru;
-            this.lblGiaGoc.Location = new System.Drawing.Point(235, 86);
-            this.lblGiaGoc.Name = "lblGiaGoc";
-            this.lblGiaGoc.Size = new System.Drawing.Size(0, 26);
-            this.lblGiaGoc.TabIndex = 12;
-            // 
-            // lblTenSP
-            // 
-            this.lblTenSP.AutoSize = true;
-            this.lblTenSP.BackColor = System.Drawing.Color.Transparent;
-            this.lblTenSP.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenSP.ForeColor = System.Drawing.Color.Peru;
-            this.lblTenSP.Location = new System.Drawing.Point(235, 51);
-            this.lblTenSP.Name = "lblTenSP";
-            this.lblTenSP.Size = new System.Drawing.Size(0, 26);
-            this.lblTenSP.TabIndex = 11;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label5.Location = new System.Drawing.Point(140, 122);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(93, 26);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Giá bán: ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label4.Location = new System.Drawing.Point(140, 86);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 26);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Giá gốc: ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label3.Location = new System.Drawing.Point(140, 51);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 26);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Tên: ";
-            // 
-            // picAnhSP
-            // 
-            this.picAnhSP.Image = global::BakeryManagementSystem.Properties.Resources.no_image_icon_6;
-            this.picAnhSP.Location = new System.Drawing.Point(24, 51);
-            this.picAnhSP.Name = "picAnhSP";
-            this.picAnhSP.Size = new System.Drawing.Size(100, 97);
-            this.picAnhSP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picAnhSP.TabIndex = 0;
-            this.picAnhSP.TabStop = false;
-            // 
             // gbxKHTT
             // 
             this.gbxKHTT.AppearanceCaption.BorderColor = System.Drawing.Color.Transparent;
@@ -303,9 +193,9 @@
             this.gbxKHTT.Controls.Add(this.lblKHTT);
             this.gbxKHTT.Controls.Add(this.txtKHTT);
             this.gbxKHTT.Enabled = false;
-            this.gbxKHTT.Location = new System.Drawing.Point(994, 3);
+            this.gbxKHTT.Location = new System.Drawing.Point(438, 3);
             this.gbxKHTT.Name = "gbxKHTT";
-            this.gbxKHTT.Size = new System.Drawing.Size(231, 173);
+            this.gbxKHTT.Size = new System.Drawing.Size(550, 173);
             this.gbxKHTT.TabIndex = 3;
             this.gbxKHTT.Text = "Khách hàng thân thiết";
             // 
@@ -318,7 +208,7 @@
             this.btnXoaKHTT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnXoaKHTT.Enabled = false;
             this.btnXoaKHTT.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaKHTT.ImageOptions.Image")));
-            this.btnXoaKHTT.Location = new System.Drawing.Point(141, 116);
+            this.btnXoaKHTT.Location = new System.Drawing.Point(458, 116);
             this.btnXoaKHTT.Name = "btnXoaKHTT";
             this.btnXoaKHTT.Size = new System.Drawing.Size(75, 32);
             this.btnXoaKHTT.TabIndex = 21;
@@ -343,7 +233,7 @@
             this.txtKHTT.ForeColor = System.Drawing.Color.Peru;
             this.txtKHTT.Location = new System.Drawing.Point(18, 80);
             this.txtKHTT.Name = "txtKHTT";
-            this.txtKHTT.Size = new System.Drawing.Size(198, 30);
+            this.txtKHTT.Size = new System.Drawing.Size(515, 30);
             this.txtKHTT.TabIndex = 19;
             this.txtKHTT.TabStop = false;
             this.txtKHTT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtKHTT_KeyDown);
@@ -355,7 +245,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label2.Location = new System.Drawing.Point(1358, 65);
+            this.label2.Location = new System.Drawing.Point(1140, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(123, 26);
             this.label2.TabIndex = 14;
@@ -367,7 +257,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label7.Location = new System.Drawing.Point(1358, 100);
+            this.label7.Location = new System.Drawing.Point(1140, 100);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 26);
             this.label7.TabIndex = 15;
@@ -381,8 +271,9 @@
             this.lblSoHD.ForeColor = System.Drawing.Color.Peru;
             this.lblSoHD.Location = new System.Drawing.Point(265, 54);
             this.lblSoHD.Name = "lblSoHD";
-            this.lblSoHD.Size = new System.Drawing.Size(0, 26);
+            this.lblSoHD.Size = new System.Drawing.Size(62, 26);
             this.lblSoHD.TabIndex = 14;
+            this.lblSoHD.Text = "00000";
             // 
             // lblNgay
             // 
@@ -392,8 +283,9 @@
             this.lblNgay.ForeColor = System.Drawing.Color.Peru;
             this.lblNgay.Location = new System.Drawing.Point(265, 89);
             this.lblNgay.Name = "lblNgay";
-            this.lblNgay.Size = new System.Drawing.Size(0, 26);
+            this.lblNgay.Size = new System.Drawing.Size(52, 26);
             this.lblNgay.TabIndex = 16;
+            this.lblNgay.Text = "0000";
             // 
             // gbxHoaDon
             // 
@@ -407,7 +299,7 @@
             this.gbxHoaDon.Enabled = false;
             this.gbxHoaDon.Location = new System.Drawing.Point(994, 182);
             this.gbxHoaDon.Name = "gbxHoaDon";
-            this.gbxHoaDon.Size = new System.Drawing.Size(609, 704);
+            this.gbxHoaDon.Size = new System.Drawing.Size(609, 386);
             this.gbxHoaDon.TabIndex = 4;
             this.gbxHoaDon.Text = "Hóa đơn";
             // 
@@ -417,14 +309,14 @@
             this.dgvHoaDon.AllowUserToDeleteRows = false;
             this.dgvHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHoaDon.BackgroundColor = System.Drawing.Color.Linen;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Bisque;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Bisque;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
@@ -441,17 +333,17 @@
             this.dgvHoaDon.Name = "dgvHoaDon";
             this.dgvHoaDon.ReadOnly = true;
             this.dgvHoaDon.RowHeadersVisible = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Linen;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.PeachPuff;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.SaddleBrown;
-            this.dgvHoaDon.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Linen;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.PeachPuff;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.SaddleBrown;
+            this.dgvHoaDon.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvHoaDon.RowTemplate.Height = 30;
             this.dgvHoaDon.RowTemplate.ReadOnly = true;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(609, 672);
+            this.dgvHoaDon.Size = new System.Drawing.Size(609, 353);
             this.dgvHoaDon.TabIndex = 1;
             this.dgvHoaDon.TabStop = false;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
@@ -512,7 +404,7 @@
             this.gbxLoaiHoaDon.Controls.Add(this.label8);
             this.gbxLoaiHoaDon.Controls.Add(this.cmbBan);
             this.gbxLoaiHoaDon.Enabled = false;
-            this.gbxLoaiHoaDon.Location = new System.Drawing.Point(559, 3);
+            this.gbxLoaiHoaDon.Location = new System.Drawing.Point(3, 3);
             this.gbxLoaiHoaDon.Name = "gbxLoaiHoaDon";
             this.gbxLoaiHoaDon.Size = new System.Drawing.Size(429, 173);
             this.gbxLoaiHoaDon.TabIndex = 22;
@@ -630,31 +522,6 @@
             this.lblTongTien.Text = "0 VNĐ";
             this.lblTongTien.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // dataGridViewImageColumn1
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.PeachPuff;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewImageColumn1.FillWeight = 50F;
-            this.dataGridViewImageColumn1.HeaderText = "Ảnh";
-            this.dataGridViewImageColumn1.Image = global::BakeryManagementSystem.Properties.Resources.no_image_icon_6;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewImageColumn1.Width = 95;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.FillWeight = 20F;
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::BakeryManagementSystem.Properties.Resources.trash_16x16;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 29;
-            // 
             // btnTinhTien
             // 
             this.btnTinhTien.Appearance.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -663,7 +530,6 @@
             this.btnTinhTien.Appearance.Options.UseForeColor = true;
             this.btnTinhTien.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTinhTien.Enabled = false;
-            this.btnTinhTien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTinhTien.ImageOptions.Image")));
             this.btnTinhTien.Location = new System.Drawing.Point(994, 939);
             this.btnTinhTien.Name = "btnTinhTien";
             this.btnTinhTien.Size = new System.Drawing.Size(298, 56);
@@ -678,21 +544,12 @@
             this.btnTaoHoaDonMoi.Appearance.Options.UseFont = true;
             this.btnTaoHoaDonMoi.Appearance.Options.UseForeColor = true;
             this.btnTaoHoaDonMoi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTaoHoaDonMoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTaoHoaDonMoi.ImageOptions.Image")));
             this.btnTaoHoaDonMoi.Location = new System.Drawing.Point(772, 939);
             this.btnTaoHoaDonMoi.Name = "btnTaoHoaDonMoi";
             this.btnTaoHoaDonMoi.Size = new System.Drawing.Size(216, 56);
             this.btnTaoHoaDonMoi.TabIndex = 17;
             this.btnTaoHoaDonMoi.Text = "Tạo hóa đơn mới";
             this.btnTaoHoaDonMoi.Click += new System.EventHandler(this.btnTaoHoaDonMoi_Click);
-            // 
-            // label1
-            // 
-            this.label1.Image = global::BakeryManagementSystem.Properties.Resources.Remove_bg_ai_1725807365144__1_;
-            this.label1.Location = new System.Drawing.Point(1225, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 125);
-            this.label1.TabIndex = 4;
             // 
             // label13
             // 
@@ -724,14 +581,46 @@
             this.btnLapPhieuHen.Appearance.Options.UseForeColor = true;
             this.btnLapPhieuHen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLapPhieuHen.Enabled = false;
-            this.btnLapPhieuHen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
             this.btnLapPhieuHen.Location = new System.Drawing.Point(1305, 939);
             this.btnLapPhieuHen.Name = "btnLapPhieuHen";
             this.btnLapPhieuHen.Size = new System.Drawing.Size(298, 56);
             this.btnLapPhieuHen.TabIndex = 28;
             this.btnLapPhieuHen.Text = "Lập phiếu hẹn";
             // 
-            // UclPOS
+            // dataGridViewImageColumn1
+            // 
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.PeachPuff;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle12.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridViewImageColumn1.FillWeight = 50F;
+            this.dataGridViewImageColumn1.HeaderText = "Ảnh";
+            this.dataGridViewImageColumn1.Image = global::BakeryManagementSystem.Properties.Resources.no_image_icon_6;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn1.Width = 95;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.FillWeight = 20F;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::BakeryManagementSystem.Properties.Resources.trash_16x16;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 29;
+            // 
+            // label1
+            // 
+            this.label1.Image = global::BakeryManagementSystem.Properties.Resources.Remove_bg_ai_1725807365144__1_;
+            this.label1.Location = new System.Drawing.Point(999, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(127, 125);
+            this.label1.TabIndex = 4;
+            // 
+            // UclBanHangTheoYeuCau
             // 
             this.Appearance.BackColor = System.Drawing.Color.Linen;
             this.Appearance.Options.UseBackColor = true;
@@ -754,16 +643,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gbxKHTT);
-            this.Controls.Add(this.gbxSanPham);
             this.Controls.Add(this.dgvDSSanPham);
-            this.Name = "UclPOS";
+            this.Name = "UclBanHangTheoYeuCau";
             this.Size = new System.Drawing.Size(1606, 998);
             this.Load += new System.EventHandler(this.UclPOS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSSanPham)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gbxSanPham)).EndInit();
-            this.gbxSanPham.ResumeLayout(false);
-            this.gbxSanPham.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAnhSP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxKHTT)).EndInit();
             this.gbxKHTT.ResumeLayout(false);
             this.gbxKHTT.PerformLayout();
@@ -781,17 +665,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvDSSanPham;
-        private DevExpress.XtraEditors.GroupControl gbxSanPham;
         private DevExpress.XtraEditors.GroupControl gbxKHTT;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private System.Windows.Forms.PictureBox picAnhSP;
-        private System.Windows.Forms.Label lblTenSP;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lblGiaGoc;
-        private System.Windows.Forms.Label lblGiaBan;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblSoHD;

@@ -23,6 +23,7 @@ namespace BakeryManagementSystem.Models
         public bool TrangThai { get; set; }
 
         public int? MaDotKhuyenMai { get; set; }
+        public bool DanhMuc {  get; set; }      
 
         private Connections data = new Connections();
 
@@ -32,9 +33,21 @@ namespace BakeryManagementSystem.Models
             return await data.GetDataAsync(query);
         }
 
+        public async Task<DataTable> LayDSHangHoaBinhThuongAsync()
+        {
+            string query = "sp_LaySPBinhThuong";
+            return await data.GetDataAsync(query);
+        }
+
+        public async Task<DataTable> LayDSHangHoaTheoYeuCauAsync()
+        {
+            string query = "sp_LaySPTheoYeuCau";
+            return await data.GetDataAsync(query);
+        }
+
         public async Task CapNhatTTSPAsync(HangHoa hangHoa)
         {
-            string query = "sp_CapNhatTTSanPham @MaHH, @TenHH, @GiaTien, @SanCo, @HinhAnh, @MaKM";
+            string query = "sp_CapNhatTTSanPham @MaHH, @TenHH, @GiaTien, @SanCo, @HinhAnh, @MaKM, @DanhMuc";
             var parameters = new Dictionary<string, object>
             {
                 { "@TenHH", hangHoa.TenHH },
@@ -42,7 +55,8 @@ namespace BakeryManagementSystem.Models
                 { "@SanCo", hangHoa.SanCo },
                 { "@HinhAnh", hangHoa.HinhAnh },
                 { "@MaKM", hangHoa.MaDotKhuyenMai == 0 ? 0 : hangHoa.MaDotKhuyenMai },
-                { "@MaHH", hangHoa.MaHH }
+                { "@MaHH", hangHoa.MaHH },
+                { "@DanhMuc", hangHoa.DanhMuc }
             };
             await data.ExecuteQueryAsync(query, parameters);
         }
@@ -59,14 +73,15 @@ namespace BakeryManagementSystem.Models
 
         public async Task ThemSPAsync(HangHoa hangHoa)
         {
-            string query = "sp_ThemSP @TenHH, @SanCo, @HinhAnh, @GiaTien, @MaKM";
+            string query = "sp_ThemSP @TenHH, @SanCo, @HinhAnh, @GiaTien, @MaKM, @DanhMuc";
             var parameters = new Dictionary<string, object>
             {
                 { "@TenHH", hangHoa.TenHH },
                 { "@GiaTien", hangHoa.GiaTien },
                 { "@SanCo", hangHoa.SanCo },
                 { "@HinhAnh", hangHoa.HinhAnh },
-                { "@MaKM", hangHoa.MaDotKhuyenMai == 0 ? 0 : hangHoa.MaDotKhuyenMai }
+                { "@MaKM", hangHoa.MaDotKhuyenMai == 0 ? 0 : hangHoa.MaDotKhuyenMai },
+                { "@DanhMuc", hangHoa.DanhMuc }
             };
             await data.ExecuteQueryAsync(query, parameters);
         }
@@ -111,6 +126,5 @@ namespace BakeryManagementSystem.Models
             };
             await data.ExecuteQueryAsync(query, parameters);
         }
-
     }
 }

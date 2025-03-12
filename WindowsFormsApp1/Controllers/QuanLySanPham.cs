@@ -17,6 +17,16 @@ namespace BakeryManagementSystem.Controllers
             return await hangHoa.LayDSHangHoaAsync();
         }
 
+        public async Task<DataTable> LayDSHangHoaBinhThuongAsync()
+        {
+            return await hangHoa.LayDSHangHoaBinhThuongAsync();
+        }
+
+        public async Task<DataTable> LayDSHangHoaTheoYeuCauAsync()
+        {
+            return await hangHoa.LayDSHangHoaTheoYeuCauAsync();
+        }
+
         public async Task CapNhatTTSPAsync(HangHoa hangHoa)
         {
             await hangHoa.CapNhatTTSPAsync(hangHoa);
