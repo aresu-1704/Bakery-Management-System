@@ -15,7 +15,7 @@ using Word = Microsoft.Office.Interop.Word;
 
 namespace BakeryManagementSystem.Views.Usercontrols
 {
-    public partial class UclPOS : DevExpress.XtraEditors.XtraUserControl
+    public partial class UclBanHangTheoYeuCau : DevExpress.XtraEditors.XtraUserControl
     {
         private QuanLySanPham qlSanPham = new QuanLySanPham();
         private QuanLyBanAn qlBanAn = new QuanLyBanAn();
@@ -24,7 +24,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
         private int maNVThuNgan = 0;
         private int maKH = -1;
 
-        public UclPOS()
+        public UclBanHangTheoYeuCau()
         {
             InitializeComponent();
         }
@@ -101,7 +101,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
             gbxHoaDon.Enabled = true;
             lblMaHD.Text = maHDMoi.ToString();
             lblNgayMua.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            gbxSanPham.Enabled = true;
             gbxKHTT.Enabled = true;
             gbxLoaiHoaDon.Enabled = true;
             btnTinhTien.Enabled = true;
@@ -154,19 +153,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     soLuong -= 1;
                 }
                 dgvDSSanPham.Rows[e.RowIndex].Cells[3].Value = soLuong.ToString();
-
-                lblTenSP.Text = dgvDSSanPham.Rows[e.RowIndex].Cells[2].Value?.ToString();
-                lblGiaGoc.Text = giaGocStr;
-                lblGiaBan.Text = giaBan.ToString("N0") + " VNĐ";
-                if (dgvDSSanPham.Rows[e.RowIndex].Cells[0].Value is Image image)
-                {
-                    picAnhSP.Image = image;
-                }
-                else
-                {
-                    picAnhSP.Image = null;
-                }
-
                 lblTongTien.Text = qlBanHang.TongTien(dgvHoaDon).ToString("N0") + " VNĐ";
             }
             catch (Exception ex)
@@ -231,7 +217,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
         #region Ràng buộc thanh tìm KHTT
         private async void txtKHTT_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
             if (e.Control && e.KeyCode == Keys.V)
             {
                 e.SuppressKeyPress = true;
@@ -296,12 +282,8 @@ namespace BakeryManagementSystem.Views.Usercontrols
         {
             loadBanVaoCMB();
             loadDSSanPham();
-            lblGiaBan.Text = null;
-            lblGiaGoc.Text = null;
-            lblTenSP.Text = null;
             lblMaHD.Text = null;
             lblNgayMua.Text = null;
-            picAnhSP.Image = Properties.Resources.no_image_icon_6;
             dgvHoaDon.Rows.Clear();
             lblKHTT.Text = "Mã khách hàng:";
             txtKHTT.Text = "";
@@ -309,7 +291,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
             lblTongTien.Text = "0 VNĐ";
             cmbLoai.SelectedIndex = 0;
             gbxHoaDon.Enabled = false;
-            gbxSanPham.Enabled = false;
             gbxKHTT.Enabled = false;
             gbxLoaiHoaDon.Enabled = false;
             btnTinhTien.Enabled = false;
@@ -344,7 +325,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     return thanhToan.LoadDuLieu(qlBanHang, maNVThuNgan, int.Parse(cmbBan.SelectedValue.ToString()), cmbLoai.SelectedIndex,
                         lblMaHD.Text, lblTongTien.Text, dgvHoaDon.Rows, txtKHTT.Text != "" ? maKH : -1);
                 });
-                
+
                 thanhToan.ShowDialog();
             }
             else

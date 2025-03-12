@@ -299,7 +299,7 @@
             this.dgvHoaDon.BackgroundColor = System.Drawing.Color.Linen;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SaddleBrown;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Bisque;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.SaddleBrown;

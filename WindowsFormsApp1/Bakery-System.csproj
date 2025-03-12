@@ -268,7 +268,19 @@
     <Compile Include="Views\Usercontrols\UclBan.Designer.cs">
       <DependentUpon>UclBan.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Usercontrols\UclChucVu.cs">
+    <Compile Include="Views\Usercontrols\UclBanHangTheoYeuCau.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclBanHangTheoYeuCau.Designer.cs">
+      <DependentUpon>UclBanHangTheoYeuCau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclKhachHangThanThiet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclKhachHangThanThiet.Designer.cs">
+      <DependentUpon>UclKhachHangThanThiet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclKhoNguyenLieu.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Usercontrols\UclChucVu.Designer.cs">
@@ -576,8 +588,8 @@
     <EmbeddedResource Include="Views\Usercontrols\UclBan.resx">
       <DependentUpon>UclBan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Usercontrols\UclChucVu.resx">
-      <DependentUpon>UclChucVu.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Usercontrols\UclBanHangTheoYeuCau.resx">
+      <DependentUpon>UclBanHangTheoYeuCau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclKhachHangThanThiet.resx">
       <DependentUpon>UclKhachHangThanThiet.cs</DependentUpon>

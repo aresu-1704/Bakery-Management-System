@@ -57,11 +57,15 @@ namespace BakeryManagementSystem.Views.Forms
             uclBan.Visible = false;
             uclNhapHang.Visible = false;
             //uclXemKhoNguyenLieu.Visible = false;
+            uclKhoNguyenLieu.Visible = false;
             uclKhachHangThanThiet.Visible = false;
-            //uclLichLam.Visible = false; //lehuy
-            uclLichSuMua.Visible = false;
-            //uclNhaBep.Visible = false; //lehuy
-            //uclTinhTrangBep.Visible = false; //lehuy
+            uclLichLamViec.Visible = false;
+            //uclLichSuMua.Visible = false;
+            uclNhaBep.Visible = false;
+            uclTinhTrangBep.Visible = false;
+            uclDanhSachPhanCong.Visible = false;
+            uclPhanCong.Visible = false;
+
             picBackGr.Visible = false;
             lblLoGo.Visible = false;
             lblTieuDe.Visible = false;
@@ -309,7 +313,7 @@ namespace BakeryManagementSystem.Views.Forms
 
         private void frmGiaoDienChinh_Load(object sender, EventArgs e)
         {
-            quyenQuanLy();
+            quyenNhanVien();
         }
     }
 }

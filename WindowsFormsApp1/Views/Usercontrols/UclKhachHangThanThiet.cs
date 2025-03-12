@@ -65,8 +65,20 @@ namespace BakeryManagementSystem.Views.Usercontrol
                 int newRowIdx = dgvDanhSachKH.Rows.Count - 1;
                 dgvDanhSachKH.Rows[newRowIdx].Cells[0].Value = dt.Rows[i]["MaKH"].ToString();
                 dgvDanhSachKH.Rows[newRowIdx].Cells[1].Value = dt.Rows[i]["HoVaTen"].ToString();
-                dgvDanhSachKH.Rows[newRowIdx].Cells[2].Value = dt.Rows[i]["SoDienTHoai"].ToString();
-                dgvDanhSachKH.Rows[newRowIdx].Cells[3].Value = dt.Rows[i]["SoLanMua"].ToString();
+                dgvDanhSachKH.Rows[newRowIdx].Cells[2].Value = dt.Rows[i]["SoDienThoai"].ToString();
+                switch(dt.Rows[i]["Loai"].ToString())
+                {
+                    case "0":
+                        dgvDanhSachKH.Rows[newRowIdx].Cells[3].Value = "Khách vãng lai";
+                        break;
+                    case "1":
+                        dgvDanhSachKH.Rows[newRowIdx].Cells[3].Value = "Khách thân thiết";
+                        break;
+                    case "2":
+                        dgvDanhSachKH.Rows[newRowIdx].Cells[3].Value = "Khách mua sỉ";
+                        break;
+                }                
+                dgvDanhSachKH.Rows[newRowIdx].Cells[4].Value = dt.Rows[i]["SoLanMua"].ToString();
             }
         }
         #endregion
@@ -92,7 +104,8 @@ namespace BakeryManagementSystem.Views.Usercontrol
             if (string.IsNullOrWhiteSpace(txtHo.Text) ||
                 string.IsNullOrWhiteSpace(txtTen.Text) ||
                 string.IsNullOrWhiteSpace(txtSoDienThoai.Text) ||
-                string.IsNullOrWhiteSpace(txtDiaChi.Text))
+                string.IsNullOrWhiteSpace(txtDiaChi.Text) ||
+                cmbLoaiKH.SelectedIndex == 0)
             {
                 return false; // Trả về false nếu có trường nào rỗng
             }
@@ -267,6 +280,7 @@ namespace BakeryManagementSystem.Views.Usercontrol
                         DiaChi = txtDiaChi.Text,
                         NgaySinh = dptNgaySinh.DateTime,
                         GioiTinh = ckcNam.Checked ? true : false,
+                        LoaiKH = cmbLoaiKH.SelectedIndex - 1
                     };
                     await qlKhachHang.ThemKHAsync(khachHang);
                     themMoi = false;
@@ -283,6 +297,7 @@ namespace BakeryManagementSystem.Views.Usercontrol
                         DiaChi = txtDiaChi.Text,
                         NgaySinh = dptNgaySinh.DateTime,
                         GioiTinh = ckcNam.Checked ? true : false,
+                        LoaiKH = cmbLoaiKH.SelectedIndex -1
                     };
                     await qlKhachHang.CapNhatKhachHangAsync(khachHang);
                     MessageBox.Show("Cập nhật thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

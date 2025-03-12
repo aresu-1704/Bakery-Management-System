@@ -58,7 +58,7 @@ namespace BakeryManagementSystem.Views.Forms
             lblBan.Text = maBan.ToString();
 
             this.loaiHD = loaiHD;
-            lblLoai.Text = loaiHD == 0 ? "Mang đi" : "Tại chỗ";
+            lblLoai.Text = loaiHD == 0 ? "Hẹn lấy sau" : "Nhận ngay";
             lblSoHD.Text = soHD;
 
             lblTongTien.Text = tongTien;

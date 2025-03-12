@@ -67,18 +67,21 @@
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
             this.uclKhachHangThanThiet = new BakeryManagementSystem.Views.Usercontrol.UclKhachHangThanThiet();
-            this.uclNhapHang = new BakeryManagementSystem.Views.Usercontrols.UclNhapHang();
-            this.uclLichSuMua = new BakeryManagementSystem.Views.Usercontrols.UclLichSuMua();
-            this.uclChucVu = new BakeryManagementSystem.Views.Usercontrol.UclChucVu();
-            this.uclQLNV = new BakeryManagementSystem.Views.Usercontrol.UclQLNV();
-            this.uclNhaCungCap = new BakeryManagementSystem.Views.Usercontrol.UclNhaCungCap();
+            this.uclLuong = new BakeryManagementSystem.Views.Usercontrol.UclLuong();
+            this.uclLichLamViec = new BakeryManagementSystem.Views.Usercontrols.UclLichLam();
+            this.uclPhanCong = new BakeryManagementSystem.Views.Usercontrol.UclPhanCong();
+            this.uclKhuyenMai = new BakeryManagementSystem.Views.Usercontrols.UclKhuyenMai();
+            this.uclTinhTrangBep = new BakeryManagementSystem.Views.Usercontrols.UclTinhTrangBep();
+            this.uclNhaBep = new BakeryManagementSystem.Views.Usercontrols.UclNhaBep();
+            this.uclDanhSachPhanCong = new BakeryManagementSystem.Views.Usercontrols.UclDanhSachPhanCong();
+            this.uclQLSanPham = new BakeryManagementSystem.Views.Usercontrols.UclQLSanPham();
             this.uclKhoNguyenLieu = new BakeryManagementSystem.Views.Usercontrols.UclKhoNguyenLieu();
             this.uclPOS = new BakeryManagementSystem.Views.Usercontrols.UclPOS();
             this.uclBan = new BakeryManagementSystem.Views.Usercontrols.UclBan();
             this.lblLoGo = new System.Windows.Forms.Label();
             this.lblTieuDe = new System.Windows.Forms.Label();
             this.picBackGr = new System.Windows.Forms.PictureBox();
-            this.uclXemKhoNguyenLieu = new BakeryManagementSystem.Views.Usercontrols.UclXemKhoNguyenLieu();
+            this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accChucNang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -111,6 +114,7 @@
             this.gbtnBanHang.Appearance.Default.Options.UseFont = true;
             this.gbtnBanHang.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.btnPOS,
+            this.accordionControlElement3,
             this.btnBan});
             this.gbtnBanHang.Expanded = true;
             this.gbtnBanHang.ImageOptions.Image = global::BakeryManagementSystem.Properties.Resources.icons8_sell_32;
@@ -125,7 +129,7 @@
             this.btnPOS.ImageOptions.Image = global::BakeryManagementSystem.Properties.Resources.calculatesheet_32x32;
             this.btnPOS.Name = "btnPOS";
             this.btnPOS.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnPOS.Text = "POS";
+            this.btnPOS.Text = "BÁNH BÌNH THƯỜNG";
             this.btnPOS.Click += new System.EventHandler(this.btnPOS_Click);
             // 
             // btnBan
@@ -473,13 +477,15 @@
             // fluentDesignFormContainer1
             // 
             this.fluentDesignFormContainer1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.fluentDesignFormContainer1.Controls.Add(this.uclXemKhoNguyenLieu);
             this.fluentDesignFormContainer1.Controls.Add(this.uclKhachHangThanThiet);
-            this.fluentDesignFormContainer1.Controls.Add(this.uclNhapHang);
-            this.fluentDesignFormContainer1.Controls.Add(this.uclLichSuMua);
-            this.fluentDesignFormContainer1.Controls.Add(this.uclChucVu);
-            this.fluentDesignFormContainer1.Controls.Add(this.uclQLNV);
-            this.fluentDesignFormContainer1.Controls.Add(this.uclNhaCungCap);
+            this.fluentDesignFormContainer1.Controls.Add(this.uclLuong);
+            this.fluentDesignFormContainer1.Controls.Add(this.uclLichLamViec);
+            this.fluentDesignFormContainer1.Controls.Add(this.uclPhanCong);
+            this.fluentDesignFormContainer1.Controls.Add(this.uclKhuyenMai);
+            this.fluentDesignFormContainer1.Controls.Add(this.uclTinhTrangBep);
+            this.fluentDesignFormContainer1.Controls.Add(this.uclNhaBep);
+            this.fluentDesignFormContainer1.Controls.Add(this.uclDanhSachPhanCong);
+            this.fluentDesignFormContainer1.Controls.Add(this.uclQLSanPham);
             this.fluentDesignFormContainer1.Controls.Add(this.uclKhoNguyenLieu);
             this.fluentDesignFormContainer1.Controls.Add(this.uclPOS);
             this.fluentDesignFormContainer1.Controls.Add(this.uclBan);
@@ -494,6 +500,27 @@
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // uclKhachHangThanThiet
+            // 
+            this.uclKhachHangThanThiet.Appearance.BackColor = System.Drawing.Color.Linen;
+            this.uclKhachHangThanThiet.Appearance.Options.UseBackColor = true;
+            this.uclKhachHangThanThiet.Location = new System.Drawing.Point(3, 3);
+            this.uclKhachHangThanThiet.Name = "uclKhachHangThanThiet";
+            this.uclKhachHangThanThiet.Size = new System.Drawing.Size(1606, 998);
+            this.uclKhachHangThanThiet.TabIndex = 65;
+            this.uclKhachHangThanThiet.Visible = false;
+            // 
+            // uclLuong
+            // 
+            this.uclLuong.Appearance.BackColor = System.Drawing.Color.Linen;
+            this.uclLuong.Appearance.Options.UseBackColor = true;
+            this.uclLuong.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uclLuong.Location = new System.Drawing.Point(3, 3);
+            this.uclLuong.Name = "uclLuong";
+            this.uclLuong.Size = new System.Drawing.Size(1606, 998);
+            this.uclLuong.TabIndex = 64;
+            this.uclLuong.Visible = false;
+            // 
+            // uclLichLamViec
             // 
             this.uclKhachHangThanThiet.Appearance.BackColor = System.Drawing.Color.Linen;
             this.uclKhachHangThanThiet.Appearance.Options.UseBackColor = true;
@@ -620,15 +647,14 @@
             this.picBackGr.TabIndex = 16;
             this.picBackGr.TabStop = false;
             // 
-            // uclXemKhoNguyenLieu
+            // accordionControlElement3
             // 
-            this.uclXemKhoNguyenLieu.Appearance.BackColor = System.Drawing.Color.Linen;
-            this.uclXemKhoNguyenLieu.Appearance.Options.UseBackColor = true;
-            this.uclXemKhoNguyenLieu.Location = new System.Drawing.Point(0, 0);
-            this.uclXemKhoNguyenLieu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.uclXemKhoNguyenLieu.Name = "uclXemKhoNguyenLieu";
-            this.uclXemKhoNguyenLieu.Size = new System.Drawing.Size(1942, 1102);
-            this.uclXemKhoNguyenLieu.TabIndex = 63;
+            this.accordionControlElement3.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement3.Appearance.Default.Options.UseFont = true;
+            this.accordionControlElement3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement3.ImageOptions.Image")));
+            this.accordionControlElement3.Name = "accordionControlElement3";
+            this.accordionControlElement3.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement3.Text = "BÁNH THEO YÊU CẦU";
             // 
             // frmGiaoDienChinh
             // 
@@ -705,12 +731,15 @@
         private Usercontrols.UclPOS uclPOS;
         private Usercontrols.UclBan uclBan;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
-        private Usercontrol.UclChucVu uclChucVu;
-        private Usercontrol.UclQLNV uclQLNV;
-        private Usercontrol.UclNhaCungCap uclNhaCungCap;
-        private Usercontrols.UclNhapHang uclNhapHang;
-        private Usercontrols.UclLichSuMua uclLichSuMua;
+        private Usercontrols.UclQLSanPham uclQLSanPham;
+        private Usercontrols.UclDanhSachPhanCong uclDanhSachPhanCong;
+        private Usercontrols.UclKhuyenMai uclKhuyenMai;
+        private Usercontrols.UclTinhTrangBep uclTinhTrangBep;
+        private Usercontrols.UclNhaBep uclNhaBep;
+        private Usercontrol.UclPhanCong uclPhanCong;
+        private Usercontrols.UclLichLam uclLichLamViec;
+        private Usercontrol.UclLuong uclLuong;
         private Usercontrol.UclKhachHangThanThiet uclKhachHangThanThiet;
-        private Usercontrols.UclXemKhoNguyenLieu uclXemKhoNguyenLieu;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement3;
     }
 }

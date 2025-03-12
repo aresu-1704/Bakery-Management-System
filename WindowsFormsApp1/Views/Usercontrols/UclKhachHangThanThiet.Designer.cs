@@ -63,6 +63,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txtTimTheoMa = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.cmbLoaiKH = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxKhachHang)).BeginInit();
             this.gbxKhachHang.SuspendLayout();
@@ -72,8 +74,9 @@
             this.gbxThongTinCaNhan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckcNu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckcNam.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dptNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dptNgaySinh.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dptNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLoaiKH.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDanhSachKH
@@ -84,7 +87,7 @@
             this.dgvDanhSachKH.BackgroundColor = System.Drawing.Color.Linen;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SaddleBrown;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Bisque;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.SaddleBrown;
@@ -266,6 +269,8 @@
             this.gbxThongTinCaNhan.AppearanceCaption.ForeColor = System.Drawing.Color.SaddleBrown;
             this.gbxThongTinCaNhan.AppearanceCaption.Options.UseFont = true;
             this.gbxThongTinCaNhan.AppearanceCaption.Options.UseForeColor = true;
+            this.gbxThongTinCaNhan.Controls.Add(this.label7);
+            this.gbxThongTinCaNhan.Controls.Add(this.cmbLoaiKH);
             this.gbxThongTinCaNhan.Controls.Add(this.ckcNu);
             this.gbxThongTinCaNhan.Controls.Add(this.ckcNam);
             this.gbxThongTinCaNhan.Controls.Add(this.dptNgaySinh);
@@ -283,7 +288,7 @@
             // ckcNu
             // 
             this.ckcNu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ckcNu.Location = new System.Drawing.Point(230, 166);
+            this.ckcNu.Location = new System.Drawing.Point(230, 144);
             this.ckcNu.Name = "ckcNu";
             this.ckcNu.Properties.Appearance.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckcNu.Properties.Appearance.ForeColor = System.Drawing.Color.Peru;
@@ -298,7 +303,7 @@
             // ckcNam
             // 
             this.ckcNam.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ckcNam.Location = new System.Drawing.Point(149, 166);
+            this.ckcNam.Location = new System.Drawing.Point(149, 144);
             this.ckcNam.Name = "ckcNam";
             this.ckcNam.Properties.Appearance.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckcNam.Properties.Appearance.ForeColor = System.Drawing.Color.Peru;
@@ -314,7 +319,7 @@
             // 
             this.dptNgaySinh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dptNgaySinh.EditValue = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.dptNgaySinh.Location = new System.Drawing.Point(149, 66);
+            this.dptNgaySinh.Location = new System.Drawing.Point(149, 44);
             this.dptNgaySinh.Name = "dptNgaySinh";
             this.dptNgaySinh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dptNgaySinh.Properties.Appearance.ForeColor = System.Drawing.Color.Peru;
@@ -340,7 +345,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label8.Location = new System.Drawing.Point(11, 168);
+            this.label8.Location = new System.Drawing.Point(11, 146);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 26);
             this.label8.TabIndex = 13;
@@ -350,7 +355,7 @@
             // 
             this.txtDiaChi.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.ForeColor = System.Drawing.Color.Peru;
-            this.txtDiaChi.Location = new System.Drawing.Point(149, 116);
+            this.txtDiaChi.Location = new System.Drawing.Point(149, 94);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(338, 30);
             this.txtDiaChi.TabIndex = 9;
@@ -362,7 +367,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label6.Location = new System.Drawing.Point(11, 68);
+            this.label6.Location = new System.Drawing.Point(11, 46);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 26);
             this.label6.TabIndex = 9;
@@ -374,7 +379,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label5.Location = new System.Drawing.Point(11, 118);
+            this.label5.Location = new System.Drawing.Point(11, 96);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 26);
             this.label5.TabIndex = 11;
@@ -547,6 +552,42 @@
             this.label3.Text = "KHÁCH HÀNG THÂN THIẾT";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cmbLoaiKH
+            // 
+            this.cmbLoaiKH.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbLoaiKH.Location = new System.Drawing.Point(149, 189);
+            this.cmbLoaiKH.Name = "cmbLoaiKH";
+            this.cmbLoaiKH.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbLoaiKH.Properties.Appearance.ForeColor = System.Drawing.Color.Peru;
+            this.cmbLoaiKH.Properties.Appearance.Options.UseFont = true;
+            this.cmbLoaiKH.Properties.Appearance.Options.UseForeColor = true;
+            this.cmbLoaiKH.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbLoaiKH.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Peru;
+            this.cmbLoaiKH.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cmbLoaiKH.Properties.AppearanceDropDown.Options.UseForeColor = true;
+            this.cmbLoaiKH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbLoaiKH.Properties.Items.AddRange(new object[] {
+            "Khách vãng lai",
+            "Khách thân thiết",
+            "Khách mua sỉ"});
+            this.cmbLoaiKH.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbLoaiKH.Size = new System.Drawing.Size(338, 30);
+            this.cmbLoaiKH.TabIndex = 29;
+            this.cmbLoaiKH.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label7.Location = new System.Drawing.Point(11, 191);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(87, 26);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Loại KH";
+            // 
             // UclKhachHangThanThiet
             // 
             this.Appearance.BackColor = System.Drawing.Color.Linen;
@@ -586,6 +627,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ckcNam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dptNgaySinh.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dptNgaySinh.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLoaiKH.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -626,5 +668,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbLoaiKH;
     }
 }

@@ -77,7 +77,8 @@ namespace BakeryManagementSystem.Views.Usercontrols
                         dgvDSSanPham.Rows[newRowIdx].Cells[2].Value = dt.Rows[i]["TenHH"].ToString();
                         dgvDSSanPham.Rows[newRowIdx].Cells[3].Value = dt.Rows[i]["SanCo"].ToString();
                         dgvDSSanPham.Rows[newRowIdx].Cells[4].Value = float.Parse(dt.Rows[i]["GiaTien"].ToString()).ToString("N0") + " VNĐ";
-                        dgvDSSanPham.Rows[newRowIdx].Cells[5].Value = dt.Rows[i]["ChietKhau"] != DBNull.Value ?
+                        dgvDSSanPham.Rows[newRowIdx].Cells[5].Value = (bool)dt.Rows[i]["DanhMuc"] ? "Bánh bình thường" : "Bánh theo yêu cầu";
+                        dgvDSSanPham.Rows[newRowIdx].Cells[6].Value = dt.Rows[i]["ChietKhau"] != DBNull.Value ?
                             dt.Rows[i]["ChietKhau"].ToString() : "0";
                     }
                 }
@@ -105,7 +106,8 @@ namespace BakeryManagementSystem.Views.Usercontrols
                         dgvDSSanPham.Rows[newRowIdx].Cells[2].Value = dt.Rows[i]["TenHH"].ToString();
                         dgvDSSanPham.Rows[newRowIdx].Cells[3].Value = dt.Rows[i]["SanCo"].ToString();
                         dgvDSSanPham.Rows[newRowIdx].Cells[4].Value = float.Parse(dt.Rows[i]["GiaTien"].ToString()).ToString("N0") + " VNĐ";
-                        dgvDSSanPham.Rows[newRowIdx].Cells[5].Value = dt.Rows[i]["ChietKhau"] != DBNull.Value ?
+                        dgvDSSanPham.Rows[newRowIdx].Cells[5].Value = (bool)dt.Rows[i]["DanhMuc"] ? "Bánh bình thường" : "Bánh theo yêu cầu";
+                        dgvDSSanPham.Rows[newRowIdx].Cells[6].Value = dt.Rows[i]["ChietKhau"] != DBNull.Value ?
                             dt.Rows[i]["ChietKhau"].ToString() : "0";
                     }
                 }
@@ -172,7 +174,8 @@ namespace BakeryManagementSystem.Views.Usercontrols
             // Kiểm tra các trường nhập liệu
             if (string.IsNullOrWhiteSpace(txtTen.Text) ||
                 string.IsNullOrWhiteSpace(txtGiaTien.Text) ||
-                string.IsNullOrWhiteSpace(txtSanCo.Text))
+                string.IsNullOrWhiteSpace(txtSanCo.Text) ||
+                cmbDanhMucBanh.SelectedIndex == 0)
             {
                 return false; // Trả về false nếu có trường nào rỗng
             }
@@ -211,6 +214,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     {
                         btnXoa.Enabled = true;
                     }
+                    cmbDanhMucBanh.SelectedIndex = string.Equals(dt.Rows[0][5].ToString(), "Bánh bình thường") ? 1 : 2;
                 }
             }
             catch (ArgumentOutOfRangeException ex)
@@ -335,6 +339,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
                         SanCo = int.Parse(txtSanCo.Text),
                         MaDotKhuyenMai = cmbKhuyenMai.SelectedIndex != -1 ? int.Parse(cmbKhuyenMai.SelectedValue.ToString()) : 0,
                         HinhAnh = ChuyenAnh.ImageToByteArray(picAnh.Image),
+                        DanhMuc = Convert.ToBoolean(cmbDanhMucBanh.SelectedIndex - 1),
                     };
                     await qlSanPham.ThemSPAsync(hangHoa);
                     themMoi = false;
@@ -350,6 +355,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
                         SanCo = int.Parse(txtSanCo.Text),
                         MaDotKhuyenMai = cmbKhuyenMai.SelectedIndex != -1 ? int.Parse(cmbKhuyenMai.SelectedValue.ToString()) : 0,
                         HinhAnh = ChuyenAnh.ImageToByteArray(picAnh.Image),
+                        DanhMuc = Convert.ToBoolean(cmbDanhMucBanh.SelectedIndex - 1)
                     };
                     await qlSanPham.CapNhatTTSPAsync(hangHoa);
                     MessageBox.Show("Cập nhật thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -504,7 +510,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
             {
                 MessageBox.Show("Exel không tồn tại trên máy hoặc không có bản quyền", "Microsoft Exel", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
         private async void btnXoa_Click(object sender, EventArgs e)
@@ -599,6 +604,19 @@ namespace BakeryManagementSystem.Views.Usercontrols
         private void btnXoaChucVu_Click(object sender, EventArgs e)
         {
             cmbKhuyenMai.SelectedIndex = -1;
+        }
+
+        private void cmbDanhMucBanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbDanhMucBanh.SelectedIndex == 1)
+            {
+                cmbKhuyenMai.SelectedIndex = 0;
+                cmbKhuyenMai.Enabled = false;
+            }
+            else
+            {
+                cmbKhuyenMai.Enabled = true;
+            }
         }
     }
 }
