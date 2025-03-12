@@ -273,7 +273,7 @@
             this.btnDonBan.Name = "btnDonBan";
             this.btnDonBan.Size = new System.Drawing.Size(695, 85);
             this.btnDonBan.TabIndex = 20;
-            this.btnDonBan.Text = "Dọn bàn";
+            this.btnDonBan.Text = "Xóa đơn hàng";
             this.btnDonBan.Click += new System.EventHandler(this.btnDonBan_Click);
             // 
             // UclBan

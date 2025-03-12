@@ -46,6 +46,12 @@
     <Reference Include="DevExpress.XtraGrid.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="ExcelDataReader, Version=3.7.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.7.0\lib\net462\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.7.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.7.0\lib\net462\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Api.CommonProtos, Version=2.16.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Api.CommonProtos.2.16.0\lib\net461\Google.Api.CommonProtos.dll</HintPath>
     </Reference>
@@ -129,6 +135,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.1\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
@@ -259,6 +266,18 @@
     </Compile>
     <Compile Include="Views\Usercontrols\UclBan.Designer.cs">
       <DependentUpon>UclBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclBanHangTheoYeuCau.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclBanHangTheoYeuCau.Designer.cs">
+      <DependentUpon>UclBanHangTheoYeuCau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclKhachHangThanThiet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclKhachHangThanThiet.Designer.cs">
+      <DependentUpon>UclKhachHangThanThiet.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Usercontrols\UclKhoNguyenLieu.cs">
       <SubType>UserControl</SubType>
@@ -579,6 +598,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclBan.resx">
       <DependentUpon>UclBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclBanHangTheoYeuCau.resx">
+      <DependentUpon>UclBanHangTheoYeuCau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclKhachHangThanThiet.resx">
+      <DependentUpon>UclKhachHangThanThiet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclKhoNguyenLieu.resx">
       <DependentUpon>UclKhoNguyenLieu.cs</DependentUpon>

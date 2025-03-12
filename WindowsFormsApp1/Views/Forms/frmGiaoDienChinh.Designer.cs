@@ -66,6 +66,8 @@
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
             this.fluentFormDefaultManager1 = new DevExpress.XtraBars.FluentDesignSystem.FluentFormDefaultManager(this.components);
             this.fluentDesignFormContainer1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer();
+            this.uclKhachHangThanThiet = new BakeryManagementSystem.Views.Usercontrol.UclKhachHangThanThiet();
+            this.uclLuong = new BakeryManagementSystem.Views.Usercontrol.UclLuong();
             this.uclLichLamViec = new BakeryManagementSystem.Views.Usercontrols.UclLichLam();
             this.uclPhanCong = new BakeryManagementSystem.Views.Usercontrol.UclPhanCong();
             this.uclKhuyenMai = new BakeryManagementSystem.Views.Usercontrols.UclKhuyenMai();
@@ -79,7 +81,7 @@
             this.lblLoGo = new System.Windows.Forms.Label();
             this.lblTieuDe = new System.Windows.Forms.Label();
             this.picBackGr = new System.Windows.Forms.PictureBox();
-            this.uclLuong = new BakeryManagementSystem.Views.Usercontrol.UclLuong();
+            this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.accChucNang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).BeginInit();
@@ -111,6 +113,7 @@
             this.gbtnBanHang.Appearance.Default.Options.UseFont = true;
             this.gbtnBanHang.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.btnPOS,
+            this.accordionControlElement3,
             this.btnBan});
             this.gbtnBanHang.Expanded = true;
             this.gbtnBanHang.ImageOptions.Image = global::BakeryManagementSystem.Properties.Resources.icons8_sell_32;
@@ -125,7 +128,7 @@
             this.btnPOS.ImageOptions.Image = global::BakeryManagementSystem.Properties.Resources.calculatesheet_32x32;
             this.btnPOS.Name = "btnPOS";
             this.btnPOS.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnPOS.Text = "POS";
+            this.btnPOS.Text = "BÁNH BÌNH THƯỜNG";
             this.btnPOS.Click += new System.EventHandler(this.btnPOS_Click);
             // 
             // btnBan
@@ -472,6 +475,7 @@
             // fluentDesignFormContainer1
             // 
             this.fluentDesignFormContainer1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.fluentDesignFormContainer1.Controls.Add(this.uclKhachHangThanThiet);
             this.fluentDesignFormContainer1.Controls.Add(this.uclLuong);
             this.fluentDesignFormContainer1.Controls.Add(this.uclLichLamViec);
             this.fluentDesignFormContainer1.Controls.Add(this.uclPhanCong);
@@ -491,6 +495,27 @@
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
             this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1612, 1004);
             this.fluentDesignFormContainer1.TabIndex = 0;
+            // 
+            // uclKhachHangThanThiet
+            // 
+            this.uclKhachHangThanThiet.Appearance.BackColor = System.Drawing.Color.Linen;
+            this.uclKhachHangThanThiet.Appearance.Options.UseBackColor = true;
+            this.uclKhachHangThanThiet.Location = new System.Drawing.Point(3, 3);
+            this.uclKhachHangThanThiet.Name = "uclKhachHangThanThiet";
+            this.uclKhachHangThanThiet.Size = new System.Drawing.Size(1606, 998);
+            this.uclKhachHangThanThiet.TabIndex = 65;
+            this.uclKhachHangThanThiet.Visible = false;
+            // 
+            // uclLuong
+            // 
+            this.uclLuong.Appearance.BackColor = System.Drawing.Color.Linen;
+            this.uclLuong.Appearance.Options.UseBackColor = true;
+            this.uclLuong.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uclLuong.Location = new System.Drawing.Point(3, 3);
+            this.uclLuong.Name = "uclLuong";
+            this.uclLuong.Size = new System.Drawing.Size(1606, 998);
+            this.uclLuong.TabIndex = 64;
+            this.uclLuong.Visible = false;
             // 
             // uclLichLamViec
             // 
@@ -623,16 +648,14 @@
             this.picBackGr.TabIndex = 16;
             this.picBackGr.TabStop = false;
             // 
-            // uclLuong
+            // accordionControlElement3
             // 
-            this.uclLuong.Appearance.BackColor = System.Drawing.Color.Linen;
-            this.uclLuong.Appearance.Options.UseBackColor = true;
-            this.uclLuong.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uclLuong.Location = new System.Drawing.Point(3, 3);
-            this.uclLuong.Name = "uclLuong";
-            this.uclLuong.Size = new System.Drawing.Size(1606, 998);
-            this.uclLuong.TabIndex = 64;
-            this.uclLuong.Visible = false;
+            this.accordionControlElement3.Appearance.Default.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement3.Appearance.Default.Options.UseFont = true;
+            this.accordionControlElement3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement3.ImageOptions.Image")));
+            this.accordionControlElement3.Name = "accordionControlElement3";
+            this.accordionControlElement3.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement3.Text = "BÁNH THEO YÊU CẦU";
             // 
             // frmGiaoDienChinh
             // 
@@ -716,5 +739,7 @@
         private Usercontrol.UclPhanCong uclPhanCong;
         private Usercontrols.UclLichLam uclLichLamViec;
         private Usercontrol.UclLuong uclLuong;
+        private Usercontrol.UclKhachHangThanThiet uclKhachHangThanThiet;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement3;
     }
 }

@@ -17,6 +17,7 @@ namespace BakeryManagementSystem.Models
         public string DiaChi { get; set; }
         public string SoDienThoai { get; set; }
         public bool GioiTinh { get; set; }
+        public int LoaiKH { get; set; }
 
         private Connections data = new Connections();
 
@@ -38,7 +39,7 @@ namespace BakeryManagementSystem.Models
 
         public async Task ThemKhachHangAsync(KhachHang khachHang)
         {
-            string query = "EXEC sp_ThemKhachHang @Ho, @Ten, @NgaySinh, @DiaChi, @SoDienThoai, @GioiTinh";
+            string query = "EXEC sp_ThemKhachHang @Ho, @Ten, @NgaySinh, @DiaChi, @SoDienThoai, @GioiTinh, @LoaiKH";
             var parameters = new Dictionary<string, object>
             {
                 { "@Ho", khachHang.Ho },
@@ -46,14 +47,15 @@ namespace BakeryManagementSystem.Models
                 { "@NgaySinh", khachHang.NgaySinh?.ToString("yyyy-MM-dd") ?? (object)DBNull.Value },
                 { "@DiaChi", khachHang.DiaChi ?? (object)DBNull.Value },
                 { "@SoDienThoai", khachHang.SoDienThoai ?? (object)DBNull.Value },
-                { "@GioiTinh", khachHang.GioiTinh ? 1 : 0 }
+                { "@GioiTinh", khachHang.GioiTinh ? 1 : 0 },
+                { "@LoaiKH", khachHang.LoaiKH }
             };
             await data.ExecuteQueryAsync(query, parameters);
         }
 
         public async Task CapNhatKhachHangAsync(KhachHang khachHang)
         {
-            string query = "EXEC sp_CapNhatKhachHang @MaKH, @Ho, @Ten, @NgaySinh, @DiaChi, @SoDienThoai, @GioiTinh";
+            string query = "EXEC sp_CapNhatKhachHang @MaKH, @Ho, @Ten, @NgaySinh, @DiaChi, @SoDienThoai, @GioiTinh, @LoaiKH";
             var parameters = new Dictionary<string, object>
             {
                 { "@MaKH", khachHang.MaKH },
@@ -62,7 +64,8 @@ namespace BakeryManagementSystem.Models
                 { "@NgaySinh", khachHang.NgaySinh?.ToString("yyyy-MM-dd") ?? (object)DBNull.Value },
                 { "@DiaChi", khachHang.DiaChi ?? (object)DBNull.Value },
                 { "@SoDienThoai", khachHang.SoDienThoai ?? (object)DBNull.Value },
-                { "@GioiTinh", khachHang.GioiTinh ? 1 : 0 }
+                { "@GioiTinh", khachHang.GioiTinh ? 1 : 0 },
+                { "@LoaiKH", khachHang.LoaiKH }
             };
             await data.ExecuteQueryAsync(query, parameters);
         }
@@ -76,6 +79,5 @@ namespace BakeryManagementSystem.Models
             };
             await data.ExecuteQueryAsync(query, parameters);
         }
-
     }
 }

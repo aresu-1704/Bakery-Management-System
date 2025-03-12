@@ -31,6 +31,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDanhSachKH = new System.Windows.Forms.DataGridView();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxKhachHang = new DevExpress.XtraEditors.GroupControl();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,8 +44,6 @@
             this.txtSoDienThoai = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.gbxThongTinCaNhan = new DevExpress.XtraEditors.GroupControl();
-            this.cmbLoaiKhachHang = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.label9 = new System.Windows.Forms.Label();
             this.ckcNu = new DevExpress.XtraEditors.CheckEdit();
             this.ckcNam = new DevExpress.XtraEditors.CheckEdit();
             this.dptNgaySinh = new DevExpress.XtraEditors.DateEdit();
@@ -61,11 +63,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txtTimTheoMa = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbLoaiKH = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachKH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxKhachHang)).BeginInit();
             this.gbxKhachHang.SuspendLayout();
@@ -73,11 +72,11 @@
             this.gbxThongTinLienLac.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxThongTinCaNhan)).BeginInit();
             this.gbxThongTinCaNhan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbLoaiKhachHang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckcNu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckcNam.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dptNgaySinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dptNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLoaiKH.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDanhSachKH
@@ -99,7 +98,6 @@
             this.Column2,
             this.Column3,
             this.Column4,
-            this.Column5,
             this.Column1});
             this.dgvDanhSachKH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvDanhSachKH.EnableHeadersVisualStyles = false;
@@ -123,6 +121,33 @@
             this.dgvDanhSachKH.TabIndex = 0;
             this.dgvDanhSachKH.TabStop = false;
             this.dgvDanhSachKH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhSachNV_CellClick);
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Mã khách hàng";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Họ và Tên";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Số điện thoại";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Số hoá đơn đã mua";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // gbxKhachHang
             // 
@@ -244,8 +269,8 @@
             this.gbxThongTinCaNhan.AppearanceCaption.ForeColor = System.Drawing.Color.SaddleBrown;
             this.gbxThongTinCaNhan.AppearanceCaption.Options.UseFont = true;
             this.gbxThongTinCaNhan.AppearanceCaption.Options.UseForeColor = true;
-            this.gbxThongTinCaNhan.Controls.Add(this.cmbLoaiKhachHang);
-            this.gbxThongTinCaNhan.Controls.Add(this.label9);
+            this.gbxThongTinCaNhan.Controls.Add(this.label7);
+            this.gbxThongTinCaNhan.Controls.Add(this.cmbLoaiKH);
             this.gbxThongTinCaNhan.Controls.Add(this.ckcNu);
             this.gbxThongTinCaNhan.Controls.Add(this.ckcNam);
             this.gbxThongTinCaNhan.Controls.Add(this.dptNgaySinh);
@@ -260,236 +285,10 @@
             this.gbxThongTinCaNhan.TabIndex = 3;
             this.gbxThongTinCaNhan.Text = "Thông tin cá nhân";
             // 
-            // cmbLoaiKhachHang
-            // 
-            this.cmbLoaiKhachHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbLoaiKhachHang.Location = new System.Drawing.Point(149, 191);
-            this.cmbLoaiKhachHang.Name = "cmbLoaiKhachHang";
-            this.cmbLoaiKhachHang.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbLoaiKhachHang.Properties.Appearance.ForeColor = System.Drawing.Color.Peru;
-            this.cmbLoaiKhachHang.Properties.Appearance.Options.UseFont = true;
-            this.cmbLoaiKhachHang.Properties.Appearance.Options.UseForeColor = true;
-            this.cmbLoaiKhachHang.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbLoaiKhachHang.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Peru;
-            this.cmbLoaiKhachHang.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.cmbLoaiKhachHang.Properties.AppearanceDropDown.Options.UseForeColor = true;
-            this.cmbLoaiKhachHang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbLoaiKhachHang.Properties.Items.AddRange(new object[] {
-            "Afghanistan",
-            "Albania",
-            "Algeria",
-            "Andorra",
-            "Angola",
-            "Antigua and Barbuda",
-            "Argentina",
-            "Armenia",
-            "Australia",
-            "Austria",
-            "Azerbaijan",
-            "Bahamas",
-            "Bahrain",
-            "Bangladesh",
-            "Barbados",
-            "Belarus",
-            "Belgium",
-            "Belize",
-            "Benin",
-            "Bhutan",
-            "Bolivia",
-            "Bosnia and Herzegovina",
-            "Botswana",
-            "Brazil",
-            "Brunei",
-            "Bulgaria",
-            "Burkina Faso",
-            "Burundi",
-            "Cabo Verde",
-            "Cambodia",
-            "Cameroon",
-            "Canada",
-            "Central African Republic",
-            "Chad",
-            "Chile",
-            "China",
-            "Colombia",
-            "Comoros",
-            "Congo (Congo-Brazzaville)",
-            "Costa Rica",
-            "Croatia",
-            "Cuba",
-            "Cyprus",
-            "Czechia (Czech Republic)",
-            "Democratic Republic of the Congo",
-            "Denmark",
-            "Djibouti",
-            "Dominica",
-            "Dominican Republic",
-            "East Timor (Timor-Leste)",
-            "Ecuador",
-            "Egypt",
-            "El Salvador",
-            "Equatorial Guinea",
-            "Eritrea",
-            "Estonia",
-            "Eswatini (fmr. \"Swaziland\")",
-            "Ethiopia",
-            "Fiji",
-            "Finland",
-            "France",
-            "Gabon",
-            "Gambia",
-            "Georgia",
-            "Germany",
-            "Ghana",
-            "Greece",
-            "Grenada",
-            "Guatemala",
-            "Guinea",
-            "Guinea-Bissau",
-            "Guyana",
-            "Haiti",
-            "Honduras",
-            "Hungary",
-            "Iceland",
-            "India",
-            "Indonesia",
-            "Iran",
-            "Iraq",
-            "Ireland",
-            "Israel",
-            "Italy",
-            "Ivory Coast",
-            "Jamaica",
-            "Japan",
-            "Jordan",
-            "Kazakhstan",
-            "Kenya",
-            "Kiribati",
-            "Kuwait",
-            "Kyrgyzstan",
-            "Laos",
-            "Latvia",
-            "Lebanon",
-            "Lesotho",
-            "Liberia",
-            "Libya",
-            "Liechtenstein",
-            "Lithuania",
-            "Luxembourg",
-            "Madagascar",
-            "Malawi",
-            "Malaysia",
-            "Maldives",
-            "Mali",
-            "Malta",
-            "Marshall Islands",
-            "Mauritania",
-            "Mauritius",
-            "Mexico",
-            "Micronesia",
-            "Moldova",
-            "Monaco",
-            "Mongolia",
-            "Montenegro",
-            "Morocco",
-            "Mozambique",
-            "Myanmar (formerly Burma)",
-            "Namibia",
-            "Nauru",
-            "Nepal",
-            "Netherlands",
-            "New Zealand",
-            "Nicaragua",
-            "Niger",
-            "Nigeria",
-            "North Korea",
-            "North Macedonia",
-            "Norway",
-            "Oman",
-            "Pakistan",
-            "Palau",
-            "Panama",
-            "Papua New Guinea",
-            "Paraguay",
-            "Peru",
-            "Philippines",
-            "Poland",
-            "Portugal",
-            "Qatar",
-            "Romania",
-            "Russia",
-            "Rwanda",
-            "Saint Kitts and Nevis",
-            "Saint Lucia",
-            "Saint Vincent and the Grenadines",
-            "Samoa",
-            "San Marino",
-            "Sao Tome and Principe",
-            "Saudi Arabia",
-            "Senegal",
-            "Serbia",
-            "Seychelles",
-            "Sierra Leone",
-            "Singapore",
-            "Slovakia",
-            "Slovenia",
-            "Solomon Islands",
-            "Somalia",
-            "South Africa",
-            "South Korea",
-            "South Sudan",
-            "Spain",
-            "Sri Lanka",
-            "Sudan",
-            "Suriname",
-            "Sweden",
-            "Switzerland",
-            "Syria",
-            "Taiwan",
-            "Tajikistan",
-            "Tanzania",
-            "Thailand",
-            "Togo",
-            "Tonga",
-            "Trinidad and Tobago",
-            "Tunisia",
-            "Turkey",
-            "Turkmenistan",
-            "Tuvalu",
-            "Uganda",
-            "Ukraine",
-            "United Arab Emirates",
-            "United Kingdom",
-            "United States",
-            "Uruguay",
-            "Uzbekistan",
-            "Vanuatu",
-            "Vatican City",
-            "Venezuela",
-            "Việt Nam",
-            "Yemen",
-            "Zambia",
-            "Zimbabwe"});
-            this.cmbLoaiKhachHang.Size = new System.Drawing.Size(338, 30);
-            this.cmbLoaiKhachHang.TabIndex = 29;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label9.Location = new System.Drawing.Point(11, 193);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 26);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "Loại";
-            // 
             // ckcNu
             // 
             this.ckcNu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ckcNu.Location = new System.Drawing.Point(230, 147);
+            this.ckcNu.Location = new System.Drawing.Point(230, 144);
             this.ckcNu.Name = "ckcNu";
             this.ckcNu.Properties.Appearance.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckcNu.Properties.Appearance.ForeColor = System.Drawing.Color.Peru;
@@ -504,7 +303,7 @@
             // ckcNam
             // 
             this.ckcNam.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ckcNam.Location = new System.Drawing.Point(149, 147);
+            this.ckcNam.Location = new System.Drawing.Point(149, 144);
             this.ckcNam.Name = "ckcNam";
             this.ckcNam.Properties.Appearance.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckcNam.Properties.Appearance.ForeColor = System.Drawing.Color.Peru;
@@ -520,7 +319,7 @@
             // 
             this.dptNgaySinh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dptNgaySinh.EditValue = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            this.dptNgaySinh.Location = new System.Drawing.Point(149, 47);
+            this.dptNgaySinh.Location = new System.Drawing.Point(149, 44);
             this.dptNgaySinh.Name = "dptNgaySinh";
             this.dptNgaySinh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dptNgaySinh.Properties.Appearance.ForeColor = System.Drawing.Color.Peru;
@@ -546,7 +345,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label8.Location = new System.Drawing.Point(11, 149);
+            this.label8.Location = new System.Drawing.Point(11, 146);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 26);
             this.label8.TabIndex = 13;
@@ -556,7 +355,7 @@
             // 
             this.txtDiaChi.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.ForeColor = System.Drawing.Color.Peru;
-            this.txtDiaChi.Location = new System.Drawing.Point(149, 97);
+            this.txtDiaChi.Location = new System.Drawing.Point(149, 94);
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(338, 30);
             this.txtDiaChi.TabIndex = 9;
@@ -568,7 +367,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label6.Location = new System.Drawing.Point(11, 49);
+            this.label6.Location = new System.Drawing.Point(11, 46);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 26);
             this.label6.TabIndex = 9;
@@ -580,7 +379,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label5.Location = new System.Drawing.Point(11, 99);
+            this.label5.Location = new System.Drawing.Point(11, 96);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(75, 26);
             this.label5.TabIndex = 11;
@@ -753,38 +552,41 @@
             this.label3.Text = "KHÁCH HÀNG THÂN THIẾT";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Column2
+            // cmbLoaiKH
             // 
-            this.Column2.HeaderText = "Mã khách hàng";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.cmbLoaiKH.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbLoaiKH.Location = new System.Drawing.Point(149, 189);
+            this.cmbLoaiKH.Name = "cmbLoaiKH";
+            this.cmbLoaiKH.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbLoaiKH.Properties.Appearance.ForeColor = System.Drawing.Color.Peru;
+            this.cmbLoaiKH.Properties.Appearance.Options.UseFont = true;
+            this.cmbLoaiKH.Properties.Appearance.Options.UseForeColor = true;
+            this.cmbLoaiKH.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbLoaiKH.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Peru;
+            this.cmbLoaiKH.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cmbLoaiKH.Properties.AppearanceDropDown.Options.UseForeColor = true;
+            this.cmbLoaiKH.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbLoaiKH.Properties.Items.AddRange(new object[] {
+            "Khách vãng lai",
+            "Khách thân thiết",
+            "Khách mua sỉ"});
+            this.cmbLoaiKH.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbLoaiKH.Size = new System.Drawing.Size(338, 30);
+            this.cmbLoaiKH.TabIndex = 29;
+            this.cmbLoaiKH.TabStop = false;
             // 
-            // Column3
+            // label7
             // 
-            this.Column3.HeaderText = "Họ và Tên";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Số điện thoại";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Loại khách hàng";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Số hoá đơn đã mua";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label7.Location = new System.Drawing.Point(11, 191);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(87, 26);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Loại KH";
             // 
             // UclKhachHangThanThiet
             // 
@@ -821,11 +623,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.gbxThongTinCaNhan)).EndInit();
             this.gbxThongTinCaNhan.ResumeLayout(false);
             this.gbxThongTinCaNhan.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbLoaiKhachHang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckcNu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ckcNam.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dptNgaySinh.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dptNgaySinh.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLoaiKH.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -861,13 +663,12 @@
         private DevExpress.XtraEditors.SimpleButton btnLamMoi;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtTimTheoMa;
-        private System.Windows.Forms.Label label3;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbLoaiKhachHang;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbLoaiKH;
     }
 }

@@ -56,7 +56,7 @@ namespace BakeryManagementSystem.Views.Forms
             //uclNhapHang.Visible = false;
             //uclXemKhoNguyenLieu.Visible = false;
             uclKhoNguyenLieu.Visible = false;
-            //uclKhachHangThanThiet.Visible = false;
+            uclKhachHangThanThiet.Visible = false;
             uclLichLamViec.Visible = false;
             //uclLichSuMua.Visible = false;
             uclNhaBep.Visible = false;
@@ -155,7 +155,7 @@ namespace BakeryManagementSystem.Views.Forms
         private void btnKHTT_Click(object sender, EventArgs e)
         {
             setVisible();
-            //uclKhachHangThanThiet.activited();
+            uclKhachHangThanThiet.activited();
         }
 
         private void btnXemLichLam_Click(object sender, EventArgs e)
@@ -287,7 +287,7 @@ namespace BakeryManagementSystem.Views.Forms
 
         private void frmGiaoDienChinh_Load(object sender, EventArgs e)
         {
-            quyenQuanLy();
+            quyenNhanVien();
         }
     }
 }
