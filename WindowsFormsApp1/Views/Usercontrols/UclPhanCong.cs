@@ -19,8 +19,8 @@ namespace BakeryManagementSystem.Views.Usercontrol
     {
         #region Thuộc tính
         private QuanLyNhanVien qlNhanVien = new QuanLyNhanVien();
-        private ChucVu qlChucVu = new ChucVu();
-        private PhanCong qlPhanCong = new PhanCong();
+        private QuanLyChucVu qlChucVu = new QuanLyChucVu();
+        private QuanLyPhanCong qlPhanCong = new QuanLyPhanCong();
         private bool themMoi = false;
         private string maPC = null;
         #endregion

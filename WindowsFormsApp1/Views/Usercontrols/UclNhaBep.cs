@@ -1,4 +1,5 @@
-﻿using BakeryManagementSystem.Models;
+﻿using BakeryManagementSystem.Controllers;
+using BakeryManagementSystem.Models;
 using BakeryManagementSystem.Views.Forms;
 using DevExpress.XtraEditors;
 using System;
@@ -15,7 +16,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
 {
     public partial class UclNhaBep : DevExpress.XtraEditors.XtraUserControl
     {
-        private NhaBep qlNhaBep = new NhaBep();
+        private QuanLyNhaBep qlNhaBep = new QuanLyNhaBep();
         public UclNhaBep()
         {
             InitializeComponent();
