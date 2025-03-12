@@ -36,5 +36,6 @@ namespace BakeryManagementSystem.Controllers
             await khachHang.XoaKhachHangAsync(int.Parse(maKH));
         }
 
+
     }
 }
