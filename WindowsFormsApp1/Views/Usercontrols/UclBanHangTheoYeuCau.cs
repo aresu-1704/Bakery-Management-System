@@ -19,7 +19,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
     {
         private QuanLySanPham qlSanPham = new QuanLySanPham();
         private QuanLyBanAn qlBanAn = new QuanLyBanAn();
-        private QuanLyBanHang qlBanHang = new QuanLyBanHang();
+        private QuanLyDonTheoYeuCau qlBanHang = new QuanLyDonTheoYeuCau();
         private QuanLyKhachHang qlKhachHang = new QuanLyKhachHang();
         private int maNVThuNgan = 0;
         private int maKH = -1;
@@ -36,7 +36,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
             DataTable dt = await Task.Run(() =>
             {
-                return qlSanPham.LayDSHangHoaBinhThuongAsync();
+                return qlSanPham.LayDSHangHoaTheoYeuCauAsync();
             });
 
             if (dt.Rows.Count == 0)
@@ -60,7 +60,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     dgvDSSanPham.Rows[newRowIdx].Cells[2].Value = dt.Rows[i]["TenHH"].ToString();
                     dgvDSSanPham.Rows[newRowIdx].Cells[3].Value = dt.Rows[i]["SanCo"].ToString();
                     dgvDSSanPham.Rows[newRowIdx].Cells[4].Value = float.Parse(dt.Rows[i]["GiaTien"].ToString()).ToString("N0") + " VNĐ";
-                    dgvDSSanPham.Rows[newRowIdx].Cells[5].Value = dt.Rows[i]["ChietKhau"] != DBNull.Value ? dt.Rows[i]["ChietKhau"].ToString() : "0";
                 }
             }
         }
@@ -86,7 +85,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
         private void UclPOS_Load(object sender, EventArgs e)
         {
-            loadDSSanPham();
             loadBanVaoCMB();
         }
 
@@ -116,22 +114,15 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     return;
                 }
 
-                bool sanCo = false;
                 int viTri = -1;
-
-                if (int.Parse(dgvDSSanPham.Rows[e.RowIndex].Cells[3].Value?.ToString()) > 0)
-                {
-                    sanCo = true;
-                }
 
                 string maHH = dgvDSSanPham.Rows[e.RowIndex].Cells[1].Value?.ToString();
                 string giaGocStr = dgvDSSanPham.Rows[e.RowIndex].Cells[4].Value?.ToString();
                 double giaGoc = double.Parse(giaGocStr.Replace("VNĐ", "").Replace(",", "").Trim());
-                double phanTramGiamGia = double.Parse(dgvDSSanPham.Rows[e.RowIndex].Cells[5].Value?.ToString());
-                double giaBan = giaGoc * ((100 - phanTramGiamGia) / 100);
+                double giaBan = giaGoc;
                 bool themMoi;
 
-                themMoi = qlBanHang.ThemSanPham(maHH, giaBan, sanCo, ref viTri);
+                themMoi = qlBanHang.ThemSanPham(maHH, giaBan, ref viTri);
                 if (themMoi == true)
                 {
                     dgvHoaDon.Rows.Add();
@@ -140,19 +131,9 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     dgvHoaDon.Rows[viTri].Cells[2].Value = qlBanHang.DanhSachSP[viTri].SoLuong.ToString();
                     dgvHoaDon.Rows[viTri].Cells[3].Value = (giaBan * qlBanHang.DanhSachSP[viTri].SoLuong).ToString("N0") + " VNĐ";
                     dgvHoaDon.Rows[viTri].Cells[5].Value = dgvDSSanPham.Rows[e.RowIndex].Cells[1].Value?.ToString();
-                }
-                else
-                {
-                    dgvHoaDon.Rows[viTri].Cells[2].Value = qlBanHang.DanhSachSP[viTri].SoLuong.ToString();
-                    dgvHoaDon.Rows[viTri].Cells[3].Value = (giaBan * qlBanHang.DanhSachSP[viTri].SoLuong).ToString("N0") + " VNĐ";
+                    dgvHoaDon.Rows[viTri].Cells[7].Value = "0";
                 }
 
-                int soLuong = int.Parse(dgvDSSanPham.Rows[e.RowIndex].Cells[3].Value?.ToString());
-                if (soLuong > 0)
-                {
-                    soLuong -= 1;
-                }
-                dgvDSSanPham.Rows[e.RowIndex].Cells[3].Value = soLuong.ToString();
                 lblTongTien.Text = qlBanHang.TongTien(dgvHoaDon).ToString("N0") + " VNĐ";
             }
             catch (Exception ex)
@@ -186,31 +167,21 @@ namespace BakeryManagementSystem.Views.Usercontrols
         {
             if (e.ColumnIndex == 4)
             {
-                bool xoaSP = false;
                 int maSPXoa = int.Parse(dgvHoaDon.Rows[e.RowIndex].Cells[5].Value?.ToString());
-                bool traSPVe = qlBanHang.XoaSanPham(int.Parse(dgvHoaDon.Rows[e.RowIndex].Cells[5].Value.ToString()), ref xoaSP);
-                if (xoaSP)
-                {
-                    dgvHoaDon.Rows.RemoveAt(e.RowIndex);
-                }
-                else
-                {
-                    dgvHoaDon.Rows[e.RowIndex].Cells[2].Value = qlBanHang.DanhSachSP[e.RowIndex].SoLuong.ToString();
-                }
-
-                if (traSPVe)
-                {
-                    foreach (DataGridViewRow row in dgvDSSanPham.Rows)
-                    {
-                        if (row.Cells[1].Value != null && int.Parse(row.Cells[1].Value.ToString()) == maSPXoa)
-                        {
-                            row.Cells[3].Value = int.Parse(row.Cells[3].Value.ToString()) + 1;
-                            break;
-                        }
-                    }
-                }
+                qlBanHang.XoaSanPham(int.Parse(dgvHoaDon.Rows[e.RowIndex].Cells[5].Value.ToString()));
+                dgvHoaDon.Rows.RemoveAt(e.RowIndex);         
 
                 lblTongTien.Text = qlBanHang.TongTien(dgvHoaDon).ToString("N0") + " VNĐ";
+            }
+            else
+            {
+                txtGhiChu.Text = dgvHoaDon.Rows[e.RowIndex].Cells[6].Value?.ToString();
+                txtPhuThu.Text = dgvHoaDon.Rows[e.RowIndex].Cells[7].Value.ToString();
+                txtSoLuong.Text = dgvHoaDon.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtPhuThu.Enabled = true;
+                txtGhiChu.Enabled = true;
+                txtSoLuong.Enabled = true;
+                btnLuuSoLuong.Enabled = true;
             }
         }
 
@@ -318,31 +289,83 @@ namespace BakeryManagementSystem.Views.Usercontrols
         {
             if (dgvHoaDon.Rows.Count != 0)
             {
+                // Trích xuất dữ liệu từ UI trước khi chạy Task.Run
+                int maBan = int.Parse(cmbBan.SelectedValue.ToString());
+                int loaiHoaDon = cmbLoai.SelectedIndex;
+                string maHD = lblMaHD.Text;
+                string tongTien = lblTongTien.Text;
+                int maKhachHang = txtKHTT.Text != "" ? maKH : -1;
+
                 frmThanhToan thanhToan = new frmThanhToan();
                 thanhToan.choice += reLoad;
+
                 await Task.Run(() =>
                 {
-                    return thanhToan.LoadDuLieu(qlBanHang, maNVThuNgan, int.Parse(cmbBan.SelectedValue.ToString()), cmbLoai.SelectedIndex,
-                        lblMaHD.Text, lblTongTien.Text, dgvHoaDon.Rows, txtKHTT.Text != "" ? maKH : -1);
+                    return thanhToan.LoadDuLieu(null, qlBanHang, maNVThuNgan, maBan, loaiHoaDon, maHD, tongTien, dgvHoaDon.Rows, maKhachHang);
                 });
 
                 thanhToan.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Hóa đơn rỗng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hóa đơn rỗng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void cmbLoai_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void btnLuuSoLuong_Click(object sender, EventArgs e)
         {
-            if (cmbLoai.SelectedIndex == 1)
+            if(dgvHoaDon.SelectedRows.Count > 0)
             {
-                btnLapPhieuHen.Enabled = false;
+                var result = qlBanHang.CapNhatSoLuongMoi(dgvHoaDon.SelectedRows[0].Cells[5].Value.ToString(), txtSoLuong.Text,
+                    txtGhiChu.Text, float.Parse(txtPhuThu.Text));
+                dgvHoaDon.SelectedRows[0].Cells[3].Value = result.Item1;
+                dgvHoaDon.SelectedRows[0].Cells[2].Value = txtSoLuong.Text.ToString();
+                dgvHoaDon.SelectedRows[0].Cells[6].Value = result.Item2;
+                dgvHoaDon.SelectedRows[0].Cells[7].Value = result.Item3;
+                txtSoLuong.Text = null;
+                txtPhuThu.Text = null;
+                txtGhiChu.Text = null;
+                txtSoLuong.Enabled = txtGhiChu.Enabled = txtPhuThu.Enabled = btnLuuSoLuong.Enabled = false;
+                lblTongTien.Text = qlBanHang.TongTien(dgvHoaDon).ToString("N0") + " VNĐ";
+            }            
+        }
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                var result = qlBanHang.CapNhatSoLuongMoi(dgvHoaDon.SelectedRows[0].Cells[5].Value.ToString(), txtSoLuong.Text,
+                    txtGhiChu.Text, float.Parse(txtPhuThu.Text));
+                dgvHoaDon.SelectedRows[0].Cells[3].Value = result.Item1;
+                dgvHoaDon.SelectedRows[0].Cells[2].Value = txtSoLuong.Text.ToString();
+                dgvHoaDon.SelectedRows[0].Cells[6].Value = result.Item2;
+                dgvHoaDon.SelectedRows[0].Cells[7].Value = result.Item3;
+                txtSoLuong.Text = null;
+                txtPhuThu.Text = null;
+                txtGhiChu.Text = null;
+                txtSoLuong.Enabled = txtGhiChu.Enabled = txtPhuThu.Enabled = btnLuuSoLuong.Enabled = false;
+                lblTongTien.Text = qlBanHang.TongTien(dgvHoaDon).ToString("N0") + " VNĐ";
             }
-            else
+            else if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                btnLapPhieuHen.Enabled = true;
+                e.Handled = true; // Ngăn không cho nhập ký tự này
+            }
+        }
+
+        private void txtPhuThu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            // Chỉ cho phép nhập số (0-9), dấu thập phân (.), Backspace và Delete
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // Ngăn không cho nhập ký tự này
+            }
+
+            // Chỉ cho phép nhập một dấu chấm (.)
+            if (e.KeyChar == '.' && textBox.Text.Contains("."))
+            {
+                e.Handled = true; // Ngăn nhập thêm dấu chấm thứ hai
             }
         }
     }

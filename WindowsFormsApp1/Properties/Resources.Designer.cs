@@ -463,6 +463,26 @@ namespace BakeryManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_account_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-account-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_account_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-account-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_bakery_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-bakery-32", resourceCulture);
@@ -543,6 +563,36 @@ namespace BakeryManagementSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_kitchen_321 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-kitchen-321", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_lock_16 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-lock-16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_lock_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-lock-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_man_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8-man-16", resourceCulture);
@@ -586,6 +636,26 @@ namespace BakeryManagementSystem.Properties {
         internal static System.Drawing.Bitmap icons8_take_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-take-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_unlock_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-unlock-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_upload_to_cloud_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-upload-to-cloud-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

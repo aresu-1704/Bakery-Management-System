@@ -25,22 +25,22 @@ namespace BakeryManagementSystem.Models
             {
                 { "@MaHoaDon", maHD },
                 { "@MaNV", maNV },
-                { "@MaBan", maBan },
                 { "@LoaiHoaDon", loaiHD }
             };
 
             if (maKH != -1)
             {
                 parameters.Add("@MaKH", maKH);
-                query = "sp_ThemHoaDon @MaHoaDon, @MaNV, @LoaiHoaDon, @MaKH";
+                query = "EXEC sp_ThemHoaDon @MaHoaDon, DEFAULT, @MaNV, @LoaiHoaDon, @MaKH";
             }
             else
             {
-                query = "sp_ThemHoaDon @MaHoaDon, @MaNV, @LoaiHoaDon";
+                query = "EXEC sp_ThemHoaDon @MaHoaDon, DEFAULT, @MaNV, @LoaiHoaDon, NULL";
             }
 
             await data.ExecuteQueryAsync(query, parameters);
         }
+
 
         public async Task<DataTable> LayThongTinHoaDonCuaKHAsync(int maKH)
         {

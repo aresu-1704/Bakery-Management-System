@@ -23,7 +23,7 @@ namespace BakeryManagementSystem.Models
         public bool TrangThai { get; set; }
 
         public int? MaDotKhuyenMai { get; set; }
-        public bool DanhMuc {  get; set; }      
+        public int DanhMuc {  get; set; }      
 
         private Connections data = new Connections();
 
@@ -54,7 +54,7 @@ namespace BakeryManagementSystem.Models
                 { "@GiaTien", hangHoa.GiaTien },
                 { "@SanCo", hangHoa.SanCo },
                 { "@HinhAnh", hangHoa.HinhAnh },
-                { "@MaKM", hangHoa.MaDotKhuyenMai == 0 ? 0 : hangHoa.MaDotKhuyenMai },
+                { "@MaKM", hangHoa.MaDotKhuyenMai == -1 ? 0 : hangHoa.MaDotKhuyenMai},
                 { "@MaHH", hangHoa.MaHH },
                 { "@DanhMuc", hangHoa.DanhMuc }
             };
@@ -80,7 +80,7 @@ namespace BakeryManagementSystem.Models
                 { "@GiaTien", hangHoa.GiaTien },
                 { "@SanCo", hangHoa.SanCo },
                 { "@HinhAnh", hangHoa.HinhAnh },
-                { "@MaKM", hangHoa.MaDotKhuyenMai == 0 ? 0 : hangHoa.MaDotKhuyenMai },
+                { "@MaKM", hangHoa.MaDotKhuyenMai == -1 ? 0 : hangHoa.MaDotKhuyenMai},
                 { "@DanhMuc", hangHoa.DanhMuc }
             };
             await data.ExecuteQueryAsync(query, parameters);

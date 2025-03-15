@@ -20,7 +20,8 @@ namespace BakeryManagementSystem.Views.Forms
     {
         public event EventHandler choice;
 
-        private QuanLyBanHang qlbanHang = new QuanLyBanHang();
+        private QuanLyBanHang qlbanHang;
+        private QuanLyDonTheoYeuCau qlBanHangTheoYeuCau;
         private QuanLyNhanVien qlNhanVien = new QuanLyNhanVien();
         private int maNV = 0;
         private int loaiHD;
@@ -31,10 +32,11 @@ namespace BakeryManagementSystem.Views.Forms
             InitializeComponent();
         }
 
-        public async System.Threading.Tasks.Task LoadDuLieu(QuanLyBanHang qlBanHang, int maNVThuNgan, int maBan, 
-            int loaiHD, string soHD, string tongTien, DataGridViewRowCollection rows, int maKH)
+        public async System.Threading.Tasks.Task LoadDuLieu(QuanLyBanHang qlBanHang, QuanLyDonTheoYeuCau qlDonTheoYeuCau,
+            int maNVThuNgan, int maBan, int loaiHD, string soHD, string tongTien, DataGridViewRowCollection rows, int maKH)
         {
-            this.qlbanHang = qlBanHang;
+            this.qlbanHang = qlBanHang == null ? null : qlBanHang;
+            this.qlBanHangTheoYeuCau = qlDonTheoYeuCau == null ? null : qlDonTheoYeuCau;
 
             maNV = maNVThuNgan;
             System.Data.DataTable dt = await System.Threading.Tasks.Task.Run(() =>
@@ -221,7 +223,14 @@ namespace BakeryManagementSystem.Views.Forms
                 {
                     await System.Threading.Tasks.Task.Run(() =>
                     {
-                        return qlbanHang.LuuCTHDAsync(maNV, int.Parse(lblBan.Text), loaiHD, maKH);
+                        if (qlbanHang != null)
+                        {
+                            return qlbanHang.LuuCTHDAsync(maNV, int.Parse(lblBan.Text), loaiHD, maKH);
+                        }
+                        else
+                        {
+                            return qlBanHangTheoYeuCau.LuuCTHDAsync(maNV, int.Parse(lblBan.Text), loaiHD, maKH);
+                        }
                     });
                     choice?.Invoke(this, EventArgs.Empty);
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(doc);

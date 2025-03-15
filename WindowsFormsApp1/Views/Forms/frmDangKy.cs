@@ -150,6 +150,7 @@ namespace BakeryManagementSystem.Views.Forms
             {
                 thongBao(false, "Thông báo", "Tên tài khoản đã tồn tại !");
                 pgpLoading.Visible = false;
+                return;
             }
 
             if (checkMatKhau())

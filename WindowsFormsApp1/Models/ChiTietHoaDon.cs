@@ -14,8 +14,7 @@ namespace BakeryManagementSystem.Models
         public int MaHoaDon { get; set; }
         public int SoLuong { get; set; }
         public double GiaTien { get; set; }
-
-        public int SoLuongSanCo = 0;
+        public int SoLuongSanCo { get; set; }
 
         private Connections data = new Connections();
 
@@ -23,12 +22,13 @@ namespace BakeryManagementSystem.Models
         {
         }
 
-        public ChiTietHoaDon(int maHH, int maHoaDon, double giaTien)
+        public ChiTietHoaDon(int maHH, int maHoaDon, double giaTien, int soLuongSanCo)
         {
             MaHH = maHH;
             MaHoaDon = maHoaDon;
-            SoLuong = 0;
+            SoLuong = 1;
             GiaTien = giaTien;
+            SoLuongSanCo = soLuongSanCo;
         }
 
         public async Task ThemCTHDAsync(int maHD, int maHH, int soLuong, float giaTien)
