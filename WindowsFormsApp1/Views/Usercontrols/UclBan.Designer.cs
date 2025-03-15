@@ -49,6 +49,7 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gbxDSBan)).BeginInit();
             this.gbxDSBan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxHoaDon)).BeginInit();
@@ -151,7 +152,8 @@
             this.Column7,
             this.Column9,
             this.Column1,
-            this.Column2});
+            this.Column2,
+            this.Column3});
             this.dgvHoaDon.EnableHeadersVisualStyles = false;
             this.dgvHoaDon.GridColor = System.Drawing.Color.SaddleBrown;
             this.dgvHoaDon.Location = new System.Drawing.Point(0, 32);
@@ -289,6 +291,13 @@
             this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column2.Width = 81;
             // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "TrangThai";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
+            // 
             // UclBan
             // 
             this.Appearance.BackColor = System.Drawing.Color.Linen;
@@ -310,7 +319,6 @@
             this.Controls.Add(this.gbxDSBan);
             this.Name = "UclBan";
             this.Size = new System.Drawing.Size(1606, 998);
-            this.Load += new System.EventHandler(this.UclBan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gbxDSBan)).EndInit();
             this.gbxDSBan.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gbxHoaDon)).EndInit();
@@ -342,5 +350,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewImageColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

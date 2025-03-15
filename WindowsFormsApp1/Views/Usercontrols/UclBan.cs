@@ -37,10 +37,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
                 flpDanhSachBan.Controls.Add(nutMoi);
             }
         }
-        private void UclBan_Load(object sender, EventArgs e)
-        {
-            loadDSBan();
-        }
 
         public void activited()
         {
@@ -67,9 +63,13 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     int newRowIndex = dgvHoaDon.Rows.Count - 1;
                     dgvHoaDon.Rows[newRowIndex].Cells[0].Value = dt.Rows[i]["TenHH"].ToString();
                     dgvHoaDon.Rows[newRowIndex].Cells[1].Value = dt.Rows[i]["SoLuong"].ToString();
-                    dgvHoaDon.Rows[newRowIndex].Cells[2].Value = double.Parse(dt.Rows[i]["GiaTien"].ToString()).ToString("N0") + " VNĐ";
+                    string columnName = dt.Columns.Contains("GiaTien") ? "GiaTien" : "GiaMua";
+                    dgvHoaDon.Rows[newRowIndex].Cells[2].Value =
+                        double.Parse(dt.Rows[i][columnName].ToString()).ToString("N0") + " VNĐ";
                     dgvHoaDon.Rows[newRowIndex].Cells[3].Value = dt.Rows[i]["SoLuong"] == DBNull.Value ? 
                         Properties.Resources.icons8_check_28 : Properties.Resources.icons8_x_28;
+                    dgvHoaDon.Rows[newRowIndex].Cells[4].Value = dt.Rows[i]["SoLuong"] == DBNull.Value ?
+                        "Có" : "Không";
                 }
                 btnDonBan.Enabled = true;
             }
@@ -87,7 +87,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
             // Kiểm tra nếu có đơn hàng chưa hoàn thành (có icon X)
             foreach (DataGridViewRow row in dgvHoaDon.Rows)
             {
-                if (row.Cells[3].Value == Properties.Resources.icons8_x_28)
+                if (row.Cells[4].Value?.ToString() == "Không")
                 {
                     MessageBox.Show("Đơn hàng chưa hoàn thành, không thể dọn bàn!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;

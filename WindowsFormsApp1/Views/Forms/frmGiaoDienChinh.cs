@@ -10,13 +10,13 @@ using System.Windows.Forms;
 using BakeryManagementSystem.Views.Usercontrols;
 using BakeryManagementSystem.Controllers;
 using System.Threading.Tasks;
+using BakeryManagementSystem.Models;
 
 namespace BakeryManagementSystem.Views.Forms
 {
     public partial class frmGiaoDienChinh : DevExpress.XtraBars.FluentDesignSystem.FluentDesignForm
     {
         private int maNVDangNhap = -1;
-        private QuanLyNhanVien qlNhanVien = new QuanLyNhanVien();
         private bool trangThaiDX = false;
 
 
@@ -24,7 +24,7 @@ namespace BakeryManagementSystem.Views.Forms
         {
             InitializeComponent();
             this.maNVDangNhap = maNVDangNhap;
-
+            PhanQuyen();
         }
 
         #region Cập nhật thông tin cá nhân
@@ -77,6 +77,7 @@ namespace BakeryManagementSystem.Views.Forms
             lblTieuDe.Visible = false;
         }
 
+        #region Các nút chức năng
         private void aceDangXuat_Click(object sender, EventArgs e)
         {
             frmThongBao thongBao = new frmThongBao(true, "Đăng xuất", "Bạn có muốn đăng xuất ?");
@@ -212,9 +213,48 @@ namespace BakeryManagementSystem.Views.Forms
             setVisible();
             uclDonYeuCau.activited();
         }
+        #endregion
 
         #region Phân quyền
-        public void quyenQuanLy()
+        private async void PhanQuyen()
+        {
+            QuanLyNhanVien qlNhanVien = new QuanLyNhanVien();
+            DataTable dt = await Task.Run(() =>
+            {
+                return qlNhanVien.LayNhanVienAsync(maNVDangNhap.ToString());
+            });
+
+            if (dt.Rows.Count > 0)
+            {
+                if (dt.Rows[0]["TenCV"] != DBNull.Value)
+                {
+                    string chucVu = dt.Rows[0]["TenCV"].ToString().ToLower();
+                    switch (chucVu)
+                    {
+                        case "quản lý":
+                            quyenQuanLy();
+                            break;
+                        case "nhân viên thu ngân":
+                            quyenNhanVienThuNgan();
+                            break;
+                        case "nhân viên phục vụ":
+                            quyenNhanVienPhucVu();
+                            break;
+                        case "bếp trưởng":
+                            quyenBep();
+                            break;
+                        default:
+                            quyenBinhThuong();
+                            break;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Bạn chưa được cấp quyền, hệ thống sẽ thoát về giao diện đăng nhập !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+        private void quyenQuanLy()
         {
             gbtnNhanVien.Visible = true;
             gbtnLichLamViec.Visible = true;
@@ -224,7 +264,7 @@ namespace BakeryManagementSystem.Views.Forms
             gbtnSanPham.Visible = true;
         }
 
-        public void quyenNhanVien()
+        private void quyenNhanVienThuNgan()
         {
             gbtnBanHang.Visible = true;
             gbtnNhaBep.Visible = true;
@@ -241,9 +281,28 @@ namespace BakeryManagementSystem.Views.Forms
             btnPhanCong.Visible = false;
             btnChamCong.Visible = false;
             btnDonYeuCau.Visible = false;
+            btnBan.Visible = false;
         }
 
-        public void quyenBep()
+        private void quyenNhanVienPhucVu()
+        {
+            gbtnBanHang.Visible = true;
+            btnPOS.Visible = false;
+            btnDatBanh.Visible = false;
+            gbtnNhaBep.Visible = true;
+            btnNhaBep.Visible = false;
+            btnDonYeuCau.Visible = false;
+            gbtnNhanVien.Visible = true;
+            btnQLNV.Visible = false;
+            btnChucVu.Visible = false;
+            btnQLTaiKhoan.Visible = false;
+            btnLuong.Visible = false;
+            gbtnLichLamViec.Visible = true;
+            btnPhanCong.Visible = false;
+            btnChamCong.Visible = false;
+        }
+
+        private void quyenBep()
         {
             gbtnNhaBep.Visible = true;
             btnTinhTrangBep.Visible = false;
@@ -260,7 +319,7 @@ namespace BakeryManagementSystem.Views.Forms
             btnDonYeuCau.Visible = true;
         }
 
-        public void quyenBinhThuong()
+        private void quyenBinhThuong()
         {
             gbtnNhanVien.Visible = true;
             btnQLNV.Visible = false;
@@ -277,6 +336,7 @@ namespace BakeryManagementSystem.Views.Forms
         #region Đổi mật khẩu
         private async void btnDoiMatKhau_Click(object sender, EventArgs e)
         {
+            QuanLyNhanVien qlNhanVien = new QuanLyNhanVien();
             DataTable dt = await Task.Run(() =>
             {
                 return qlNhanVien.LayNhanVienAsync(maNVDangNhap.ToString());
@@ -320,12 +380,6 @@ namespace BakeryManagementSystem.Views.Forms
             Application.Exit();
         }
         #endregion
-
-        private void frmGiaoDienChinh_Load(object sender, EventArgs e)
-        {
-            quyenNhanVien();
-        }
-
-        
+   
     }
 }
