@@ -80,20 +80,20 @@ namespace BakeryManagementSystem.Views.Forms
                 return;
             }
 
-            short kiemTraMatKhau = await Task.Run(() =>
+            var kiemTraMatKhau = await Task.Run(() =>
             {
                 return dangNhap.KiemTraDangNhap(txtTenDangNhap.Text.Trim(), txtMatKhau.Text);
             });
 
             // Lấy thông tin tài khoản từ cơ sở dữ liệu
-            if (kiemTraMatKhau == 2)
+            if (kiemTraMatKhau.Item1 == 2)
             {
                 pgpLoading.Visible = false;
                 pgpDNThanhCong.Visible = true;
                 lblDangNhapThatBai.Visible = false;
                 setEnabled(false);
                 await Task.Delay(500);
-                frmGiaoDienChinh giaoDienChinh = new frmGiaoDienChinh(1);
+                frmGiaoDienChinh giaoDienChinh = new frmGiaoDienChinh(kiemTraMatKhau.Item2);
                 giaoDienChinh.Owner = this;
                 giaoDienChinh.Show();
                 this.Hide();
@@ -114,7 +114,7 @@ namespace BakeryManagementSystem.Views.Forms
                     Properties.Settings.Default.Save();
                 }
             }
-            else if(kiemTraMatKhau == 1)
+            else if(kiemTraMatKhau.Item1 == 1)
             {
                 ThongBaoDangNhapThatBai();
             }
