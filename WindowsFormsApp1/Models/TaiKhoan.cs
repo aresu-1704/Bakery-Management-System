@@ -99,5 +99,29 @@ namespace BakeryManagementSystem.Models
 
             return 0;
         }
+
+        public async Task CapNhatKhoiPhucAsync(string tenDangNhap, byte[] matKhauMoi, byte[] salt)
+        {
+            string query = "EXEC sp_CapNhatTaiKhoan @TenDangNhap, @MatKhau, @Muoi";
+
+            var parameters = new Dictionary<string, object>
+            {
+                { "@TenDangNhap", tenDangNhap }
+            };
+
+            parameters["@MatKhau"] = matKhauMoi;
+            parameters["@Muoi"] = salt;
+
+            await data.ExecuteQueryAsync(query, parameters);
+        }
+
+
+        public async Task<DataTable> LayDSTaiKhoanAsync()
+        {
+            string query = "EXEC sp_LayDanhSachTaiKhoan";
+
+            return await data.GetDataAsync(query);
+        }
+
     }
 }

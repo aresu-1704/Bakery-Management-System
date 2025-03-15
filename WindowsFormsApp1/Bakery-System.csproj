@@ -179,8 +179,11 @@
     <Compile Include="Controllers\LayLaiMatKhau.cs" />
     <Compile Include="Controllers\QuanLyBanAn.cs" />
     <Compile Include="Controllers\QuanLyBanHang.cs" />
+    <Compile Include="Controllers\QuanLyBepTheoYeuCau.cs" />
     <Compile Include="Controllers\QuanLyChucVu.cs" />
     <Compile Include="Controllers\QuanLyDiemDanh.cs" />
+    <Compile Include="Controllers\QuanLyDonBep.cs" />
+    <Compile Include="Controllers\QuanLyDonTheoYeuCau.cs" />
     <Compile Include="Controllers\QuanLyHoaDon.cs" />
     <Compile Include="Controllers\QuanLyKhachHang.cs" />
     <Compile Include="Controllers\QuanLyKho.cs" />
@@ -190,11 +193,14 @@
     <Compile Include="Controllers\QuanLyNhanVien.cs" />
     <Compile Include="Controllers\QuanLyPhieuNhapHang.cs" />
     <Compile Include="Controllers\QuanLySanPham.cs" />
+    <Compile Include="Controllers\QuanLyTaiKhoan.cs" />
     <Compile Include="Controllers\QuanLyTienLuong.cs" />
     <Compile Include="Models\Ban.cs" />
     <Compile Include="Models\ChamCong.cs" />
     <Compile Include="Models\ChiTietHoaDon.cs" />
+    <Compile Include="Models\ChiTietHoaDonTheoYeuCau.cs" />
     <Compile Include="Models\ChucVu.cs" />
+    <Compile Include="Models\DonBepTheoYeuCau.cs" />
     <Compile Include="Models\HangHoa.cs" />
     <Compile Include="Models\HoaDon.cs" />
     <Compile Include="Models\KhachHang.cs" />
@@ -232,6 +238,12 @@
     </Compile>
     <Compile Include="Views\Forms\frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Forms\frmGiaoDienChinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Forms\frmGiaoDienChinh.Designer.cs">
+      <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Forms\frmLayNguyenLieu.cs">
       <SubType>Form</SubType>
@@ -292,6 +304,12 @@
     </Compile>
     <Compile Include="Views\Usercontrols\UclChucVu.Designer.cs">
       <DependentUpon>UclChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclDonYeuCau.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclDonYeuCau.Designer.cs">
+      <DependentUpon>UclDonYeuCau.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Usercontrols\UclKhachHangThanThiet.cs">
       <SubType>UserControl</SubType>
@@ -382,6 +400,12 @@
     </Compile>
     <Compile Include="Views\Usercontrols\UclQLSanPham.Designer.cs">
       <DependentUpon>UclQLSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclQuanLyTaiKhoan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Usercontrols\UclQuanLyTaiKhoan.Designer.cs">
+      <DependentUpon>UclQuanLyTaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Usercontrols\UclTinhTrangBep.cs">
       <SubType>UserControl</SubType>
@@ -552,6 +576,8 @@
     <None Include="Resources\functionslookupandreference_32x321.png" />
     <Content Include="Resources\ICON.png" />
     <None Include="Resources\ICON1.png" />
+    <None Include="Resources\icons8-account-48.png" />
+    <None Include="Resources\icons8-account-32.png" />
     <Content Include="Resources\icons8-bakery-32.png" />
     <None Include="Resources\icons8-bakery-321.png" />
     <None Include="Resources\icons8-check-dollar-48.png" />
@@ -566,6 +592,9 @@
     <None Include="Resources\icons8-kitchen-32 %281%291.png" />
     <Content Include="Resources\icons8-kitchen-32.png" />
     <None Include="Resources\icons8-kitchen-321.png" />
+    <None Include="Resources\icons8-lock-16.png" />
+    <None Include="Resources\icons8-lock-32.png" />
+    <None Include="Resources\icons8-kitchen-322.png" />
     <Content Include="Resources\icons8-man-16.png" />
     <None Include="Resources\icons8-man-161.png" />
     <Content Include="Resources\icons8-sell-32.png" />
@@ -576,6 +605,8 @@
     <None Include="Resources\icons8-table-321.png" />
     <Content Include="Resources\icons8-take-32.png" />
     <None Include="Resources\icons8-take-321.png" />
+    <None Include="Resources\icons8-upload-to-cloud-48.png" />
+    <None Include="Resources\icons8-unlock-32.png" />
     <Content Include="Resources\icons8-woman-16.png" />
     <None Include="Resources\icons8-woman-161.png" />
     <Content Include="Resources\icons8-woman-48.png" />
@@ -628,6 +659,9 @@
     <EmbeddedResource Include="Views\Forms\frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Forms\frmGiaoDienChinh.resx">
+      <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Forms\frmLayNguyenLieu.resx">
       <DependentUpon>frmLayNguyenLieu.cs</DependentUpon>
     </EmbeddedResource>
@@ -657,6 +691,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclChucVu.resx">
       <DependentUpon>UclChucVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclDonYeuCau.resx">
+      <DependentUpon>UclDonYeuCau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclKhachHangThanThiet.resx">
       <DependentUpon>UclKhachHangThanThiet.cs</DependentUpon>
@@ -702,6 +739,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclQLSanPham.resx">
       <DependentUpon>UclQLSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usercontrols\UclQuanLyTaiKhoan.resx">
+      <DependentUpon>UclQuanLyTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usercontrols\UclTinhTrangBep.resx">
       <DependentUpon>UclTinhTrangBep.cs</DependentUpon>

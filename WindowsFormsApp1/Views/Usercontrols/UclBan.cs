@@ -68,6 +68,8 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     dgvHoaDon.Rows[newRowIndex].Cells[0].Value = dt.Rows[i]["TenHH"].ToString();
                     dgvHoaDon.Rows[newRowIndex].Cells[1].Value = dt.Rows[i]["SoLuong"].ToString();
                     dgvHoaDon.Rows[newRowIndex].Cells[2].Value = double.Parse(dt.Rows[i]["GiaTien"].ToString()).ToString("N0") + " VNĐ";
+                    dgvHoaDon.Rows[newRowIndex].Cells[3].Value = dt.Rows[i]["SoLuong"] == DBNull.Value ? 
+                        Properties.Resources.icons8_check_28 : Properties.Resources.icons8_x_28;
                 }
                 btnDonBan.Enabled = true;
             }
@@ -82,7 +84,17 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
         private async void btnDonBan_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Dọn dẹp bàn này chứ ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            // Kiểm tra nếu có đơn hàng chưa hoàn thành (có icon X)
+            foreach (DataGridViewRow row in dgvHoaDon.Rows)
+            {
+                if (row.Cells[3].Value == Properties.Resources.icons8_x_28)
+                {
+                    MessageBox.Show("Đơn hàng chưa hoàn thành, không thể dọn bàn!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            DialogResult result = MessageBox.Show("Dọn dẹp bàn này chứ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 loadDSBan();
@@ -92,7 +104,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     return quanLyBan.DonBanAsync(int.Parse(lblBan.Text));
                 });
 
-                MessageBox.Show("Đã dọn !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Đã dọn!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 XemHoaDon(int.Parse(lblBan.Text));
             }
         }

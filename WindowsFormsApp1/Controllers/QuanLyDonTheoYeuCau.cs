@@ -11,10 +11,10 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace BakeryManagementSystem.Controllers
 {
-    public class QuanLyBanHang
+    public class QuanLyDonTheoYeuCau
     {
-        private ChiTietHoaDon chiTietHoaDon = new ChiTietHoaDon();
-        private NhaBep nhaBep = new NhaBep();
+        private ChiTietHoaDonTheoYeuCau chiTietHoaDon = new ChiTietHoaDonTheoYeuCau();
+        private DonBepTheoYeuCau nhaBep = new DonBepTheoYeuCau();
         private HoaDon hoaDon = new HoaDon();
         private Ban ban = new Ban();
         private HangHoa hangHoa = new HangHoa();
@@ -22,12 +22,12 @@ namespace BakeryManagementSystem.Controllers
 
         public int MaHoaDon { get => maHoaDon; set => maHoaDon = value; }
 
-        public List<ChiTietHoaDon> DanhSachSP { get => danhSachSP; set => danhSachSP = value; }
+        public List<ChiTietHoaDonTheoYeuCau> DanhSachSP { get => danhSachSP; set => danhSachSP = value; }
 
-        private List<ChiTietHoaDon> danhSachSP = new List<ChiTietHoaDon>();
+        private List<ChiTietHoaDonTheoYeuCau> danhSachSP = new List<ChiTietHoaDonTheoYeuCau>();
 
         #region  Hàm thêm sản phẩm vào hóa đơn và trả về có thêm hay cập nhật sản phẩm vừa thêm
-        public bool ThemSanPham(string maHH, double giaBan, int coSan, ref int index)
+        public bool ThemSanPham(string maHH, double giaBan, ref int index)
         {
             if (maHoaDon == 0)
             {
@@ -37,7 +37,7 @@ namespace BakeryManagementSystem.Controllers
             {
                 return false;
             }
-            DanhSachSP.Add(new ChiTietHoaDon(int.Parse(maHH), maHoaDon, giaBan, coSan));
+            DanhSachSP.Add(new ChiTietHoaDonTheoYeuCau(int.Parse(maHH), maHoaDon, giaBan));
             DanhSachSP[DanhSachSP.Count - 1].SoLuong = 1;
             index = DanhSachSP.Count - 1;
             return true;
@@ -74,18 +74,9 @@ namespace BakeryManagementSystem.Controllers
             //Thêm từng chi tiết hóa đơn vào cơ sở dữ liệu
             foreach (var sp in DanhSachSP)
             {
-                tasks.Add(chiTietHoaDon.ThemCTHDAsync(sp.MaHoaDon, sp.MaHH, sp.SoLuong, (float)sp.GiaTien));
-
-                if (sp.SoLuong > sp.SoLuongSanCo)
-                {
-                    int soLuongNau = sp.SoLuong - sp.SoLuongSanCo;                    
-                    tasks.Add(nhaBep.ThemVaoBepAsync(sp.MaHoaDon, sp.MaHH, soLuongNau));
-                    tasks.Add(hangHoa.CapNhatSoLuongSanCoAsync(sp.MaHH, 0));
-                }
-                else
-                {
-                    tasks.Add(hangHoa.CapNhatSoLuongSanCoAsync(sp.MaHH, sp.SoLuongSanCo - sp.SoLuong));
-                }
+                tasks.Add(chiTietHoaDon.ThemCTHDTheoYeuCauAsync(sp.MaHoaDon, sp.MaHH, sp.SoLuong, (float)sp.GiaTien, sp.YeuCau, (float)sp.PhuThu));
+                int soLuongNau = sp.SoLuong;
+                tasks.Add(nhaBep.ThemVaoBepYCAsync(sp.MaHoaDon, sp.MaHH, soLuongNau));
             }
 
             await System.Threading.Tasks.Task.WhenAll(tasks);
@@ -127,7 +118,7 @@ namespace BakeryManagementSystem.Controllers
         }
 
         //Cập nhật số lượng
-        public string CapNhatSoLuongMoi(string maHH, string soLuongMoi)
+        public (string, string, string) CapNhatSoLuongMoi(string maHH, string soLuongMoi, string yeuCau, float phuThu)
         {
             int soLuong = int.Parse(soLuongMoi);
             double thanhTien;
@@ -136,10 +127,12 @@ namespace BakeryManagementSystem.Controllers
             {
                 int index = danhSachSP.FindIndex(p => p.MaHH == int.Parse(maHH));
                 danhSachSP[index].SoLuong = soLuong;
-                thanhTien = danhSachSP[index].GiaTien * soLuong;
-                return thanhTien.ToString("N0") + " VNĐ";
+                danhSachSP[index].YeuCau = yeuCau;
+                danhSachSP[index].PhuThu = phuThu;
+                thanhTien = danhSachSP[index].GiaTien * soLuong + phuThu;
+                return (thanhTien.ToString("N0") + " VNĐ", yeuCau, phuThu.ToString());
             }
-            return null;
+            return (null, null, null);
         }
     }
 }

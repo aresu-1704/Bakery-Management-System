@@ -86,7 +86,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
         private void UclPOS_Load(object sender, EventArgs e)
         {
-            loadDSSanPham();
             loadBanVaoCMB();
         }
 
@@ -117,13 +116,8 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     return;
                 }
 
-                bool sanCo = false;
+                int sanCo = int.Parse(dgvDSSanPham.Rows[e.RowIndex].Cells[3].Value?.ToString());
                 int viTri = -1;
-
-                if (int.Parse(dgvDSSanPham.Rows[e.RowIndex].Cells[3].Value?.ToString()) > 0)
-                {
-                    sanCo = true;
-                }
 
                 string maHH = dgvDSSanPham.Rows[e.RowIndex].Cells[1].Value?.ToString();
                 string giaGocStr = dgvDSSanPham.Rows[e.RowIndex].Cells[4].Value?.ToString();
@@ -142,18 +136,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     dgvHoaDon.Rows[viTri].Cells[3].Value = (giaBan * qlBanHang.DanhSachSP[viTri].SoLuong).ToString("N0") + " VNĐ";
                     dgvHoaDon.Rows[viTri].Cells[5].Value = dgvDSSanPham.Rows[e.RowIndex].Cells[1].Value?.ToString();
                 }
-                else
-                {
-                    dgvHoaDon.Rows[viTri].Cells[2].Value = qlBanHang.DanhSachSP[viTri].SoLuong.ToString();
-                    dgvHoaDon.Rows[viTri].Cells[3].Value = (giaBan * qlBanHang.DanhSachSP[viTri].SoLuong).ToString("N0") + " VNĐ";
-                }
-
-                int soLuong = int.Parse(dgvDSSanPham.Rows[e.RowIndex].Cells[3].Value?.ToString());
-                if (soLuong > 0)
-                {
-                    soLuong -= 1;
-                }
-                dgvDSSanPham.Rows[e.RowIndex].Cells[3].Value = soLuong.ToString();
 
                 lblTenSP.Text = dgvDSSanPham.Rows[e.RowIndex].Cells[2].Value?.ToString();
                 lblGiaGoc.Text = giaGocStr;
@@ -202,29 +184,19 @@ namespace BakeryManagementSystem.Views.Usercontrols
             {
                 bool xoaSP = false;
                 int maSPXoa = int.Parse(dgvHoaDon.Rows[e.RowIndex].Cells[5].Value?.ToString());
-                bool traSPVe = qlBanHang.XoaSanPham(int.Parse(dgvHoaDon.Rows[e.RowIndex].Cells[5].Value.ToString()), ref xoaSP);
+                qlBanHang.XoaSanPham(int.Parse(dgvHoaDon.Rows[e.RowIndex].Cells[5].Value.ToString()));
                 if (xoaSP)
                 {
                     dgvHoaDon.Rows.RemoveAt(e.RowIndex);
                 }
-                else
-                {
-                    dgvHoaDon.Rows[e.RowIndex].Cells[2].Value = qlBanHang.DanhSachSP[e.RowIndex].SoLuong.ToString();
-                }
-
-                if (traSPVe)
-                {
-                    foreach (DataGridViewRow row in dgvDSSanPham.Rows)
-                    {
-                        if (row.Cells[1].Value != null && int.Parse(row.Cells[1].Value.ToString()) == maSPXoa)
-                        {
-                            row.Cells[3].Value = int.Parse(row.Cells[3].Value.ToString()) + 1;
-                            break;
-                        }
-                    }
-                }
 
                 lblTongTien.Text = qlBanHang.TongTien(dgvHoaDon).ToString("N0") + " VNĐ";
+            }
+            else
+            {
+                txtSoLuong.Text = dgvHoaDon.Rows[e.RowIndex].Cells[2].Value.ToString();
+                btnLuuSoLuong.Enabled = true;
+                txtSoLuong.Enabled = true;
             }
         }
 
@@ -337,31 +309,82 @@ namespace BakeryManagementSystem.Views.Usercontrols
         {
             if (dgvHoaDon.Rows.Count != 0)
             {
+                // Lấy dữ liệu UI trước khi vào Task.Run
+                int maBan = int.Parse(cmbBan.SelectedValue.ToString());
+                int loaiHoaDon = cmbLoai.SelectedIndex;
+                string maHD = lblMaHD.Text;
+                string tongTien = lblTongTien.Text;
+                int maKhachHang = txtKHTT.Text != "" ? maKH : -1;
+
                 frmThanhToan thanhToan = new frmThanhToan();
                 thanhToan.choice += reLoad;
+
                 await Task.Run(() =>
                 {
-                    return thanhToan.LoadDuLieu(qlBanHang, maNVThuNgan, int.Parse(cmbBan.SelectedValue.ToString()), cmbLoai.SelectedIndex,
-                        lblMaHD.Text, lblTongTien.Text, dgvHoaDon.Rows, txtKHTT.Text != "" ? maKH : -1);
+                    return thanhToan.LoadDuLieu(qlBanHang, null, maNVThuNgan, maBan, loaiHoaDon, maHD, tongTien, dgvHoaDon.Rows, maKhachHang);
                 });
-                
+
                 thanhToan.ShowDialog();
             }
             else
             {
-                MessageBox.Show("Hóa đơn rỗng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hóa đơn rỗng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void cmbLoai_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void txtSoLuong_TextChanged(object sender, EventArgs e)
         {
-            if (cmbLoai.SelectedIndex == 1)
+            if (!int.TryParse(txtSoLuong.Text, out _) && txtSoLuong.Text != "")
             {
-                btnLapPhieuHen.Enabled = false;
+
             }
-            else
+        }
+
+        private void txtSoLuong_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Cho phép các phím chức năng: Delete, Backspace, phím mũi tên, Enter, Tab
+            if (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete ||
+                e.KeyCode == Keys.Left || e.KeyCode == Keys.Right ||
+                e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
             {
-                btnLapPhieuHen.Enabled = true;
+                return;
+            }
+
+            // Kiểm tra nếu không phải là số (phím 0-9) thì ngăn không cho nhập
+            if (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9)
+            {
+                // Nếu là phím số nhưng ở bàn phím số (NumPad) thì vẫn cho nhập
+                if (e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9)
+                {
+                    e.SuppressKeyPress = true; // Ngăn nhập ký tự vào TextBox
+                }
+            }
+        }
+
+        private void btnLuuSoLuong_Click(object sender, EventArgs e)
+        {
+            if (dgvHoaDon.SelectedRows.Count > 0)
+            {
+                dgvHoaDon.SelectedRows[0].Cells[3].Value = qlBanHang.CapNhatSoLuongMoi(dgvHoaDon.SelectedRows[0].Cells[5].Value.ToString(), txtSoLuong.Text);
+                dgvHoaDon.SelectedRows[0].Cells[2].Value = txtSoLuong.Text;
+                btnLuuSoLuong.Enabled = false;
+                txtSoLuong.Enabled = false;
+                txtSoLuong.Text = null;
+                lblTongTien.Text = qlBanHang.TongTien(dgvHoaDon).ToString("N0") + " VNĐ";
+            }
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                dgvHoaDon.SelectedRows[0].Cells[3].Value = qlBanHang.CapNhatSoLuongMoi(dgvHoaDon.SelectedRows[0].Cells[5].Value.ToString(), txtSoLuong.Text);
+                dgvHoaDon.SelectedRows[0].Cells[2].Value = txtSoLuong.Text;
+                btnLuuSoLuong.Enabled = false;
+                txtSoLuong.Enabled = false;
+                txtSoLuong.Text = null;
+                lblTongTien.Text = qlBanHang.TongTien(dgvHoaDon).ToString("N0") + " VNĐ";
             }
         }
     }

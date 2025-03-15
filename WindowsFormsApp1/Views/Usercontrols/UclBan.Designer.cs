@@ -38,9 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.gbxHoaDon = new DevExpress.XtraEditors.GroupControl();
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.lblSoHD = new System.Windows.Forms.Label();
             this.lblLoai = new System.Windows.Forms.Label();
@@ -48,6 +45,10 @@
             this.lblBan = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnDonBan = new DevExpress.XtraEditors.SimpleButton();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gbxDSBan)).BeginInit();
             this.gbxDSBan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gbxHoaDon)).BeginInit();
@@ -149,7 +150,8 @@
             this.dgvHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
             this.Column9,
-            this.Column1});
+            this.Column1,
+            this.Column2});
             this.dgvHoaDon.EnableHeadersVisualStyles = false;
             this.dgvHoaDon.GridColor = System.Drawing.Color.SaddleBrown;
             this.dgvHoaDon.Location = new System.Drawing.Point(0, 32);
@@ -170,26 +172,6 @@
             this.dgvHoaDon.Size = new System.Drawing.Size(695, 834);
             this.dgvHoaDon.TabIndex = 1;
             this.dgvHoaDon.TabStop = false;
-            // 
-            // Column7
-            // 
-            this.Column7.FillWeight = 150F;
-            this.Column7.HeaderText = "Tên";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.FillWeight = 50F;
-            this.Column9.HeaderText = "Số lượng";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Thành tiền";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
             // 
             // label2
             // 
@@ -276,6 +258,37 @@
             this.btnDonBan.Text = "Xóa đơn hàng";
             this.btnDonBan.Click += new System.EventHandler(this.btnDonBan_Click);
             // 
+            // Column7
+            // 
+            this.Column7.FillWeight = 150F;
+            this.Column7.HeaderText = "Tên";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.FillWeight = 50F;
+            this.Column9.HeaderText = "Số lượng";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Thành tiền";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Column2.FillWeight = 50F;
+            this.Column2.HeaderText = "Trạng thái";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column2.Width = 81;
+            // 
             // UclBan
             // 
             this.Appearance.BackColor = System.Drawing.Color.Linen;
@@ -318,8 +331,6 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraEditors.GroupControl gbxHoaDon;
         private System.Windows.Forms.DataGridView dgvHoaDon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblSoHD;
         private System.Windows.Forms.Label lblLoai;
@@ -327,6 +338,9 @@
         private System.Windows.Forms.Label lblBan;
         private System.Windows.Forms.Label label6;
         private DevExpress.XtraEditors.SimpleButton btnDonBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewImageColumn Column2;
     }
 }

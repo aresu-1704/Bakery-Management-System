@@ -1,4 +1,5 @@
-﻿namespace BakeryManagementSystem.Views.Usercontrols
+﻿
+namespace BakeryManagementSystem.Views.Usercontrols
 {
     partial class UclQLSanPham
     {
@@ -51,7 +52,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cmbDanhMucBanh = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.btnXoaChucVu = new DevExpress.XtraEditors.SimpleButton();
+            this.btnHuyKM = new DevExpress.XtraEditors.SimpleButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.cmbKhuyenMai = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -163,6 +164,7 @@
             // 
             // Column2
             // 
+            this.Column2.FillWeight = 70F;
             this.Column2.HeaderText = "Mã sản phẩm";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -177,6 +179,7 @@
             // 
             // Column4
             // 
+            this.Column4.FillWeight = 80F;
             this.Column4.HeaderText = "Số lượng còn lại";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -190,6 +193,7 @@
             // 
             // Column7
             // 
+            this.Column7.FillWeight = 150F;
             this.Column7.HeaderText = "Danh mục";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
@@ -281,7 +285,7 @@
             this.gbxThongTinLienLac.Controls.Add(this.label3);
             this.gbxThongTinLienLac.Controls.Add(this.comboBoxEdit1);
             this.gbxThongTinLienLac.Controls.Add(this.cmbDanhMucBanh);
-            this.gbxThongTinLienLac.Controls.Add(this.btnXoaChucVu);
+            this.gbxThongTinLienLac.Controls.Add(this.btnHuyKM);
             this.gbxThongTinLienLac.Controls.Add(this.comboBox1);
             this.gbxThongTinLienLac.Controls.Add(this.cmbKhuyenMai);
             this.gbxThongTinLienLac.Controls.Add(this.label8);
@@ -374,14 +378,14 @@
             this.cmbDanhMucBanh.TabStop = false;
             this.cmbDanhMucBanh.SelectedIndexChanged += new System.EventHandler(this.cmbDanhMucBanh_SelectedIndexChanged);
             // 
-            // btnXoaChucVu
+            // btnHuyKM
             // 
-            this.btnXoaChucVu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaChucVu.ImageOptions.Image")));
-            this.btnXoaChucVu.Location = new System.Drawing.Point(497, 213);
-            this.btnXoaChucVu.Name = "btnXoaChucVu";
-            this.btnXoaChucVu.Size = new System.Drawing.Size(23, 34);
-            this.btnXoaChucVu.TabIndex = 35;
-            this.btnXoaChucVu.Click += new System.EventHandler(this.btnXoaChucVu_Click);
+            this.btnHuyKM.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHuyKM.ImageOptions.Image")));
+            this.btnHuyKM.Location = new System.Drawing.Point(497, 213);
+            this.btnHuyKM.Name = "btnHuyKM";
+            this.btnHuyKM.Size = new System.Drawing.Size(23, 34);
+            this.btnHuyKM.TabIndex = 35;
+            this.btnHuyKM.Click += new System.EventHandler(this.btnXoaChucVu_Click);
             // 
             // comboBox1
             // 
@@ -829,7 +833,7 @@
             this.pgpLoading.AppearanceDescription.Options.UseForeColor = true;
             this.pgpLoading.Caption = "Đăng nhập thành công";
             this.pgpLoading.Description = "Đang vào...";
-            this.pgpLoading.Location = new System.Drawing.Point(759, 3);
+            this.pgpLoading.Location = new System.Drawing.Point(754, 3);
             this.pgpLoading.Name = "pgpLoading";
             this.pgpLoading.Size = new System.Drawing.Size(31, 38);
             this.pgpLoading.TabIndex = 35;
@@ -918,7 +922,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbKhuyenMai;
         private System.Windows.Forms.Label label12;
-        private DevExpress.XtraEditors.SimpleButton btnXoaChucVu;
+        private DevExpress.XtraEditors.SimpleButton btnHuyKM;
         private DevExpress.XtraWaitForm.ProgressPanel pgpLoading;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label3;

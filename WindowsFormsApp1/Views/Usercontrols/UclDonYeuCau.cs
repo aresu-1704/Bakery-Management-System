@@ -14,10 +14,10 @@ using System.Windows.Forms;
 
 namespace BakeryManagementSystem.Views.Usercontrols
 {
-    public partial class UclNhaBep : DevExpress.XtraEditors.XtraUserControl
+    public partial class UclDonYeuCau : DevExpress.XtraEditors.XtraUserControl
     {
-        private QuanLyDonBep qlNhaBep = new QuanLyDonBep();
-        public UclNhaBep()
+        private QuanLyBepTheoYeuCau qlNhaBep = new QuanLyBepTheoYeuCau();
+        public UclDonYeuCau()
         {
             InitializeComponent();
         }
@@ -47,7 +47,8 @@ namespace BakeryManagementSystem.Views.Usercontrols
                         dgvDangChoNhan.Rows[newRowIdx].Cells[0].Value = dt.Rows[i]["MaHoaDon"].ToString();
                         dgvDangChoNhan.Rows[newRowIdx].Cells[1].Value = dt.Rows[i]["TenHH"].ToString();
                         dgvDangChoNhan.Rows[newRowIdx].Cells[2].Value = dt.Rows[i]["SoLuong"].ToString();
-                        dgvDangChoNhan.Rows[newRowIdx].Cells[4].Value = dt.Rows[i]["MaHH"].ToString();
+                        dgvDangChoNhan.Rows[newRowIdx].Cells[3].Value = dt.Rows[i]["YeuCau"].ToString();
+                        dgvDangChoNhan.Rows[newRowIdx].Cells[5].Value = dt.Rows[i]["MaHH"].ToString();
                     }
                     else if (int.Parse(dt.Rows[i]["TrangThai"].ToString()) == 1)
                     {
@@ -60,7 +61,8 @@ namespace BakeryManagementSystem.Views.Usercontrols
                         dgvDangNau.Rows[newRowIdx].Cells[0].Value = dt.Rows[i]["MaHoaDon"].ToString();
                         dgvDangNau.Rows[newRowIdx].Cells[1].Value = dt.Rows[i]["TenHH"].ToString();
                         dgvDangNau.Rows[newRowIdx].Cells[2].Value = dt.Rows[i]["SoLuong"].ToString();
-                        dgvDangNau.Rows[newRowIdx].Cells[4].Value = dt.Rows[i]["MaHH"].ToString();
+                        dgvDangNau.Rows[newRowIdx].Cells[3].Value = dt.Rows[i]["YeuCau"].ToString();
+                        dgvDangNau.Rows[newRowIdx].Cells[5].Value = dt.Rows[i]["MaHH"].ToString();
                     }
                     else if (int.Parse(dt.Rows[i]["TrangThai"].ToString()) == 2)
                     {
@@ -110,7 +112,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
         private void dgvNguyenLieuCoTheSD_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 4)
             {
                 dgvDangChoNhan.Cursor = Cursors.Hand; // Đổi con trỏ thành hình bàn tay
             }
@@ -122,7 +124,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
         private void dgvDangNau_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 4)
             {
                 dgvDangNau.Cursor = Cursors.Hand; // Đổi con trỏ thành hình bàn tay
             }
@@ -137,7 +139,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
         {
             try
             {
-                if (e.ColumnIndex == 3)
+                if (e.ColumnIndex == 4)
                 {
                     await qlNhaBep.CapNhatDonBepAsync(int.Parse(dgvDangChoNhan.Rows[e.RowIndex].Cells[0].Value?.ToString()),
                         int.Parse(dgvDangChoNhan.Rows[e.RowIndex].Cells[4].Value?.ToString()), 1);
@@ -155,7 +157,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
         {
             try
             {
-                if (e.ColumnIndex == 3)
+                if (e.ColumnIndex == 4)
                 {
                     await qlNhaBep.CapNhatDonBepAsync(int.Parse(dgvDangNau.Rows[e.RowIndex].Cells[0].Value?.ToString()),
                         int.Parse(dgvDangNau.Rows[e.RowIndex].Cells[4].Value?.ToString()), 2);

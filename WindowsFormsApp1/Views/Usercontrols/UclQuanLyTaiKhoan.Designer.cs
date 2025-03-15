@@ -1,6 +1,6 @@
 ﻿namespace BakeryManagementSystem.Views.Usercontrols
 {
-    partial class UclDanhSachPhanCong
+    partial class UclQuanLyTaiKhoan
     {
         /// <summary> 
         /// Required designer variable.
@@ -40,12 +40,8 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLichPhanCong)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxHoaDon)).BeginInit();
             this.gbxHoaDon.SuspendLayout();
@@ -60,7 +56,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1606, 68);
             this.label1.TabIndex = 5;
-            this.label1.Text = "LỊCH PHÂN CÔNG HÔM NAY";
+            this.label1.Text = "QUẢN LÝ TÀI KHOẢN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvLichPhanCong
@@ -81,12 +77,8 @@
             this.dgvLichPhanCong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column7,
             this.Column8,
-            this.Column9,
             this.Column10,
-            this.Column1,
-            this.Column11,
-            this.Column12,
-            this.Column2});
+            this.Column11});
             this.dgvLichPhanCong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvLichPhanCong.EnableHeadersVisualStyles = false;
             this.dgvLichPhanCong.GridColor = System.Drawing.Color.SaddleBrown;
@@ -128,10 +120,10 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.ImageOptions.Image = global::BakeryManagementSystem.Properties.Resources.icons8_x_28;
-            this.labelControl2.Location = new System.Drawing.Point(3, 90);
+            this.labelControl2.ImageOptions.Image = global::BakeryManagementSystem.Properties.Resources.icons8_lock_32;
+            this.labelControl2.Location = new System.Drawing.Point(3, 87);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(28, 28);
+            this.labelControl2.Size = new System.Drawing.Size(32, 32);
             this.labelControl2.TabIndex = 16;
             // 
             // label2
@@ -142,16 +134,16 @@
             this.label2.ForeColor = System.Drawing.Color.SaddleBrown;
             this.label2.Location = new System.Drawing.Point(31, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 26);
+            this.label2.Size = new System.Drawing.Size(134, 26);
             this.label2.TabIndex = 15;
-            this.label2.Text = "Vắng";
+            this.label2.Text = "Đang bị khóa";
             // 
             // labelControl1
             // 
-            this.labelControl1.ImageOptions.Image = global::BakeryManagementSystem.Properties.Resources.icons8_check_28;
-            this.labelControl1.Location = new System.Drawing.Point(92, 89);
+            this.labelControl1.ImageOptions.Image = global::BakeryManagementSystem.Properties.Resources.icons8_unlock_32;
+            this.labelControl1.Location = new System.Drawing.Point(171, 87);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(28, 28);
+            this.labelControl1.Size = new System.Drawing.Size(32, 32);
             this.labelControl1.TabIndex = 14;
             // 
             // label3
@@ -160,11 +152,11 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.label3.Location = new System.Drawing.Point(121, 90);
+            this.label3.Location = new System.Drawing.Point(199, 90);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 26);
+            this.label3.Size = new System.Drawing.Size(157, 26);
             this.label3.TabIndex = 13;
-            this.label3.Text = "Có mặt";
+            this.label3.Text = "Đang hoạt động";
             // 
             // dataGridViewImageColumn1
             // 
@@ -184,53 +176,27 @@
             // 
             // Column8
             // 
-            this.Column8.HeaderText = "Giờ vào ca";
+            this.Column8.HeaderText = "Tên đăng nhập";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Giờ tan ca";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
             // Column10
             // 
-            this.Column10.HeaderText = "Trạng thái điểm danh";
+            this.Column10.HeaderText = "Trạng thái tài khoản";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
             this.Column10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Giờ vào thực sự";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
             // Column11
             // 
             this.Column11.FillWeight = 50F;
-            this.Column11.HeaderText = "Điểm danh";
-            this.Column11.Image = global::BakeryManagementSystem.Properties.Resources.icons8_upload_to_cloud_48;
+            this.Column11.HeaderText = "Mở khóa/Khóa";
+            this.Column11.Image = global::BakeryManagementSystem.Properties.Resources.icons8_account_48;
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "Mã phân công";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Mã Nhân Viên";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Visible = false;
-            // 
-            // UclDanhSachPhanCong
+            // UclQuanLyTaiKhoan
             // 
             this.Appearance.BackColor = System.Drawing.Color.Linen;
             this.Appearance.Options.UseBackColor = true;
@@ -242,7 +208,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.label3);
-            this.Name = "UclDanhSachPhanCong";
+            this.Name = "UclQuanLyTaiKhoan";
             this.Size = new System.Drawing.Size(1606, 998);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLichPhanCong)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxHoaDon)).EndInit();
@@ -263,11 +229,7 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewImageColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewImageColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

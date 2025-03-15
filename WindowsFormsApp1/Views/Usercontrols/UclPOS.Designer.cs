@@ -83,7 +83,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
-            this.btnLapPhieuHen = new DevExpress.XtraEditors.SimpleButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtSoLuong = new System.Windows.Forms.TextBox();
+            this.btnLuuSoLuong = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSSanPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxSanPham)).BeginInit();
             this.gbxSanPham.SuspendLayout();
@@ -407,7 +409,7 @@
             this.gbxHoaDon.Enabled = false;
             this.gbxHoaDon.Location = new System.Drawing.Point(994, 182);
             this.gbxHoaDon.Name = "gbxHoaDon";
-            this.gbxHoaDon.Size = new System.Drawing.Size(609, 704);
+            this.gbxHoaDon.Size = new System.Drawing.Size(609, 642);
             this.gbxHoaDon.TabIndex = 4;
             this.gbxHoaDon.Text = "Hóa đơn";
             // 
@@ -451,7 +453,7 @@
             this.dgvHoaDon.RowTemplate.Height = 30;
             this.dgvHoaDon.RowTemplate.ReadOnly = true;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(609, 672);
+            this.dgvHoaDon.Size = new System.Drawing.Size(609, 610);
             this.dgvHoaDon.TabIndex = 1;
             this.dgvHoaDon.TabStop = false;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
@@ -556,7 +558,6 @@
             this.cmbLoai.Size = new System.Drawing.Size(301, 31);
             this.cmbLoai.TabIndex = 30;
             this.cmbLoai.TabStop = false;
-            this.cmbLoai.SelectedIndexChanged += new System.EventHandler(this.cmbLoai_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -679,9 +680,9 @@
             this.btnTaoHoaDonMoi.Appearance.Options.UseForeColor = true;
             this.btnTaoHoaDonMoi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTaoHoaDonMoi.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTaoHoaDonMoi.ImageOptions.Image")));
-            this.btnTaoHoaDonMoi.Location = new System.Drawing.Point(772, 939);
+            this.btnTaoHoaDonMoi.Location = new System.Drawing.Point(1305, 939);
             this.btnTaoHoaDonMoi.Name = "btnTaoHoaDonMoi";
-            this.btnTaoHoaDonMoi.Size = new System.Drawing.Size(216, 56);
+            this.btnTaoHoaDonMoi.Size = new System.Drawing.Size(298, 56);
             this.btnTaoHoaDonMoi.TabIndex = 17;
             this.btnTaoHoaDonMoi.Text = "Tạo hóa đơn mới";
             this.btnTaoHoaDonMoi.Click += new System.EventHandler(this.btnTaoHoaDonMoi_Click);
@@ -716,20 +717,47 @@
             this.txtTimKiem.TabStop = false;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
-            // btnLapPhieuHen
+            // label10
             // 
-            this.btnLapPhieuHen.Appearance.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLapPhieuHen.Appearance.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btnLapPhieuHen.Appearance.Options.UseFont = true;
-            this.btnLapPhieuHen.Appearance.Options.UseForeColor = true;
-            this.btnLapPhieuHen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLapPhieuHen.Enabled = false;
-            this.btnLapPhieuHen.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnLapPhieuHen.Location = new System.Drawing.Point(1305, 939);
-            this.btnLapPhieuHen.Name = "btnLapPhieuHen";
-            this.btnLapPhieuHen.Size = new System.Drawing.Size(298, 56);
-            this.btnLapPhieuHen.TabIndex = 28;
-            this.btnLapPhieuHen.Text = "Lập phiếu hẹn";
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.label10.Location = new System.Drawing.Point(989, 827);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(93, 26);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Số lượng";
+            // 
+            // txtSoLuong
+            // 
+            this.txtSoLuong.Enabled = false;
+            this.txtSoLuong.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoLuong.ForeColor = System.Drawing.Color.Peru;
+            this.txtSoLuong.Location = new System.Drawing.Point(994, 856);
+            this.txtSoLuong.Name = "txtSoLuong";
+            this.txtSoLuong.ShortcutsEnabled = false;
+            this.txtSoLuong.Size = new System.Drawing.Size(562, 30);
+            this.txtSoLuong.TabIndex = 29;
+            this.txtSoLuong.TabStop = false;
+            this.txtSoLuong.TextChanged += new System.EventHandler(this.txtSoLuong_TextChanged);
+            this.txtSoLuong.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSoLuong_KeyDown);
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
+            // 
+            // btnLuuSoLuong
+            // 
+            this.btnLuuSoLuong.Appearance.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuuSoLuong.Appearance.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.btnLuuSoLuong.Appearance.Options.UseFont = true;
+            this.btnLuuSoLuong.Appearance.Options.UseForeColor = true;
+            this.btnLuuSoLuong.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLuuSoLuong.Enabled = false;
+            this.btnLuuSoLuong.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuuSoLuong.ImageOptions.Image")));
+            this.btnLuuSoLuong.Location = new System.Drawing.Point(1562, 853);
+            this.btnLuuSoLuong.Name = "btnLuuSoLuong";
+            this.btnLuuSoLuong.Size = new System.Drawing.Size(41, 34);
+            this.btnLuuSoLuong.TabIndex = 30;
+            this.btnLuuSoLuong.Click += new System.EventHandler(this.btnLuuSoLuong_Click);
             // 
             // UclPOS
             // 
@@ -737,7 +765,9 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnLapPhieuHen);
+            this.Controls.Add(this.btnLuuSoLuong);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.lblTongTien);
@@ -828,6 +858,8 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtTimKiem;
-        private DevExpress.XtraEditors.SimpleButton btnLapPhieuHen;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtSoLuong;
+        private DevExpress.XtraEditors.SimpleButton btnLuuSoLuong;
     }
 }

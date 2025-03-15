@@ -77,13 +77,13 @@ namespace BakeryManagementSystem.Views.Usercontrols
                         dgvDSSanPham.Rows[newRowIdx].Cells[2].Value = dt.Rows[i]["TenHH"].ToString();
                         dgvDSSanPham.Rows[newRowIdx].Cells[3].Value = dt.Rows[i]["SanCo"].ToString();
                         dgvDSSanPham.Rows[newRowIdx].Cells[4].Value = float.Parse(dt.Rows[i]["GiaTien"].ToString()).ToString("N0") + " VNĐ";
-                        dgvDSSanPham.Rows[newRowIdx].Cells[5].Value = (bool)dt.Rows[i]["DanhMuc"] ? "Bánh bình thường" : "Bánh theo yêu cầu";
+                        dgvDSSanPham.Rows[newRowIdx].Cells[5].Value = (bool)dt.Rows[i]["DanhMuc"] == false ? "Bánh bình thường" : "Bánh theo yêu cầu";
                         dgvDSSanPham.Rows[newRowIdx].Cells[6].Value = dt.Rows[i]["ChietKhau"] != DBNull.Value ?
                             dt.Rows[i]["ChietKhau"].ToString() : "0";
                     }
                 }
             }
-            else if(filter == 1)
+            else if (filter == 1)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
@@ -106,7 +106,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
                         dgvDSSanPham.Rows[newRowIdx].Cells[2].Value = dt.Rows[i]["TenHH"].ToString();
                         dgvDSSanPham.Rows[newRowIdx].Cells[3].Value = dt.Rows[i]["SanCo"].ToString();
                         dgvDSSanPham.Rows[newRowIdx].Cells[4].Value = float.Parse(dt.Rows[i]["GiaTien"].ToString()).ToString("N0") + " VNĐ";
-                        dgvDSSanPham.Rows[newRowIdx].Cells[5].Value = (bool)dt.Rows[i]["DanhMuc"] ? "Bánh bình thường" : "Bánh theo yêu cầu";
+                        dgvDSSanPham.Rows[newRowIdx].Cells[5].Value = (bool)dt.Rows[i]["DanhMuc"] == false ? "Bánh bình thường" : "Bánh theo yêu cầu";
                         dgvDSSanPham.Rows[newRowIdx].Cells[6].Value = dt.Rows[i]["ChietKhau"] != DBNull.Value ?
                             dt.Rows[i]["ChietKhau"].ToString() : "0";
                     }
@@ -175,7 +175,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
             if (string.IsNullOrWhiteSpace(txtTen.Text) ||
                 string.IsNullOrWhiteSpace(txtGiaTien.Text) ||
                 string.IsNullOrWhiteSpace(txtSanCo.Text) ||
-                cmbDanhMucBanh.SelectedIndex == 0)
+                cmbDanhMucBanh.SelectedIndex == -1)
             {
                 return false; // Trả về false nếu có trường nào rỗng
             }
@@ -214,7 +214,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     {
                         btnXoa.Enabled = true;
                     }
-                    cmbDanhMucBanh.SelectedIndex = string.Equals(dt.Rows[0][5].ToString(), "Bánh bình thường") ? 1 : 2;
+                    cmbDanhMucBanh.SelectedIndex = (bool)dt.Rows[0]["DanhMuc"] == false ? 0 : 1;
                 }
             }
             catch (ArgumentOutOfRangeException ex)
@@ -249,6 +249,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
             txtGiaTien.Text = null;
             txtSanCo.Text = null;
             cmbKhuyenMai.SelectedIndex = -1;
+            cmbDanhMucBanh.SelectedIndex = 0;
         }
 
         #region Ràng buộc giá tiền
@@ -337,9 +338,9 @@ namespace BakeryManagementSystem.Views.Usercontrols
                         TenHH = txtTen.Text.Trim(),
                         GiaTien = float.Parse(txtGiaTien.Text),
                         SanCo = int.Parse(txtSanCo.Text),
-                        MaDotKhuyenMai = cmbKhuyenMai.SelectedIndex != -1 ? int.Parse(cmbKhuyenMai.SelectedValue.ToString()) : 0,
+                        MaDotKhuyenMai = cmbKhuyenMai.SelectedIndex != -1 ? int.Parse(cmbKhuyenMai.SelectedValue.ToString()) : -1,
                         HinhAnh = ChuyenAnh.ImageToByteArray(picAnh.Image),
-                        DanhMuc = Convert.ToBoolean(cmbDanhMucBanh.SelectedIndex - 1),
+                        DanhMuc = cmbDanhMucBanh.SelectedIndex
                     };
                     await qlSanPham.ThemSPAsync(hangHoa);
                     themMoi = false;
@@ -353,9 +354,9 @@ namespace BakeryManagementSystem.Views.Usercontrols
                         TenHH = txtTen.Text.Trim(),
                         GiaTien = float.Parse(txtGiaTien.Text),
                         SanCo = int.Parse(txtSanCo.Text),
-                        MaDotKhuyenMai = cmbKhuyenMai.SelectedIndex != -1 ? int.Parse(cmbKhuyenMai.SelectedValue.ToString()) : 0,
+                        MaDotKhuyenMai = cmbKhuyenMai.SelectedIndex != -1 ? int.Parse(cmbKhuyenMai.SelectedValue.ToString()) : -1,
                         HinhAnh = ChuyenAnh.ImageToByteArray(picAnh.Image),
-                        DanhMuc = Convert.ToBoolean(cmbDanhMucBanh.SelectedIndex - 1)
+                        DanhMuc = cmbDanhMucBanh.SelectedIndex
                     };
                     await qlSanPham.CapNhatTTSPAsync(hangHoa);
                     MessageBox.Show("Cập nhật thành công !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -588,7 +589,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
             themMoi = false;
             loadKM();
             loadKMVaoCMB();
-            setDataNull();            
+            setDataNull();
             setEnable(false);
             btnLamMoi.Enabled = false;
             btnLuu.Enabled = false;
@@ -610,12 +611,18 @@ namespace BakeryManagementSystem.Views.Usercontrols
         {
             if (cmbDanhMucBanh.SelectedIndex == 1)
             {
-                cmbKhuyenMai.SelectedIndex = 0;
+                cmbKhuyenMai.SelectedIndex = -1;
                 cmbKhuyenMai.Enabled = false;
+                btnHuyKM.Enabled = false;
+                txtGiaTien.Enabled = false;
+                txtGiaTien.Text = "0";
             }
             else
             {
                 cmbKhuyenMai.Enabled = true;
+                btnHuyKM.Enabled = true;
+                txtGiaTien.Enabled = true;
+                txtGiaTien.Text = null;
             }
         }
     }
