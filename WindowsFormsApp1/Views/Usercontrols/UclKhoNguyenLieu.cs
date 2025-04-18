@@ -75,7 +75,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
                     int newRowIndex = dgvNguyenLieu.Rows.Count - 1;
                     dgvNguyenLieu.Rows[newRowIndex].Cells[0].Value = dt.Rows[i]["TenNL"].ToString();
                     dgvNguyenLieu.Rows[newRowIndex].Cells[1].Value = dt.Rows[i]["SoLuong"].ToString();
-                    dgvNguyenLieu.Rows[newRowIndex].Cells[2].Value = double.Parse(dt.Rows[i]["DonViTinh"].ToString()).ToString("N0");
+                    dgvNguyenLieu.Rows[newRowIndex].Cells[2].Value = dt.Rows[i]["DonViTinh"].ToString();
                     dgvNguyenLieu.Rows[newRowIndex].Cells[3].Value = ((DateTime)dt.Rows[i]["HSD"]).ToString("dd/MM/yyyy");
                     dgvNguyenLieu.Rows[newRowIndex].Cells[4].Value = (bool)dt.Rows[i]["TrangThai"] ? "Còn sử dụng " : "Không thể sử dụng";
                     dgvNguyenLieu.Rows[newRowIndex].Cells[5].Value = dt.Rows[i]["MaKhuVuc"].ToString();

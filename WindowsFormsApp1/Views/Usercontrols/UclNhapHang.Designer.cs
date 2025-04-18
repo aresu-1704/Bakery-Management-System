@@ -58,13 +58,6 @@
             this.lblNgay = new System.Windows.Forms.Label();
             this.gbxHoaDon = new DevExpress.XtraEditors.GroupControl();
             this.dgvChiTietPhieuNhap = new System.Windows.Forms.DataGridView();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HSD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewImageColumn();
             this.gbxLoaiHoaDon = new DevExpress.XtraEditors.GroupControl();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbNhaCungCap = new System.Windows.Forms.ComboBox();
@@ -86,10 +79,17 @@
             this.btnTaoHoaDonMoi = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.ckcHSD = new System.Windows.Forms.CheckBox();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HSD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gbxSanPham)).BeginInit();
             this.gbxSanPham.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dptHSD.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dptHSD.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dptHSD.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxHoaDon)).BeginInit();
             this.gbxHoaDon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietPhieuNhap)).BeginInit();
@@ -388,7 +388,7 @@
             this.dgvChiTietPhieuNhap.BackgroundColor = System.Drawing.Color.Linen;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SaddleBrown;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Bisque;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.SaddleBrown;
@@ -426,56 +426,6 @@
             this.dgvChiTietPhieuNhap.TabStop = false;
             this.dgvChiTietPhieuNhap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
             this.dgvChiTietPhieuNhap.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvHoaDon_CellMouseMove);
-            // 
-            // Column7
-            // 
-            this.Column7.FillWeight = 130F;
-            this.Column7.HeaderText = "Tên";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.FillWeight = 80F;
-            this.Column9.HeaderText = "Số lượng";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.FillWeight = 60F;
-            this.Column8.HeaderText = "Đơn vị tính";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Tổng tiền";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // HSD
-            // 
-            this.HSD.FillWeight = 80F;
-            this.HSD.HeaderText = "HSD";
-            this.HSD.Name = "HSD";
-            this.HSD.ReadOnly = true;
-            this.HSD.Visible = false;
-            // 
-            // Column5
-            // 
-            this.Column5.FillWeight = 50F;
-            this.Column5.HeaderText = "Mã NCC";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.FillWeight = 20F;
-            this.Column11.HeaderText = "";
-            this.Column11.Image = global::BakeryManagementSystem.Properties.Resources.trash_16x16;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
             // 
             // gbxLoaiHoaDon
             // 
@@ -573,7 +523,7 @@
             this.dgvDanhSachNCC.BackgroundColor = System.Drawing.Color.Linen;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SaddleBrown;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Bisque;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.SaddleBrown;
@@ -764,6 +714,56 @@
             this.ckcHSD.UseVisualStyleBackColor = true;
             this.ckcHSD.CheckedChanged += new System.EventHandler(this.ckcHSD_CheckedChanged);
             // 
+            // Column7
+            // 
+            this.Column7.FillWeight = 130F;
+            this.Column7.HeaderText = "Tên";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.FillWeight = 50F;
+            this.Column9.HeaderText = "Số lượng";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.FillWeight = 60F;
+            this.Column8.HeaderText = "Đơn vị tính";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Tổng tiền";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // HSD
+            // 
+            this.HSD.FillWeight = 110F;
+            this.HSD.HeaderText = "HSD";
+            this.HSD.Name = "HSD";
+            this.HSD.ReadOnly = true;
+            this.HSD.Visible = false;
+            // 
+            // Column5
+            // 
+            this.Column5.FillWeight = 50F;
+            this.Column5.HeaderText = "Mã NCC";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.FillWeight = 20F;
+            this.Column11.HeaderText = "";
+            this.Column11.Image = global::BakeryManagementSystem.Properties.Resources.trash_16x16;
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
             // UclNhapHang
             // 
             this.Appearance.BackColor = System.Drawing.Color.Linen;
@@ -790,7 +790,6 @@
             this.Controls.Add(this.gbxSanPham);
             this.Name = "UclNhapHang";
             this.Size = new System.Drawing.Size(1606, 998);
-            this.Load += new System.EventHandler(this.UclPOS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gbxSanPham)).EndInit();
             this.gbxSanPham.ResumeLayout(false);
             this.gbxSanPham.PerformLayout();

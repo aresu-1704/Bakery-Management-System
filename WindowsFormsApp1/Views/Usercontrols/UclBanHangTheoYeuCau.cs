@@ -107,7 +107,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
         private void dgvDSSanPham_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
-            {
+            {           
                 if (string.IsNullOrEmpty(lblMaHD.Text))
                 {
                     MessageBox.Show("Vui lòng tạo 1 hóa đơn !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -289,6 +289,12 @@ namespace BakeryManagementSystem.Views.Usercontrols
         {
             if (dgvHoaDon.Rows.Count != 0)
             {
+                if (string.IsNullOrEmpty(txtKHTT.Text) && txtKHTT.Enabled != false)
+                {
+                    MessageBox.Show("Đơn hàng theo yêu cầu cần lưu thông tin khách hàng !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
                 // Trích xuất dữ liệu từ UI trước khi chạy Task.Run
                 int maBan = int.Parse(cmbBan.SelectedValue.ToString());
                 int loaiHoaDon = cmbLoai.SelectedIndex;
@@ -296,12 +302,12 @@ namespace BakeryManagementSystem.Views.Usercontrols
                 string tongTien = lblTongTien.Text;
                 int maKhachHang = txtKHTT.Text != "" ? maKH : -1;
 
-                frmThanhToan thanhToan = new frmThanhToan();
+                frmThanhToan thanhToan = new frmThanhToan(false);
                 thanhToan.choice += reLoad;
 
                 await Task.Run(() =>
                 {
-                    return thanhToan.LoadDuLieu(null, qlBanHang, maNVThuNgan, maBan, loaiHoaDon, maHD, tongTien, dgvHoaDon.Rows, maKhachHang);
+                    return thanhToan.LoadDuLieu(qlBanHang, maNVThuNgan, maBan, loaiHoaDon, maHD, tongTien, dgvHoaDon.Rows, maKhachHang);
                 });
 
                 thanhToan.ShowDialog();

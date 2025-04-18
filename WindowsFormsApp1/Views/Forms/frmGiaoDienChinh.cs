@@ -87,6 +87,12 @@ namespace BakeryManagementSystem.Views.Forms
             trangThaiDX = true;
         }
 
+        private void btnDanhSachNguyenLieu_Click(object sender, EventArgs e)
+        {
+            setVisible();
+            uclXemKhoNguyenLieu.activited();
+        }
+
         private void dangXuat(object sender, EventArgs e)
         {
             this.Owner.Activate();
@@ -282,6 +288,7 @@ namespace BakeryManagementSystem.Views.Forms
             btnChamCong.Visible = false;
             btnDonYeuCau.Visible = false;
             btnBan.Visible = false;
+            gbtnKhoNguyenLieu.Visible=false;
         }
 
         private void quyenNhanVienPhucVu()
@@ -380,6 +387,6 @@ namespace BakeryManagementSystem.Views.Forms
             Application.Exit();
         }
         #endregion
-   
+
     }
 }

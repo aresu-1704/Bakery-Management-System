@@ -66,7 +66,7 @@ namespace BakeryManagementSystem.Views.Usercontrol
                 dgvDanhSachKH.Rows[newRowIdx].Cells[0].Value = dt.Rows[i]["MaKH"].ToString();
                 dgvDanhSachKH.Rows[newRowIdx].Cells[1].Value = dt.Rows[i]["HoVaTen"].ToString();
                 dgvDanhSachKH.Rows[newRowIdx].Cells[2].Value = dt.Rows[i]["SoDienThoai"].ToString();
-                switch(dt.Rows[i]["Loai"].ToString())
+                switch(dt.Rows[i]["LoaiKH"].ToString())
                 {
                     case "0":
                         dgvDanhSachKH.Rows[newRowIdx].Cells[3].Value = "Khách vãng lai";
@@ -85,7 +85,6 @@ namespace BakeryManagementSystem.Views.Usercontrol
 
         private void UclQLNV_Load(object sender, EventArgs e)
         {
-            loadDSKhachHang();
             dgvDanhSachKH.ClearSelection();
             ckcNam.Checked = true;
         }
@@ -105,7 +104,7 @@ namespace BakeryManagementSystem.Views.Usercontrol
                 string.IsNullOrWhiteSpace(txtTen.Text) ||
                 string.IsNullOrWhiteSpace(txtSoDienThoai.Text) ||
                 string.IsNullOrWhiteSpace(txtDiaChi.Text) ||
-                cmbLoaiKH.SelectedIndex == 0)
+                cmbLoaiKH.SelectedIndex == -1)
             {
                 return false; // Trả về false nếu có trường nào rỗng
             }

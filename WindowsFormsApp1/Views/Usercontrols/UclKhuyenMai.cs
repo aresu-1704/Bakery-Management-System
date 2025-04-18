@@ -71,7 +71,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
         private void UclQLNV_Load(object sender, EventArgs e)
         {
-            loadDSKhuyenMai();
             dgvDSKhuyenMai.ClearSelection();
         }
 

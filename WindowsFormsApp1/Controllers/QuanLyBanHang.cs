@@ -69,26 +69,23 @@ namespace BakeryManagementSystem.Controllers
                 ban.CapNhatTinhTrangBanAsync(maHoaDon, maBan)
             );
 
-            var tasks = new List<System.Threading.Tasks.Task>();
 
             //Thêm từng chi tiết hóa đơn vào cơ sở dữ liệu
             foreach (var sp in DanhSachSP)
             {
-                tasks.Add(chiTietHoaDon.ThemCTHDAsync(sp.MaHoaDon, sp.MaHH, sp.SoLuong, (float)sp.GiaTien));
+                await chiTietHoaDon.ThemCTHDAsync(sp.MaHoaDon, sp.MaHH, sp.SoLuong, (float)sp.GiaTien);
 
                 if (sp.SoLuong > sp.SoLuongSanCo)
                 {
                     int soLuongNau = sp.SoLuong - sp.SoLuongSanCo;                    
-                    tasks.Add(nhaBep.ThemVaoBepAsync(sp.MaHoaDon, sp.MaHH, soLuongNau));
-                    tasks.Add(hangHoa.CapNhatSoLuongSanCoAsync(sp.MaHH, 0));
+                    await nhaBep.ThemVaoBepAsync(sp.MaHoaDon, sp.MaHH, soLuongNau);
+                    await hangHoa.CapNhatSoLuongSanCoAsync(sp.MaHH, 0);
                 }
                 else
                 {
-                    tasks.Add(hangHoa.CapNhatSoLuongSanCoAsync(sp.MaHH, sp.SoLuongSanCo - sp.SoLuong));
+                    await hangHoa.CapNhatSoLuongSanCoAsync(sp.MaHH, sp.SoLuongSanCo - sp.SoLuong);
                 }
             }
-
-            await System.Threading.Tasks.Task.WhenAll(tasks);
 
             DanhSachSP.Clear();
             MaHoaDon = 0;

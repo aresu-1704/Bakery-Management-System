@@ -146,6 +146,12 @@ namespace BakeryManagementSystem.Views.Usercontrol
         {
             try
             {
+                if(string.IsNullOrEmpty(dgvDanhSachNV.GetRowCellValue(e.RowHandle, "TenCV").ToString()))
+                {
+                    MessageBox.Show("Nhân viên này không có vị trí làm việc, không thể lên lịch phân công !", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 btnSua.Enabled = false;
                 txtTenNV.Text = dgvDanhSachNV.GetRowCellValue(e.RowHandle, "HoVaTen").ToString();
                 loadLichLam();
@@ -212,8 +218,8 @@ namespace BakeryManagementSystem.Views.Usercontrol
                     return;
                 }
                 bool checkThayDoi = false;
-                int ngayPhanCong = cmbNgayLam.SelectedIndex + 1;
-                if(ngayPhanCong == 7)
+                int ngayPhanCong = cmbNgayLam.SelectedIndex + 2;
+                if(ngayPhanCong == 8)
                 {
                     ngayPhanCong = 1;
                 }
@@ -296,27 +302,21 @@ namespace BakeryManagementSystem.Views.Usercontrol
 
         private void dgvDSPhanCong_RowClick(object sender, RowClickEventArgs e)
         {
+            dgvDSPhanCong.GetRowCellValue(e.RowHandle, "HoVaTen").ToString();
             try
             {
-                dgvDSPhanCong.GetRowCellValue(e.RowHandle, "HoVaTen").ToString();
-                try
-                {
-                    cmbNgayLam.SelectedIndex = int.Parse(dgvDSPhanCong.GetRowCellValue(e.RowHandle, "Ngay").ToString()) - 1;
-                }
-                catch (Exception ex)
-                {
-                    cmbNgayLam.SelectedIndex = 6;
-                }
-                maPC = dgvDSPhanCong.GetRowCellValue(e.RowHandle, "MaPC").ToString();
-                tedGioVaoCa.EditValue = dgvDSPhanCong.GetRowCellValue(e.RowHandle, "GioVaoCa").ToString();
-                tedGioTanCa.EditValue = dgvDSPhanCong.GetRowCellValue(e.RowHandle, "GioTanCa").ToString();
-                btnThem.Enabled = false;
-                btnSua.Enabled = true;
-                btnXoa.Enabled = true;
+                cmbNgayLam.SelectedIndex = int.Parse(dgvDSPhanCong.GetRowCellValue(e.RowHandle, "Ngay").ToString().Replace("Thứ ", "")) - 2;
             }
             catch (Exception ex)
             {
+                cmbNgayLam.SelectedIndex = 6;
             }
+            maPC = dgvDSPhanCong.GetRowCellValue(e.RowHandle, "MaPC").ToString();
+            tedGioVaoCa.EditValue = dgvDSPhanCong.GetRowCellValue(e.RowHandle, "GioVaoCa").ToString();
+            tedGioTanCa.EditValue = dgvDSPhanCong.GetRowCellValue(e.RowHandle, "GioTanCa").ToString();
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            btnXoa.Enabled = true;
         }
 
         private async void btnXoa_Click(object sender, EventArgs e)

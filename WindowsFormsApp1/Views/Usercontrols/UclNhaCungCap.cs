@@ -107,7 +107,6 @@ namespace BakeryManagementSystem.Views.Usercontrol
 
         private void UclQLNV_Load(object sender, EventArgs e)
         {
-            loadDSNhaCungCap(cmbLoc.SelectedIndex);
             dgvDanhSachNCC.ClearSelection();
             cmbLoc.SelectedIndex = 1;
         }
@@ -156,9 +155,7 @@ namespace BakeryManagementSystem.Views.Usercontrol
 
         private async void dgvDanhSachNV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-
-            loadNguyenLieu (dgvDanhSachNCC.Rows[e.RowIndex].Cells[1].Value?.ToString());
+            loadNguyenLieu(dgvDanhSachNCC.Rows[e.RowIndex].Cells[1].Value?.ToString());
             themMoi = false;
             btnLamMoi.Enabled = true;
             btnThem.Enabled = false;
@@ -498,7 +495,6 @@ namespace BakeryManagementSystem.Views.Usercontrol
         public void activited()
         {
             themMoi = false;
-            loadDSNhaCungCap(1);
             setDataNull();
             cmbLoc.SelectedIndex = 1;
             setEnable(false);
@@ -516,7 +512,6 @@ namespace BakeryManagementSystem.Views.Usercontrol
         {
             try
             {
-
                 // Gọi phương thức để lấy danh sách
 
                 DataTable dt = await Task.Run(() =>

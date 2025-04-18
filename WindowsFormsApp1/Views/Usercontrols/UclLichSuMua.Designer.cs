@@ -358,7 +358,6 @@
             this.Controls.Add(this.label1);
             this.Name = "UclLichSuMua";
             this.Size = new System.Drawing.Size(1606, 998);
-            this.Load += new System.EventHandler(this.UclLichSuMua_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachKH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gbxCTHoaDOn)).EndInit();
             this.gbxCTHoaDOn.ResumeLayout(false);

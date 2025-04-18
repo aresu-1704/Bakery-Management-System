@@ -30,7 +30,7 @@ namespace BakeryManagementSystem.Models
 
         public async Task CapNhatCVAsync(ChucVu chucVu)
         {
-            string query = "EXEC sp_CapNhatChucVu @MaCV, @TenCV, @MucLuong";
+            string query = "EXEC sp_CapNhatChucVu @TenCV, @MucLuong, @MaCV";
             var parameters = new Dictionary<string, object>
             {
                 { "@MaCV", chucVu.MaCV },

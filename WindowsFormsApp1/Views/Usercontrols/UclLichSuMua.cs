@@ -48,11 +48,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
         }
         #endregion
 
-        private void UclLichSuMua_Load(object sender, EventArgs e)
-        {
-            loadDSKhachHang();
-        }
-
         private async void loadHoaDonDaMua(int maKH)
         {
             dgvDSHoaDon.Rows.Clear();
