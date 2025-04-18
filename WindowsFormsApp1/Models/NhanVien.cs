@@ -57,7 +57,8 @@ namespace BakeryManagementSystem.Models
         {
             try
             {
-                string query = "EXEC sp_ThemNhanVien @Ho, @Ten, @SoDienThoai, @Email, @DiaChi, @NgaySinh, @GioiTinh, @QueQuan, @CCCD, @QuocTich, @NgayThue, @MaCV, @HinhAnh";
+                string query = "EXEC sp_ThemNhanVien @Ho, @Ten, @SoDienThoai, @Email, @DiaChi, @NgaySinh, @GioiTinh, @QueQuan, @CCCD, " +
+                    "@QuocTich, @NgayThue, @MaCV, @TrangThai, @HinhAnh";
 
                 var parameters = new Dictionary<string, object>
                 {
@@ -73,6 +74,7 @@ namespace BakeryManagementSystem.Models
                     { "@QuocTich", nhanVien.QuocTich },
                     { "@NgayThue", nhanVien.NgayThue.ToString("yyyy-MM-dd") },
                     { "@MaCV", nhanVien.MaCV },
+                    { "@TrangThai", true },
                     { "@HinhAnh", nhanVien.HinhAnh }
                 };
 

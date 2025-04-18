@@ -49,39 +49,39 @@ namespace BakeryManagementSystem.Views.Usercontrols
             {
                 return;
             }
+
+            // Tạo một DataTable mới để lưu danh sách NCC có TrangThai = true
+            System.Data.DataTable dtFiltered = dt.Clone(); // Sao chép cấu trúc bảng
+
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 if ((bool)dt.Rows[i]["TrangThai"] != false)
                 {
-                    // Thêm một hàng mới vào DataGridView
+                    // Thêm vào DataGridView
                     dgvDanhSachNCC.Rows.Add();
-
-                    // Lấy chỉ số hàng vừa được thêm vào DataGridView
                     int newRowIdx = dgvDanhSachNCC.Rows.Count - 1;
 
-                    // Kiểm tra và gán hình ảnh
                     if (dt.Rows[i]["HinhAnh"] as byte[] != null)
                     {
                         dgvDanhSachNCC.Rows[newRowIdx].Cells[0].Value = chuyenByteSangAnh(dt.Rows[i]["HinhAnh"] as byte[]);
                     }
-                    // Gán các giá trị khác
                     dgvDanhSachNCC.Rows[newRowIdx].Cells[1].Value = dt.Rows[i]["MaNCC"].ToString();
                     dgvDanhSachNCC.Rows[newRowIdx].Cells[2].Value = dt.Rows[i]["TenNCC"].ToString();
                     dgvDanhSachNCC.Rows[newRowIdx].Cells[3].Value = dt.Rows[i]["SoLanCungCap"].ToString();
+
+                    // Thêm vào DataTable mới để dùng cho ComboBox
+                    dtFiltered.ImportRow(dt.Rows[i]);
                 }
             }
-            cmbNhaCungCap.DataSource = dt;
+
+            // Gán danh sách đã lọc vào ComboBox
+            cmbNhaCungCap.DataSource = dtFiltered;
             cmbNhaCungCap.ValueMember = "MaNCC";
             cmbNhaCungCap.DisplayMember = "TenNCC";
             cmbNhaCungCap.SelectedIndex = -1;
         }
-        #endregion
 
-    
-        private void UclPOS_Load(object sender, EventArgs e)
-        {
-            loadDSNhaCungCap();
-        }
+        #endregion
 
         private void btnTaoHoaDonMoi_Click(object sender, EventArgs e)
         {
@@ -128,7 +128,7 @@ namespace BakeryManagementSystem.Views.Usercontrols
 
         private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 6)
             {
                 dgvChiTietPhieuNhap.Rows.RemoveAt(e.RowIndex);
             }
@@ -176,7 +176,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
             }
         }
         #endregion
-
 
         private decimal tongTien()
         {

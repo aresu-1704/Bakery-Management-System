@@ -23,20 +23,53 @@ namespace BakeryManagementSystem.Views.Forms
         private QuanLyBanHang qlbanHang;
         private QuanLyDonTheoYeuCau qlBanHangTheoYeuCau;
         private QuanLyNhanVien qlNhanVien = new QuanLyNhanVien();
+        private bool type = true;
         private int maNV = 0;
         private int loaiHD;
         private int maKH = -1;
 
-        public frmThanhToan()
+        public frmThanhToan(bool type)
         {
             InitializeComponent();
+            this.type = type;
         }
 
-        public async System.Threading.Tasks.Task LoadDuLieu(QuanLyBanHang qlBanHang, QuanLyDonTheoYeuCau qlDonTheoYeuCau,
-            int maNVThuNgan, int maBan, int loaiHD, string soHD, string tongTien, DataGridViewRowCollection rows, int maKH)
+        //Overloading
+        public async System.Threading.Tasks.Task LoadDuLieu(QuanLyBanHang qlBanHang, int maNVThuNgan, int maBan, int loaiHD, 
+            string soHD, string tongTien, DataGridViewRowCollection rows, int maKH)
         {
-            this.qlbanHang = qlBanHang == null ? null : qlBanHang;
-            this.qlBanHangTheoYeuCau = qlDonTheoYeuCau == null ? null : qlDonTheoYeuCau;
+            this.qlbanHang = qlBanHang;
+
+            maNV = maNVThuNgan;
+            System.Data.DataTable dt = await System.Threading.Tasks.Task.Run(() =>
+            {
+                return qlNhanVien.LayNhanVienAsync(maNV.ToString());
+            });
+            lblNhanVienThuNgan.Text = dt.Rows[0]["Ho"].ToString() + " " + dt.Rows[0]["Ten"].ToString();
+
+            lblBan.Text = maBan.ToString();
+
+            this.loaiHD = loaiHD;
+            lblLoai.Text = loaiHD == 0 ? "Hẹn lấy sau" : "Nhận ngay";
+            lblSoHD.Text = soHD;
+
+            lblTongTien.Text = tongTien;
+
+            foreach (DataGridViewRow row in rows)
+            {
+                int rowIndex = this.dgvHoaDon.Rows.Add();
+                for (int i = 0; i < row.Cells.Count; i++)
+                {
+                    this.dgvHoaDon.Rows[rowIndex].Cells[i].Value = row.Cells[i].Value;
+                }
+            }
+            this.maKH = maKH;
+        }
+
+        public async System.Threading.Tasks.Task LoadDuLieu(QuanLyDonTheoYeuCau quanLyDonTheoYeuCau, int maNVThuNgan, int maBan, int loaiHD,
+        string soHD, string tongTien, DataGridViewRowCollection rows, int maKH)
+        {
+            this.qlBanHangTheoYeuCau = quanLyDonTheoYeuCau;
 
             maNV = maNVThuNgan;
             System.Data.DataTable dt = await System.Threading.Tasks.Task.Run(() =>
@@ -221,9 +254,12 @@ namespace BakeryManagementSystem.Views.Forms
                 }
                 finally
                 {
+                    choice?.Invoke(this, EventArgs.Empty);
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(doc);
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(wordApp);
                     await System.Threading.Tasks.Task.Run(() =>
                     {
-                        if (qlbanHang != null)
+                        if (type)
                         {
                             return qlbanHang.LuuCTHDAsync(maNV, int.Parse(lblBan.Text), loaiHD, maKH);
                         }
@@ -232,11 +268,8 @@ namespace BakeryManagementSystem.Views.Forms
                             return qlBanHangTheoYeuCau.LuuCTHDAsync(maNV, int.Parse(lblBan.Text), loaiHD, maKH);
                         }
                     });
-                    choice?.Invoke(this, EventArgs.Empty);
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(doc);
-                    System.Runtime.InteropServices.Marshal.ReleaseComObject(wordApp);
-                }
-                this.Close();
+                    this.Close();                    
+                }                
             }
         }
 

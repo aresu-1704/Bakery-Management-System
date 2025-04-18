@@ -97,11 +97,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
         }
         #endregion
 
-        private void UclNhaBep_Load(object sender, EventArgs e)
-        {
-            loadDonBep();
-        }
-
         public void activited()
         {
             loadDonBep();

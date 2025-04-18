@@ -81,6 +81,18 @@ namespace BakeryManagementSystem.Models
             await data.GetDataAsync(query, parameters);
         }
 
+        public async Task CapNhatDangNhapThanhCongAsync(string tenDangNhap)
+        {
+            string query = "sp_CapNhatDangNhap @TenDangNhap";
+
+            var parameters = new Dictionary<string, object>
+            {
+                { "@TenDangNhap", tenDangNhap }
+            };
+
+            await data.GetDataAsync(query, parameters);
+        }
+
         public async Task<int> KiemTraSoLanDangNhappAsync(string tenDangNhap)
         {
             string query = "sp_KiemTraSoLanDangNhap @TenDangNhap";

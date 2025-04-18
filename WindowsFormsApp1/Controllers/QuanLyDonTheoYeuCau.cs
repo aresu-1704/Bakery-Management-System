@@ -17,7 +17,6 @@ namespace BakeryManagementSystem.Controllers
         private DonBepTheoYeuCau nhaBep = new DonBepTheoYeuCau();
         private HoaDon hoaDon = new HoaDon();
         private Ban ban = new Ban();
-        private HangHoa hangHoa = new HangHoa();
         private int maHoaDon = 0;
 
         public int MaHoaDon { get => maHoaDon; set => maHoaDon = value; }
@@ -62,24 +61,20 @@ namespace BakeryManagementSystem.Controllers
             /*
              * Có thể lấy số lượng sẵn có từ database thay vì trong Session để xử lý bất đồng bộ trên database
              */
-            int maHoaDon = DanhSachSP[0].MaHoaDon;
+            int maHoaDon = DanhSachSP[0].MaHoaDon;            
 
             await System.Threading.Tasks.Task.WhenAll(
                 hoaDon.TaoHoaDonMoiAsync(maHoaDon, maNV, maBan, loaiHD, maKH),
                 ban.CapNhatTinhTrangBanAsync(maHoaDon, maBan)
             );
 
-            var tasks = new List<System.Threading.Tasks.Task>();
-
             //Thêm từng chi tiết hóa đơn vào cơ sở dữ liệu
             foreach (var sp in DanhSachSP)
             {
-                tasks.Add(chiTietHoaDon.ThemCTHDTheoYeuCauAsync(sp.MaHoaDon, sp.MaHH, sp.SoLuong, (float)sp.GiaTien, sp.YeuCau, (float)sp.PhuThu));
+                await chiTietHoaDon.ThemCTHDTheoYeuCauAsync(sp.MaHoaDon, sp.MaHH, sp.SoLuong, (float)sp.GiaTien, sp.YeuCau, (float)sp.PhuThu);
                 int soLuongNau = sp.SoLuong;
-                tasks.Add(nhaBep.ThemVaoBepYCAsync(sp.MaHoaDon, sp.MaHH, soLuongNau));
+                await nhaBep.ThemVaoBepYCAsync(sp.MaHoaDon, sp.MaHH, soLuongNau);
             }
-
-            await System.Threading.Tasks.Task.WhenAll(tasks);
 
             DanhSachSP.Clear();
             MaHoaDon = 0;

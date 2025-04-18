@@ -28,6 +28,8 @@ namespace BakeryManagementSystem.Models
             MaHoaDon = maHoaDon;
             SoLuong = 1;
             GiaTien = giaTien;
+            YeuCau = null;
+            PhuThu = 0;
         }
 
         public async Task ThemCTHDTheoYeuCauAsync(int maHD, int maHH, int soLuong, float giaTien, string yeuCau, float phuThu)
@@ -39,8 +41,8 @@ namespace BakeryManagementSystem.Models
                 { "@MaHH", maHH },
                 { "@SoLuong", soLuong },
                 { "@GiaTien", giaTien },
-                { "@Yeucau", yeuCau },
-                { "@PhuThu", phuThu }
+                { "@Yeucau", yeuCau ?? (object)DBNull.Value },
+                { "@PhuThu", phuThu}
             };
             await data.ExecuteQueryAsync(query, parameters);
         }

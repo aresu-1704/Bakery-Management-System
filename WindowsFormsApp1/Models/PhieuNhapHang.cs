@@ -15,7 +15,7 @@ namespace BakeryManagementSystem.Models
 
         private Connections data = new Connections();
 
-        public async Task ThemPhieuNhapAsync(string maPhieu, int maNV)
+        public async Task ThemPhieuNhapAsync(int maPhieu, int maNV)
         {
             string query = "EXEC sp_ThemPhieuNhap @MaPhieu, @MaNV";
 

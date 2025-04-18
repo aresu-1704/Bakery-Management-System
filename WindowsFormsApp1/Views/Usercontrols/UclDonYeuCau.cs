@@ -99,11 +99,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
         }
         #endregion
 
-        private void UclNhaBep_Load(object sender, EventArgs e)
-        {
-            loadDonBep();
-        }
-
         public void activited()
         {
             loadDonBep();
@@ -137,36 +132,24 @@ namespace BakeryManagementSystem.Views.Usercontrols
         //Nhận đơn
         private async void dgvDangChoNhan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if (e.ColumnIndex == 4)
             {
-                if (e.ColumnIndex == 4)
-                {
-                    await qlNhaBep.CapNhatDonBepAsync(int.Parse(dgvDangChoNhan.Rows[e.RowIndex].Cells[0].Value?.ToString()),
-                        int.Parse(dgvDangChoNhan.Rows[e.RowIndex].Cells[4].Value?.ToString()), 1);
-                    loadDonBep();
-                    MessageBox.Show("Đã nhận !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
+                await qlNhaBep.CapNhatDonBepAsync(int.Parse(dgvDangChoNhan.Rows[e.RowIndex].Cells[0].Value?.ToString()),
+                    int.Parse(dgvDangChoNhan.Rows[e.RowIndex].Cells[5].Value?.ToString()), 1);
+                loadDonBep();
+                MessageBox.Show("Đã nhận !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         //Hoàn thành
         private async void dgvDangNau_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if (e.ColumnIndex == 4)
             {
-                if (e.ColumnIndex == 4)
-                {
-                    await qlNhaBep.CapNhatDonBepAsync(int.Parse(dgvDangNau.Rows[e.RowIndex].Cells[0].Value?.ToString()),
-                        int.Parse(dgvDangNau.Rows[e.RowIndex].Cells[4].Value?.ToString()), 2);
-                    loadDonBep();
-                    MessageBox.Show("Đã hoàn thành !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
+                await qlNhaBep.CapNhatDonBepAsync(int.Parse(dgvDangNau.Rows[e.RowIndex].Cells[0].Value?.ToString()),
+                    int.Parse(dgvDangNau.Rows[e.RowIndex].Cells[5].Value?.ToString()), 2);
+                loadDonBep();
+                MessageBox.Show("Đã hoàn thành !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -194,5 +177,6 @@ namespace BakeryManagementSystem.Views.Usercontrols
             btnHoanThanhTatCa.Enabled = false;
             MessageBox.Show("Đã hoàn thành tất cả !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
     }
 }

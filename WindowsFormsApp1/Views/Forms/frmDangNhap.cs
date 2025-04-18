@@ -91,6 +91,7 @@ namespace BakeryManagementSystem.Views.Forms
                 pgpLoading.Visible = false;
                 pgpDNThanhCong.Visible = true;
                 lblDangNhapThatBai.Visible = false;
+
                 setEnabled(false);
                 await Task.Delay(500);
                 frmGiaoDienChinh giaoDienChinh = new frmGiaoDienChinh(kiemTraMatKhau.Item2);
@@ -137,16 +138,16 @@ namespace BakeryManagementSystem.Views.Forms
             pgpLoading.Visible = false;
 
             if (soLanDangNhap == 0)
-            {
-                
+            {                
                 frmThongBao frmThongBao = new frmThongBao(true, "Thông báo", "Tài khoản của bạn đã bị khóa, lấy lại mật khẩu ?");
                 frmThongBao.Owner = this;
                 frmThongBao.choice += quenMK;
                 frmThongBao.ShowDialog();
                 lblDangNhapThatBai.Visible = false;
+                return;
             }
 
-            lblDangNhapThatBai.Text = "Sai mật khẩu, bạn còn " + (3 - soLanDangNhap) + " lần thử !";
+            lblDangNhapThatBai.Text = "Sai mật khẩu, bạn còn " + (5 - soLanDangNhap) + " lần thử !";
             lblDangNhapThatBai.Visible = true;
         }
         #endregion

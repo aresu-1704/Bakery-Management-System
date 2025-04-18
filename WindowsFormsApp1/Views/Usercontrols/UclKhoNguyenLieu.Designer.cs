@@ -382,6 +382,7 @@
             this.lblMaNL.Size = new System.Drawing.Size(35, 13);
             this.lblMaNL.TabIndex = 37;
             this.lblMaNL.Text = "label2";
+            this.lblMaNL.Visible = false;
             // 
             // lblTenNL
             // 
@@ -391,6 +392,7 @@
             this.lblTenNL.Size = new System.Drawing.Size(35, 13);
             this.lblTenNL.TabIndex = 38;
             this.lblTenNL.Text = "label4";
+            this.lblTenNL.Visible = false;
             // 
             // UclKhoNguyenLieu
             // 

@@ -59,7 +59,6 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btnLayNguyenLieu = new DevExpress.XtraEditors.SimpleButton();
             this.btnNhanTatCa = new DevExpress.XtraEditors.SimpleButton();
             this.btnHoanThanhTatCa = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDangChoNhan)).BeginInit();
@@ -95,7 +94,7 @@
             this.dgvDangChoNhan.BackgroundColor = System.Drawing.Color.Linen;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SaddleBrown;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Bisque;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.SaddleBrown;
@@ -217,7 +216,7 @@
             this.dgvDangNau.BackgroundColor = System.Drawing.Color.Linen;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SaddleBrown;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Bisque;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.SaddleBrown;
@@ -299,7 +298,7 @@
             this.dgvDaHoanThanh.BackgroundColor = System.Drawing.Color.Linen;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.Bisque;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8.25F);
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.SaddleBrown;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Bisque;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.SaddleBrown;
@@ -328,7 +327,7 @@
             this.dgvDaHoanThanh.RowTemplate.Height = 30;
             this.dgvDaHoanThanh.RowTemplate.ReadOnly = true;
             this.dgvDaHoanThanh.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDaHoanThanh.Size = new System.Drawing.Size(691, 862);
+            this.dgvDaHoanThanh.Size = new System.Drawing.Size(691, 947);
             this.dgvDaHoanThanh.TabIndex = 46;
             this.dgvDaHoanThanh.TabStop = false;
             // 
@@ -372,20 +371,6 @@
             this.dataGridViewImageColumn1.Visible = false;
             this.dataGridViewImageColumn1.Width = 75;
             // 
-            // btnLayNguyenLieu
-            // 
-            this.btnLayNguyenLieu.Appearance.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLayNguyenLieu.Appearance.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btnLayNguyenLieu.Appearance.Options.UseFont = true;
-            this.btnLayNguyenLieu.Appearance.Options.UseForeColor = true;
-            this.btnLayNguyenLieu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLayNguyenLieu.ImageOptions.Image = global::BakeryManagementSystem.Properties.Resources.icons8_take_32;
-            this.btnLayNguyenLieu.Location = new System.Drawing.Point(909, 927);
-            this.btnLayNguyenLieu.Name = "btnLayNguyenLieu";
-            this.btnLayNguyenLieu.Size = new System.Drawing.Size(691, 50);
-            this.btnLayNguyenLieu.TabIndex = 44;
-            this.btnLayNguyenLieu.Text = "Lấy nguyên liệu";
-            // 
             // btnNhanTatCa
             // 
             this.btnNhanTatCa.Appearance.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -428,7 +413,6 @@
             this.Controls.Add(this.btnNhanTatCa);
             this.Controls.Add(this.dgvDaHoanThanh);
             this.Controls.Add(this.dgvDangNau);
-            this.Controls.Add(this.btnLayNguyenLieu);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelControl1);
@@ -438,7 +422,6 @@
             this.Controls.Add(this.dgvDangChoNhan);
             this.Name = "UclNhaBep";
             this.Size = new System.Drawing.Size(1603, 998);
-            this.Load += new System.EventHandler(this.UclNhaBep_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDangChoNhan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDangNau)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDaHoanThanh)).EndInit();
@@ -457,7 +440,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
-        private DevExpress.XtraEditors.SimpleButton btnLayNguyenLieu;
         private System.Windows.Forms.DataGridView dgvDangNau;
         private System.Windows.Forms.DataGridView dgvDaHoanThanh;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;

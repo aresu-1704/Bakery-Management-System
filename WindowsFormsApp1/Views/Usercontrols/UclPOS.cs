@@ -182,14 +182,9 @@ namespace BakeryManagementSystem.Views.Usercontrols
         {
             if (e.ColumnIndex == 4)
             {
-                bool xoaSP = false;
                 int maSPXoa = int.Parse(dgvHoaDon.Rows[e.RowIndex].Cells[5].Value?.ToString());
                 qlBanHang.XoaSanPham(int.Parse(dgvHoaDon.Rows[e.RowIndex].Cells[5].Value.ToString()));
-                if (xoaSP)
-                {
-                    dgvHoaDon.Rows.RemoveAt(e.RowIndex);
-                }
-
+                dgvHoaDon.Rows.RemoveAt(e.RowIndex);
                 lblTongTien.Text = qlBanHang.TongTien(dgvHoaDon).ToString("N0") + " VNĐ";
             }
             else
@@ -316,12 +311,12 @@ namespace BakeryManagementSystem.Views.Usercontrols
                 string tongTien = lblTongTien.Text;
                 int maKhachHang = txtKHTT.Text != "" ? maKH : -1;
 
-                frmThanhToan thanhToan = new frmThanhToan();
+                frmThanhToan thanhToan = new frmThanhToan(true);
                 thanhToan.choice += reLoad;
 
                 await Task.Run(() =>
                 {
-                    return thanhToan.LoadDuLieu(qlBanHang, null, maNVThuNgan, maBan, loaiHoaDon, maHD, tongTien, dgvHoaDon.Rows, maKhachHang);
+                    return thanhToan.LoadDuLieu(qlBanHang, maNVThuNgan, maBan, loaiHoaDon, maHD, tongTien, dgvHoaDon.Rows, maKhachHang);
                 });
 
                 thanhToan.ShowDialog();

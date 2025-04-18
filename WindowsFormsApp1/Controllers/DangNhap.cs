@@ -31,6 +31,7 @@ namespace BakeryManagementSystem.Controllers
 
             if (hashPassword.SequenceEqual(hashPasswordDB))
             {
+                await taiKhoan.CapNhatDangNhapThanhCongAsync(tenDangNhap);
                 return (2, int.Parse(dt.Rows[0]["MaNV"].ToString()));
             }
             else
