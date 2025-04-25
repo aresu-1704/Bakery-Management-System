@@ -9,17 +9,22 @@
 - 💻 **Ngôn ngữ lập trình:** C# (.NET Framework)
 - 🖼️ **Giao diện:** WinForms + DevExpress UI Controls
 - 🗃️ **Cơ sở dữ liệu:** SQL Server
-- 📊 **Tính năng nổi bật:** Quản lý sản phẩm, bán hàng, hóa đơn, báo cáo doanh thu
+- 📊 **Tính năng nổi bật:** Quản lý sản phẩm, bán hàng, quản lý nhân viên, tính lương nhân viên, điểm danh, hóa đơn, báo cáo doanh thu
 
 ---
 
 ## 📋 Tính năng chính
 
-- 🍰 **Quản lý sản phẩm:** Thêm, sửa, xoá bánh, phân loại, theo dõi tồn kho
-- 🧾 **Quản lý hoá đơn:** Tạo đơn hàng, in hoá đơn, quản lý trạng thái thanh toán
-- 👥 **Quản lý khách hàng:** Thêm/sửa thông tin khách, theo dõi lịch sử mua hàng
-- 🛒 **Bán hàng nhanh:** Giao diện bán hàng trực quan, dễ sử dụng
-- 🔒 **Đăng nhập và phân quyền:** Quản lý tài khoản và phân quyền người dùng
+- 🍰 **Quản lý sản phẩm:** Thêm, sửa, xoá bánh, phân loại sản phẩm, theo dõi tồn kho
+- 🧾 **Quản lý hoá đơn:** Tạo đơn hàng, in hoá đơn, theo dõi lịch sử giao dịch và trạng thái thanh toán
+- 👥 **Quản lý khách hàng:** Quản lý thông tin khách hàng, lịch sử mua hàng và hỗ trợ chăm sóc khách hàng
+- 👨‍🍳 **Quản lý nhân viên:**
+  - Thêm, sửa, xoá thông tin nhân viên
+  - Phân quyền chức vụ (Quản lý, nhân viên bán hàng, nhân viên phục vụ, bếp trưởng, v.v.)
+  - Quản lý điểm danh (giờ vào – giờ ra, giờ làm)
+  - Theo dõi và tính lương theo ngày công hoặc hệ số
+- 🛒 **Bán hàng nhanh:** Giao diện trực quan, dễ thao tác; hỗ trợ tìm kiếm sản phẩm, quét mã và in hóa đơn ngay lập tức
+- 🔒 **Đăng nhập và phân quyền:** Đăng nhập nhiều vai trò, bảo mật thông tin người dùng và phân quyền chức năng theo từng loại tài khoản
 
 ---
 
@@ -34,4 +39,4 @@
 ### 2. Clone project
 
 ```bash
-git clone https://github.com/yourusername/BakeryManagementSystem.git
+https://github.com/aresu-1704/Bakery-Management-System.git
